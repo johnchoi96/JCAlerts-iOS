@@ -81,7 +81,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     // MARK: - Core Data Saving support
 
-    func saveContext () {
+    func saveContext() {
         let context = persistentContainer.viewContext
         if context.hasChanges {
             do {
@@ -135,6 +135,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         // ...
 
         // Print full message.
+        print("willPresent")
         print(userInfo)
 
         // Change this to your preferred presentation option
@@ -151,6 +152,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         // Messaging.messaging().appDidReceiveMessage(userInfo)
 
         // Print full message.
+        print("full message in didReceive")
         print(userInfo)
     }
 
@@ -170,7 +172,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         }
 
         // Print full message.
+        print("full message in didReceiveRemoveNotification")
         print(userInfo)
+
 
         return UIBackgroundFetchResult.newData
     }
@@ -178,7 +182,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("here")
         Messaging.messaging().apnsToken = deviceToken
-        Messaging.messaging().subscribe(toTopic: "jc-alert")
+        Messaging.messaging().subscribe(toTopic: "jc-alerts")
     }
 
 }

@@ -7,9 +7,18 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D242119F2AE75893005BD72C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D242119E2AE75893005BD72C /* Constants.swift */; };
+		D24211A12AE7589D005BD72C /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24211A02AE7589D005BD72C /* StringExt.swift */; };
+		D24211A52AE75972005BD72C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24211A42AE75972005BD72C /* Settings.storyboard */; };
+		D24211A82AEB5567005BD72C /* SettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24211A62AEB5567005BD72C /* SettingsTableViewCell.swift */; };
+		D24211A92AEB5567005BD72C /* SettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D24211A72AEB5567005BD72C /* SettingsTableViewCell.xib */; };
+		D24211AD2AEB57A4005BD72C /* NotificationSettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24211AC2AEB57A4005BD72C /* NotificationSettingsViewController.swift */; };
+		D24211B02AEB5ABF005BD72C /* NotificationSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24211AE2AEB5ABE005BD72C /* NotificationSettingsTableViewCell.swift */; };
+		D24211B12AEB5ABF005BD72C /* NotificationSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D24211AF2AEB5ABE005BD72C /* NotificationSettingsTableViewCell.xib */; };
+		D26D5F942AE757B000981481 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26D5F932AE757B000981481 /* SettingsViewController.swift */; };
 		D26F6C502AD1FADF00AC1D6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F6C4F2AD1FADF00AC1D6F /* AppDelegate.swift */; };
 		D26F6C522AD1FADF00AC1D6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F6C512AD1FADF00AC1D6F /* SceneDelegate.swift */; };
-		D26F6C542AD1FADF00AC1D6F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F6C532AD1FADF00AC1D6F /* ViewController.swift */; };
+		D26F6C542AD1FADF00AC1D6F /* AlertsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F6C532AD1FADF00AC1D6F /* AlertsViewController.swift */; };
 		D26F6C572AD1FADF00AC1D6F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D26F6C552AD1FADF00AC1D6F /* Main.storyboard */; };
 		D26F6C5A2AD1FADF00AC1D6F /* JCAlerts.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = D26F6C582AD1FADF00AC1D6F /* JCAlerts.xcdatamodeld */; };
 		D26F6C5C2AD1FAE100AC1D6F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D26F6C5B2AD1FAE100AC1D6F /* Assets.xcassets */; };
@@ -29,10 +38,19 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D242119E2AE75893005BD72C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		D24211A02AE7589D005BD72C /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
+		D24211A42AE75972005BD72C /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
+		D24211A62AEB5567005BD72C /* SettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsTableViewCell.swift; sourceTree = "<group>"; };
+		D24211A72AEB5567005BD72C /* SettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SettingsTableViewCell.xib; sourceTree = "<group>"; };
+		D24211AC2AEB57A4005BD72C /* NotificationSettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsViewController.swift; sourceTree = "<group>"; };
+		D24211AE2AEB5ABE005BD72C /* NotificationSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsTableViewCell.swift; sourceTree = "<group>"; };
+		D24211AF2AEB5ABE005BD72C /* NotificationSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationSettingsTableViewCell.xib; sourceTree = "<group>"; };
+		D26D5F932AE757B000981481 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D26F6C4C2AD1FADF00AC1D6F /* JCAlerts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCAlerts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26F6C4F2AD1FADF00AC1D6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D26F6C512AD1FADF00AC1D6F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		D26F6C532AD1FADF00AC1D6F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		D26F6C532AD1FADF00AC1D6F /* AlertsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AlertsViewController.swift; sourceTree = "<group>"; };
 		D26F6C562AD1FADF00AC1D6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		D26F6C592AD1FADF00AC1D6F /* JCAlerts.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = JCAlerts.xcdatamodel; sourceTree = "<group>"; };
 		D26F6C5B2AD1FAE100AC1D6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -64,6 +82,72 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D22B19982AE5AE4A00A71130 /* delegates */ = {
+			isa = PBXGroup;
+			children = (
+				D26F6C4F2AD1FADF00AC1D6F /* AppDelegate.swift */,
+				D26F6C512AD1FADF00AC1D6F /* SceneDelegate.swift */,
+			);
+			path = delegates;
+			sourceTree = "<group>";
+		};
+		D22B19992AE5AE5600A71130 /* controllers */ = {
+			isa = PBXGroup;
+			children = (
+				D26F6C532AD1FADF00AC1D6F /* AlertsViewController.swift */,
+				D26D5F932AE757B000981481 /* SettingsViewController.swift */,
+				D24211AA2AEB5575005BD72C /* cells */,
+				D24211AC2AEB57A4005BD72C /* NotificationSettingsViewController.swift */,
+			);
+			path = controllers;
+			sourceTree = "<group>";
+		};
+		D22B199A2AE5AE6700A71130 /* storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				D26F6C552AD1FADF00AC1D6F /* Main.storyboard */,
+				D26F6C5D2AD1FAE100AC1D6F /* LaunchScreen.storyboard */,
+				D24211A42AE75972005BD72C /* Settings.storyboard */,
+				D24211AB2AEB557B005BD72C /* cells */,
+			);
+			path = storyboards;
+			sourceTree = "<group>";
+		};
+		D24211A22AE758A2005BD72C /* utils */ = {
+			isa = PBXGroup;
+			children = (
+				D242119E2AE75893005BD72C /* Constants.swift */,
+				D24211A32AE758AD005BD72C /* extensions */,
+			);
+			path = utils;
+			sourceTree = "<group>";
+		};
+		D24211A32AE758AD005BD72C /* extensions */ = {
+			isa = PBXGroup;
+			children = (
+				D24211A02AE7589D005BD72C /* StringExt.swift */,
+			);
+			path = extensions;
+			sourceTree = "<group>";
+		};
+		D24211AA2AEB5575005BD72C /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				D24211A62AEB5567005BD72C /* SettingsTableViewCell.swift */,
+				D24211AE2AEB5ABE005BD72C /* NotificationSettingsTableViewCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		D24211AB2AEB557B005BD72C /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				D24211A72AEB5567005BD72C /* SettingsTableViewCell.xib */,
+				D24211AF2AEB5ABE005BD72C /* NotificationSettingsTableViewCell.xib */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
 		D26F6C432AD1FADF00AC1D6F = {
 			isa = PBXGroup;
 			children = (
@@ -85,15 +169,14 @@
 			isa = PBXGroup;
 			children = (
 				D2C660EA2AD2FFEC00CB52BE /* JCAlerts.entitlements */,
-				D26F6C4F2AD1FADF00AC1D6F /* AppDelegate.swift */,
-				D26F6C512AD1FADF00AC1D6F /* SceneDelegate.swift */,
-				D26F6C532AD1FADF00AC1D6F /* ViewController.swift */,
-				D26F6C552AD1FADF00AC1D6F /* Main.storyboard */,
+				D22B19982AE5AE4A00A71130 /* delegates */,
+				D22B19992AE5AE5600A71130 /* controllers */,
+				D22B199A2AE5AE6700A71130 /* storyboards */,
 				D26F6C5B2AD1FAE100AC1D6F /* Assets.xcassets */,
-				D26F6C5D2AD1FAE100AC1D6F /* LaunchScreen.storyboard */,
 				D26F6C602AD1FAE100AC1D6F /* Info.plist */,
 				D26F6C582AD1FADF00AC1D6F /* JCAlerts.xcdatamodeld */,
 				D2C660EB2ADA881800CB52BE /* GoogleService-Info.plist */,
+				D24211A22AE758A2005BD72C /* utils */,
 			);
 			path = JCAlerts;
 			sourceTree = "<group>";
@@ -179,10 +262,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D24211A92AEB5567005BD72C /* SettingsTableViewCell.xib in Resources */,
 				D26F6C5F2AD1FAE100AC1D6F /* LaunchScreen.storyboard in Resources */,
+				D24211B12AEB5ABF005BD72C /* NotificationSettingsTableViewCell.xib in Resources */,
 				D2C660EC2ADA881800CB52BE /* GoogleService-Info.plist in Resources */,
 				D26F6C5C2AD1FAE100AC1D6F /* Assets.xcassets in Resources */,
 				D26F6C572AD1FADF00AC1D6F /* Main.storyboard in Resources */,
+				D24211A52AE75972005BD72C /* Settings.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -193,10 +279,16 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				D26F6C542AD1FADF00AC1D6F /* ViewController.swift in Sources */,
+				D26F6C542AD1FADF00AC1D6F /* AlertsViewController.swift in Sources */,
 				D26F6C5A2AD1FADF00AC1D6F /* JCAlerts.xcdatamodeld in Sources */,
+				D24211A82AEB5567005BD72C /* SettingsTableViewCell.swift in Sources */,
+				D24211B02AEB5ABF005BD72C /* NotificationSettingsTableViewCell.swift in Sources */,
 				D26F6C502AD1FADF00AC1D6F /* AppDelegate.swift in Sources */,
+				D24211A12AE7589D005BD72C /* StringExt.swift in Sources */,
+				D26D5F942AE757B000981481 /* SettingsViewController.swift in Sources */,
 				D26F6C522AD1FADF00AC1D6F /* SceneDelegate.swift in Sources */,
+				D242119F2AE75893005BD72C /* Constants.swift in Sources */,
+				D24211AD2AEB57A4005BD72C /* NotificationSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -348,7 +440,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = JCAlerts/JCAlerts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2023102701;
 				DEVELOPMENT_TEAM = 2JDGUK4DRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JCAlerts/Info.plist;
@@ -379,7 +471,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = JCAlerts/JCAlerts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 2023102701;
 				DEVELOPMENT_TEAM = 2JDGUK4DRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JCAlerts/Info.plist;

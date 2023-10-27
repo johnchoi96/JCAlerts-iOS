@@ -8,7 +8,7 @@
 import UIKit
 import FirebaseMessaging
 
-class ViewController: UIViewController {
+class AlertsViewController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
