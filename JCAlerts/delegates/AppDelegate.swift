@@ -108,7 +108,6 @@ extension AppDelegate: MessagingDelegate {
                 print("Error fetching FCM registration token: \(error)")
             } else if let token = token {
                 print("FCM registration token: \(token)")
-                //            self.fcmRegTokenMessage.text  = "Remote FCM registration token: \(token)"
             }
         }
         print("Firebase registration token: \(String(describing: fcmToken))")
@@ -119,8 +118,6 @@ extension AppDelegate: MessagingDelegate {
             object: nil,
             userInfo: dataDict
         )
-        // TODO: If necessary send token to application server.
-        // Note: This callback is fired at each app startup and whenever a new token is generated.
     }
 }
 
@@ -183,9 +180,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
-        print("here")
         Messaging.messaging().apnsToken = deviceToken
-//        Messaging.messaging().subscribe(toTopic: "jc-alerts-all")
         FCMTopicService.instance.restoreSubscription()
         log.info("\(FCMTopicService.instance.getTopics())")
     }
