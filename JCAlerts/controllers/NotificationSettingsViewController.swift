@@ -16,6 +16,8 @@ class NotificationSettingsViewController: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
 
+    private let fcmInstance = FCMTopicService.instance
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -35,7 +37,7 @@ extension NotificationSettingsViewController: UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: NotificationSettingsTableViewCell.identifier, for: indexPath) as! NotificationSettingsTableViewCell
         cell.notificationLabel.text = notificationTypes[indexPath.row].0
         cell.notificationTopic = notificationTypes[indexPath.row].1
-        cell.notificationSwitch.setOn(UserDefaults.standard.bool(forKey: cell.notificationTopic), animated: false)
+        cell.notificationSwitch.setOn(fcmInstance.topicIsSubscribed(topic: cell.notificationTopic), animated: true)
         return cell
     }
     

@@ -7,16 +7,23 @@
 
 import UIKit
 import FirebaseMessaging
+import os
 
 class NotificationSettingsTableViewCell: UITableViewCell {
 
     @IBOutlet weak var notificationSwitch: UISwitch!
 
     @IBOutlet weak var notificationLabel: UILabel!
+
     var notificationTopic: String!
 
     static let nib = UINib(nibName: "NotificationSettingsTableViewCell", bundle: nil)
+
     static let identifier = K.Cells.notificationSettingsCell
+
+    private let fcmTopicService = FCMTopicService.instance
+
+    private let log = Logger()
 
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,14 +38,12 @@ class NotificationSettingsTableViewCell: UITableViewCell {
     }
 
     @IBAction func switchTapped(_ sender: UISwitch) {
-        print(sender.isOn)
-        print(notificationTopic!)
         if sender.isOn {
-            Messaging.messaging().subscribe(toTopic: notificationTopic)
+            fcmTopicService.subscribe(toTopic: notificationTopic)
         } else {
-            Messaging.messaging().unsubscribe(fromTopic: notificationTopic)
+            fcmTopicService.unsubscribe(fromTopic: notificationTopic)
         }
-        UserDefaults.standard.set(sender.isOn, forKey: notificationTopic)
+        log.info("\(self.fcmTopicService.getTopics())")
     }
     
 }

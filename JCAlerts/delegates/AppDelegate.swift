@@ -9,11 +9,14 @@ import UIKit
 import CoreData
 import FirebaseCore
 import FirebaseMessaging
+import os
 
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
     let gcmMessageIDKey = "gcm.Message_ID"
+
+    private let log = Logger()
 
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
@@ -182,7 +185,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         print("here")
         Messaging.messaging().apnsToken = deviceToken
-        Messaging.messaging().subscribe(toTopic: "jc-alerts")
+//        Messaging.messaging().subscribe(toTopic: "jc-alerts-all")
+        FCMTopicService.instance.restoreSubscription()
+        log.info("\(FCMTopicService.instance.getTopics())")
     }
 
 }
