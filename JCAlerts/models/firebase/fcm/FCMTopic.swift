@@ -26,4 +26,8 @@ extension FCMTopic {
             return "MetalPrice"
         }
     }
+
+    func getTopicValue() -> String {
+        return self.rawValue
+    }
 }
