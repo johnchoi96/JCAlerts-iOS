@@ -19,28 +19,10 @@
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
                     </view>
                     <navigationItem key="navigationItem" title="Alerts" id="ln9-2b-KYk"/>
-                    <connections>
-                        <segue destination="266-NP-3pg" kind="presentation" identifier="alertsToNotificationDisplay" id="WgR-Ab-EiR"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1943" y="-335"/>
-        </scene>
-        <!--Notification Display View Controller-->
-        <scene sceneID="YfT-G2-Pac">
-            <objects>
-                <viewController id="266-NP-3pg" customClass="FCMNotificationDisplayViewController" customModule="JCAlerts" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="xax-Zm-EgH">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="MO3-7s-xeR"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="8PH-sV-AUF" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3025" y="-472"/>
         </scene>
         <!--settingsNavigationController-->
         <scene sceneID="yEu-Ek-AHT">
@@ -95,9 +77,6 @@
         <image name="app.badge" catalog="system" width="128" height="128"/>
         <systemColor name="opaqueSeparatorColor">
             <color red="0.77647058820000003" green="0.77647058820000003" blue="0.7843137255" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-        </systemColor>
-        <systemColor name="systemBackgroundColor">
-            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
     </resources>
 </document>

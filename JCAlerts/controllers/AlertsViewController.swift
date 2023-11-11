@@ -14,13 +14,4 @@ class AlertsViewController: UIViewController {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
-
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == K.Segues.alertsToNotificationDisplay {
-            let vc = segue.destination as! NotificationDisplayViewController
-            vc.payload = sender as? [AnyHashable: Any]
-            present(vc, animated: true)
-        }
-    }
-
 }

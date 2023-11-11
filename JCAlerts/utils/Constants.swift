@@ -20,6 +20,5 @@ struct K {
 
     struct Segues {
         static let settingsToNotificationSettings = "settingsToNotificationSettings"
-        static let alertsToNotificationDisplay = "alertsToNotificationDisplay"
     }
 }
