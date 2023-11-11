@@ -13,7 +13,7 @@ class SettingsTableViewCell: UITableViewCell {
 
     static let nib = UINib(nibName: "SettingsTableViewCell", bundle: nil)
 
-    static let identifier = K.Cells.settingsItemCell
+    static let identifier = K.Nibs.Cells.settingsItemCell
 
     override func awakeFromNib() {
         super.awakeFromNib()

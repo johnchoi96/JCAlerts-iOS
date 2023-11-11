@@ -18,7 +18,6 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private let log = Logger()
 
-
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
@@ -153,7 +152,15 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
         // Print full message.
         print("full message in didReceive")
+//        fcmNotificationDelegate?.didReceiveNotification(withPayload: userInfo)
         print(userInfo)
+        guard let rootViewController = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController else {
+            return
+        }
+
+        let modal = NotificationDisplayViewController()
+        modal.payload = userInfo
+        rootViewController.present(modal, animated: true)
     }
 
     func application(_ application: UIApplication,
@@ -174,7 +181,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         // Print full message.
         print("full message in didReceiveRemoveNotification")
         print(userInfo)
-
 
         return UIBackgroundFetchResult.newData
     }

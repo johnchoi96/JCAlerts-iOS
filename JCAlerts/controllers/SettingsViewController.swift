@@ -32,7 +32,7 @@ extension SettingsViewController: UITableViewDelegate, UITableViewDataSource {
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: K.Cells.settingsItemCell, for: indexPath) as! SettingsTableViewCell
+        let cell = tableView.dequeueReusableCell(withIdentifier: K.Nibs.Cells.settingsItemCell, for: indexPath) as! SettingsTableViewCell
         cell.cellLabel.text = items[indexPath.row]
         return cell
     }

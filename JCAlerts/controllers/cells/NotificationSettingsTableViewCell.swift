@@ -19,7 +19,7 @@ class NotificationSettingsTableViewCell: UITableViewCell {
 
     static let nib = UINib(nibName: "NotificationSettingsTableViewCell", bundle: nil)
 
-    static let identifier = K.Cells.notificationSettingsCell
+    static let identifier = K.Nibs.Cells.notificationSettingsCell
 
     private let fcmTopicService = FCMTopicService.instance
 

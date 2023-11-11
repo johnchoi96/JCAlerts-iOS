@@ -34,6 +34,8 @@
 		D26F6C782AD2043D00AC1D6F /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D26F6C772AD2043D00AC1D6F /* FirebaseAnalyticsSwift */; };
 		D26F6C7A2AD2043D00AC1D6F /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D26F6C792AD2043D00AC1D6F /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D26F6C7C2AD2043D00AC1D6F /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = D26F6C7B2AD2043D00AC1D6F /* FirebaseAppCheck */; };
+		D2984CC22B002E9C007B199C /* NotificationDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CC02B002E9B007B199C /* NotificationDisplayViewController.swift */; };
+		D2984CC32B002E9C007B199C /* NotificationDisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2984CC12B002E9C007B199C /* NotificationDisplayViewController.xib */; };
 		D2C660E52AD2073E00CB52BE /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D2C660E42AD2073E00CB52BE /* FirebaseMessaging */; };
 		D2C660EC2ADA881800CB52BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2C660EB2ADA881800CB52BE /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -58,6 +60,8 @@
 		D26F6C5B2AD1FAE100AC1D6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D26F6C5E2AD1FAE100AC1D6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D26F6C602AD1FAE100AC1D6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		D2984CC02B002E9B007B199C /* NotificationDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDisplayViewController.swift; sourceTree = "<group>"; };
+		D2984CC12B002E9C007B199C /* NotificationDisplayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationDisplayViewController.xib; sourceTree = "<group>"; };
 		D2C660EA2AD2FFEC00CB52BE /* JCAlerts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JCAlerts.entitlements; sourceTree = "<group>"; };
 		D2C660EB2ADA881800CB52BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +104,7 @@
 				D26D5F932AE757B000981481 /* SettingsViewController.swift */,
 				D24211AA2AEB5575005BD72C /* cells */,
 				D24211AC2AEB57A4005BD72C /* NotificationSettingsViewController.swift */,
+				D2984CC02B002E9B007B199C /* NotificationDisplayViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -108,6 +113,7 @@
 			isa = PBXGroup;
 			children = (
 				D26F6C552AD1FADF00AC1D6F /* Main.storyboard */,
+				D2984CC12B002E9C007B199C /* NotificationDisplayViewController.xib */,
 				D26F6C5D2AD1FAE100AC1D6F /* LaunchScreen.storyboard */,
 				D24211A42AE75972005BD72C /* Settings.storyboard */,
 				D24211AB2AEB557B005BD72C /* cells */,
@@ -275,6 +281,7 @@
 			files = (
 				D24211A92AEB5567005BD72C /* SettingsTableViewCell.xib in Resources */,
 				D26F6C5F2AD1FAE100AC1D6F /* LaunchScreen.storyboard in Resources */,
+				D2984CC32B002E9C007B199C /* NotificationDisplayViewController.xib in Resources */,
 				D24211B12AEB5ABF005BD72C /* NotificationSettingsTableViewCell.xib in Resources */,
 				D2C660EC2ADA881800CB52BE /* GoogleService-Info.plist in Resources */,
 				D26F6C5C2AD1FAE100AC1D6F /* Assets.xcassets in Resources */,
@@ -297,6 +304,7 @@
 				D26F6C502AD1FADF00AC1D6F /* AppDelegate.swift in Sources */,
 				D24211A12AE7589D005BD72C /* StringExt.swift in Sources */,
 				D24211B42AED548E005BD72C /* FCMTopicService.swift in Sources */,
+				D2984CC22B002E9C007B199C /* NotificationDisplayViewController.swift in Sources */,
 				D26D5F942AE757B000981481 /* SettingsViewController.swift in Sources */,
 				D26F6C522AD1FADF00AC1D6F /* SceneDelegate.swift in Sources */,
 				D242119F2AE75893005BD72C /* Constants.swift in Sources */,
