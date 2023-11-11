@@ -10,8 +10,8 @@ import UIKit
 class NotificationSettingsViewController: UIViewController {
 
     private let notificationTypes = [
-        ("Petfinder", "jc-alerts-petfinder"),
-        ("MetalPrice", "jc-alerts-metalprice")
+        FCMTopic.PETFINDER,
+        FCMTopic.METALPRICE
     ]
 
     @IBOutlet weak var tableView: UITableView!
@@ -35,8 +35,8 @@ extension NotificationSettingsViewController: UITableViewDelegate, UITableViewDa
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: NotificationSettingsTableViewCell.identifier, for: indexPath) as! NotificationSettingsTableViewCell
-        cell.notificationLabel.text = notificationTypes[indexPath.row].0
-        cell.notificationTopic = notificationTypes[indexPath.row].1
+        cell.notificationLabel.text = notificationTypes[indexPath.row].getTopicName()
+        cell.notificationTopic = notificationTypes[indexPath.row].rawValue
         cell.notificationSwitch.setOn(fcmInstance.topicIsSubscribed(topic: cell.notificationTopic), animated: true)
         return cell
     }
