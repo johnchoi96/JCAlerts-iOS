@@ -35,6 +35,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         Messaging.messaging().delegate = self
 
+        // fetch notifications from Firestore
+//        CloudFirestoreService.instance.fetchNotificationPayloads()
+
         return true
     }
 

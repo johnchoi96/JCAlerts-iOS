@@ -16,6 +16,8 @@ class NotificationDisplayViewController: UIViewController {
     
     var payload: [AnyHashable: Any]!
 
+    private let cloudFirestoreService = CloudFirestoreService.instance
+
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -23,6 +25,14 @@ class NotificationDisplayViewController: UIViewController {
         textView.text = payload.debugDescription
 
         self.title = "Notification"
+        textView.text = "Loading..."
+
+        cloudFirestoreService.delegate = self
+
+        DispatchQueue.main.async {
+            let notificationId = self.payload["notification-id"] as! String
+            self.cloudFirestoreService.retrieveNotificationPayload(notificationId: notificationId)
+        }
     }
 
     @IBAction func doneTapped(_ sender: UIBarButtonItem) {
@@ -38,5 +48,19 @@ class NotificationDisplayViewController: UIViewController {
         // Pass the selected object to the new view controller.
     }
     */
+
+}
+
+extension NotificationDisplayViewController: CloudFirestoreDelegate {
+    func didFinishLoadingAll(notifications: [NotificationPayload], notificationsDict: [String : NotificationPayload]) {}
+
+    func didFinishLoading(notification: NotificationPayload) {
+        if notification.isHtml {
+            self.textView.attributedText = notification.message.htmlToAttributedString
+        } else {
+            self.textView.text = notification.message
+        }
+    }
+    
 
 }

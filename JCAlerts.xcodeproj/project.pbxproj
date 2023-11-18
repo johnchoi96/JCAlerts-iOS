@@ -37,6 +37,14 @@
 		D2984CC22B002E9C007B199C /* NotificationDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CC02B002E9B007B199C /* NotificationDisplayViewController.swift */; };
 		D2984CC32B002E9C007B199C /* NotificationDisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2984CC12B002E9C007B199C /* NotificationDisplayViewController.xib */; };
 		D2984CC82B003333007B199C /* FCMTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CC72B003333007B199C /* FCMTopic.swift */; };
+		D2984CCA2B08436A007B199C /* CloudFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CC92B08436A007B199C /* CloudFirestoreService.swift */; };
+		D2984CCC2B084493007B199C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D2984CCB2B084493007B199C /* FirebaseFirestore */; };
+		D2984CCE2B084493007B199C /* FirebaseFirestoreSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2984CCD2B084493007B199C /* FirebaseFirestoreSwift */; };
+		D2984CD12B084A37007B199C /* NotificationPayload.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CD02B084A37007B199C /* NotificationPayload.swift */; };
+		D2984CD42B085321007B199C /* NotificationTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CD22B085321007B199C /* NotificationTableViewCell.swift */; };
+		D2984CD52B085321007B199C /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2984CD32B085321007B199C /* NotificationTableViewCell.xib */; };
+		D2984CD72B0854E9007B199C /* NotificationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CD62B0854E9007B199C /* NotificationDetailViewController.swift */; };
+		D2984CD92B094E8B007B199C /* CloudFirestoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CD82B094E8B007B199C /* CloudFirestoreDelegate.swift */; };
 		D2C660E52AD2073E00CB52BE /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D2C660E42AD2073E00CB52BE /* FirebaseMessaging */; };
 		D2C660EC2ADA881800CB52BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2C660EB2ADA881800CB52BE /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -64,6 +72,12 @@
 		D2984CC02B002E9B007B199C /* NotificationDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDisplayViewController.swift; sourceTree = "<group>"; };
 		D2984CC12B002E9C007B199C /* NotificationDisplayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationDisplayViewController.xib; sourceTree = "<group>"; };
 		D2984CC72B003333007B199C /* FCMTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMTopic.swift; sourceTree = "<group>"; };
+		D2984CC92B08436A007B199C /* CloudFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFirestoreService.swift; sourceTree = "<group>"; };
+		D2984CD02B084A37007B199C /* NotificationPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPayload.swift; sourceTree = "<group>"; };
+		D2984CD22B085321007B199C /* NotificationTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationTableViewCell.swift; sourceTree = "<group>"; };
+		D2984CD32B085321007B199C /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
+		D2984CD62B0854E9007B199C /* NotificationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDetailViewController.swift; sourceTree = "<group>"; };
+		D2984CD82B094E8B007B199C /* CloudFirestoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFirestoreDelegate.swift; sourceTree = "<group>"; };
 		D2C660EA2AD2FFEC00CB52BE /* JCAlerts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JCAlerts.entitlements; sourceTree = "<group>"; };
 		D2C660EB2ADA881800CB52BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -78,7 +92,9 @@
 				D26F6C742AD2043D00AC1D6F /* FirebaseAnalytics in Frameworks */,
 				D26F6C762AD2043D00AC1D6F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
 				D26F6C782AD2043D00AC1D6F /* FirebaseAnalyticsSwift in Frameworks */,
+				D2984CCC2B084493007B199C /* FirebaseFirestore in Frameworks */,
 				D26F6C6A2AD201A300AC1D6F /* FirebaseAnalyticsOnDeviceConversion in Frameworks */,
+				D2984CCE2B084493007B199C /* FirebaseFirestoreSwift in Frameworks */,
 				D26F6C702AD201A300AC1D6F /* FirebaseAppCheck in Frameworks */,
 				D26F6C7A2AD2043D00AC1D6F /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */,
 				D26F6C7C2AD2043D00AC1D6F /* FirebaseAppCheck in Frameworks */,
@@ -95,6 +111,7 @@
 			children = (
 				D26F6C4F2AD1FADF00AC1D6F /* AppDelegate.swift */,
 				D26F6C512AD1FADF00AC1D6F /* SceneDelegate.swift */,
+				D2984CD82B094E8B007B199C /* CloudFirestoreDelegate.swift */,
 			);
 			path = delegates;
 			sourceTree = "<group>";
@@ -107,6 +124,7 @@
 				D24211AA2AEB5575005BD72C /* cells */,
 				D24211AC2AEB57A4005BD72C /* NotificationSettingsViewController.swift */,
 				D2984CC02B002E9B007B199C /* NotificationDisplayViewController.swift */,
+				D2984CD62B0854E9007B199C /* NotificationDetailViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -143,6 +161,7 @@
 		D24211AA2AEB5575005BD72C /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				D2984CD22B085321007B199C /* NotificationTableViewCell.swift */,
 				D24211A62AEB5567005BD72C /* SettingsTableViewCell.swift */,
 				D24211AE2AEB5ABE005BD72C /* NotificationSettingsTableViewCell.swift */,
 			);
@@ -152,6 +171,7 @@
 		D24211AB2AEB557B005BD72C /* cells */ = {
 			isa = PBXGroup;
 			children = (
+				D2984CD32B085321007B199C /* NotificationTableViewCell.xib */,
 				D24211A72AEB5567005BD72C /* SettingsTableViewCell.xib */,
 				D24211AF2AEB5ABE005BD72C /* NotificationSettingsTableViewCell.xib */,
 			);
@@ -162,6 +182,7 @@
 			isa = PBXGroup;
 			children = (
 				D24211B32AED548E005BD72C /* FCMTopicService.swift */,
+				D2984CC92B08436A007B199C /* CloudFirestoreService.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -212,6 +233,7 @@
 		D2984CC52B003315007B199C /* firebase */ = {
 			isa = PBXGroup;
 			children = (
+				D2984CCF2B084A22007B199C /* cloudfirestore */,
 				D2984CC62B003326007B199C /* fcm */,
 			);
 			path = firebase;
@@ -223,6 +245,14 @@
 				D2984CC72B003333007B199C /* FCMTopic.swift */,
 			);
 			path = fcm;
+			sourceTree = "<group>";
+		};
+		D2984CCF2B084A22007B199C /* cloudfirestore */ = {
+			isa = PBXGroup;
+			children = (
+				D2984CD02B084A37007B199C /* NotificationPayload.swift */,
+			);
+			path = cloudfirestore;
 			sourceTree = "<group>";
 		};
 		D2C660E32AD2073E00CB52BE /* Frameworks */ = {
@@ -260,6 +290,8 @@
 				D26F6C792AD2043D00AC1D6F /* FirebaseAnalyticsWithoutAdIdSupport */,
 				D26F6C7B2AD2043D00AC1D6F /* FirebaseAppCheck */,
 				D2C660E42AD2073E00CB52BE /* FirebaseMessaging */,
+				D2984CCB2B084493007B199C /* FirebaseFirestore */,
+				D2984CCD2B084493007B199C /* FirebaseFirestoreSwift */,
 			);
 			productName = JCAlerts;
 			productReference = D26F6C4C2AD1FADF00AC1D6F /* JCAlerts.app */;
@@ -314,6 +346,7 @@
 				D26F6C5C2AD1FAE100AC1D6F /* Assets.xcassets in Resources */,
 				D26F6C572AD1FADF00AC1D6F /* Main.storyboard in Resources */,
 				D24211A52AE75972005BD72C /* Settings.storyboard in Resources */,
+				D2984CD52B085321007B199C /* NotificationTableViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -327,15 +360,20 @@
 				D26F6C542AD1FADF00AC1D6F /* AlertsViewController.swift in Sources */,
 				D26F6C5A2AD1FADF00AC1D6F /* JCAlerts.xcdatamodeld in Sources */,
 				D24211A82AEB5567005BD72C /* SettingsTableViewCell.swift in Sources */,
+				D2984CD12B084A37007B199C /* NotificationPayload.swift in Sources */,
+				D2984CD42B085321007B199C /* NotificationTableViewCell.swift in Sources */,
+				D2984CCA2B08436A007B199C /* CloudFirestoreService.swift in Sources */,
 				D24211B02AEB5ABF005BD72C /* NotificationSettingsTableViewCell.swift in Sources */,
 				D26F6C502AD1FADF00AC1D6F /* AppDelegate.swift in Sources */,
 				D24211A12AE7589D005BD72C /* StringExt.swift in Sources */,
 				D24211B42AED548E005BD72C /* FCMTopicService.swift in Sources */,
+				D2984CD92B094E8B007B199C /* CloudFirestoreDelegate.swift in Sources */,
 				D2984CC82B003333007B199C /* FCMTopic.swift in Sources */,
 				D2984CC22B002E9C007B199C /* NotificationDisplayViewController.swift in Sources */,
 				D26D5F942AE757B000981481 /* SettingsViewController.swift in Sources */,
 				D26F6C522AD1FADF00AC1D6F /* SceneDelegate.swift in Sources */,
 				D242119F2AE75893005BD72C /* Constants.swift in Sources */,
+				D2984CD72B0854E9007B199C /* NotificationDetailViewController.swift in Sources */,
 				D24211AD2AEB57A4005BD72C /* NotificationSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -631,6 +669,16 @@
 			isa = XCSwiftPackageProductDependency;
 			package = D26F6C662AD201A300AC1D6F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
 			productName = FirebaseAppCheck;
+		};
+		D2984CCB2B084493007B199C /* FirebaseFirestore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D26F6C662AD201A300AC1D6F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestore;
+		};
+		D2984CCD2B084493007B199C /* FirebaseFirestoreSwift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = D26F6C662AD201A300AC1D6F /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseFirestoreSwift;
 		};
 		D2C660E42AD2073E00CB52BE /* FirebaseMessaging */ = {
 			isa = XCSwiftPackageProductDependency;

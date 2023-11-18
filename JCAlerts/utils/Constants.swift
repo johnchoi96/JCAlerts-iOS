@@ -15,10 +15,12 @@ struct K {
         struct Cells {
             static let settingsItemCell = "settingsItemCell"
             static let notificationSettingsCell = "notificationSettingsCell"
+            static let notificationCell = "notificationCell"
         }
     }
 
     struct Segues {
         static let settingsToNotificationSettings = "settingsToNotificationSettings"
+        static let alertsToNotificationDetail = "alertsToNotificationDetail"
     }
 }
