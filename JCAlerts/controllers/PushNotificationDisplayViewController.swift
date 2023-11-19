@@ -7,7 +7,7 @@
 
 import UIKit
 
-class NotificationDisplayViewController: UIViewController {
+class PushNotificationDisplayViewController: UIViewController {
 
     static let nib = UINib(nibName: "NotificationDisplayViewController", bundle: nil)
     static let identifier = K.Nibs.Views.notificationDisplayView
@@ -40,7 +40,7 @@ class NotificationDisplayViewController: UIViewController {
     }
 }
 
-extension NotificationDisplayViewController: CloudFirestoreDelegate {
+extension PushNotificationDisplayViewController: CloudFirestoreDelegate {
     func didFinishLoadingSingleNotification(notificationId: String, notification: NotificationPayload) {
         if notification.isHtml {
             self.textView.attributedText = notification.message.htmlToAttributedString

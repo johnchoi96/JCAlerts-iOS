@@ -26,9 +26,20 @@ class NotificationDetailViewController: UIViewController {
         }
         topicNameLabel.text = notificationPayload.topic.getTopicName()
         let timestamp = notificationPayload.timestamp
-        timestampLabel.text = "\(StringUtil.getStringMonth(month: timestamp.month) ?? "N/A") \(timestamp.day), \(timestamp.year)"
+        timestampLabel.text = formatTimestamp(timestamp: timestamp)
     }
-    
+
+    private func formatTimestamp(timestamp: Date) -> String {
+        let month = StringUtil.getStringMonth(month: timestamp.month) ?? "N/A"
+        let day = timestamp.day
+        let year = timestamp.year
+        let hour = timestamp.get12FormatHour
+        let minute = timestamp.minute
+        let isAm = timestamp.isAm
+
+        return "\(month) \(day), \(year) at \(hour):\(minute) \(isAm)"
+    }
+
     @IBAction func doneTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
     }

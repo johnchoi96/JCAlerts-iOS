@@ -34,7 +34,7 @@
 		D26F6C782AD2043D00AC1D6F /* FirebaseAnalyticsSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D26F6C772AD2043D00AC1D6F /* FirebaseAnalyticsSwift */; };
 		D26F6C7A2AD2043D00AC1D6F /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D26F6C792AD2043D00AC1D6F /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D26F6C7C2AD2043D00AC1D6F /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = D26F6C7B2AD2043D00AC1D6F /* FirebaseAppCheck */; };
-		D2984CC22B002E9C007B199C /* NotificationDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CC02B002E9B007B199C /* NotificationDisplayViewController.swift */; };
+		D2984CC22B002E9C007B199C /* PushNotificationDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CC02B002E9B007B199C /* PushNotificationDisplayViewController.swift */; };
 		D2984CC32B002E9C007B199C /* NotificationDisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2984CC12B002E9C007B199C /* NotificationDisplayViewController.xib */; };
 		D2984CC82B003333007B199C /* FCMTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CC72B003333007B199C /* FCMTopic.swift */; };
 		D2984CCA2B08436A007B199C /* CloudFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CC92B08436A007B199C /* CloudFirestoreService.swift */; };
@@ -71,7 +71,7 @@
 		D26F6C5B2AD1FAE100AC1D6F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		D26F6C5E2AD1FAE100AC1D6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D26F6C602AD1FAE100AC1D6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		D2984CC02B002E9B007B199C /* NotificationDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDisplayViewController.swift; sourceTree = "<group>"; };
+		D2984CC02B002E9B007B199C /* PushNotificationDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationDisplayViewController.swift; sourceTree = "<group>"; };
 		D2984CC12B002E9C007B199C /* NotificationDisplayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationDisplayViewController.xib; sourceTree = "<group>"; };
 		D2984CC72B003333007B199C /* FCMTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMTopic.swift; sourceTree = "<group>"; };
 		D2984CC92B08436A007B199C /* CloudFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFirestoreService.swift; sourceTree = "<group>"; };
@@ -127,7 +127,7 @@
 				D26D5F932AE757B000981481 /* SettingsViewController.swift */,
 				D24211AA2AEB5575005BD72C /* cells */,
 				D24211AC2AEB57A4005BD72C /* NotificationSettingsViewController.swift */,
-				D2984CC02B002E9B007B199C /* NotificationDisplayViewController.swift */,
+				D2984CC02B002E9B007B199C /* PushNotificationDisplayViewController.swift */,
 				D2984CD62B0854E9007B199C /* NotificationDetailViewController.swift */,
 			);
 			path = controllers;
@@ -377,7 +377,7 @@
 				D2984CDB2B099764007B199C /* DateExt.swift in Sources */,
 				D2984CD92B094E8B007B199C /* CloudFirestoreDelegate.swift in Sources */,
 				D2984CC82B003333007B199C /* FCMTopic.swift in Sources */,
-				D2984CC22B002E9C007B199C /* NotificationDisplayViewController.swift in Sources */,
+				D2984CC22B002E9C007B199C /* PushNotificationDisplayViewController.swift in Sources */,
 				D26D5F942AE757B000981481 /* SettingsViewController.swift in Sources */,
 				D26F6C522AD1FADF00AC1D6F /* SceneDelegate.swift in Sources */,
 				D242119F2AE75893005BD72C /* Constants.swift in Sources */,

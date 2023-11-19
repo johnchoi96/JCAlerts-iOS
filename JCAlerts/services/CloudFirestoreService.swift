@@ -25,7 +25,7 @@ class CloudFirestoreService {
     private init() {}
 
     func fetchNotificationPayloads() {
-        db.collection(DB_COLLECTION_NOTIFICATIONS).getDocuments() { (querySnapshot, error) in
+        db.collection(DB_COLLECTION_NOTIFICATIONS).order(by: "timestamp", descending: true).getDocuments() { (querySnapshot, error) in
             if let error = error {
                 self.logger.error("Error getting documents: \(error)")
             } else {

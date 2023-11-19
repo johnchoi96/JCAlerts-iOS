@@ -149,7 +149,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             return
         }
 
-        let modal = NotificationDisplayViewController()
+        let modal = PushNotificationDisplayViewController()
         modal.payload = userInfo
         rootViewController.present(modal, animated: true)
     }
