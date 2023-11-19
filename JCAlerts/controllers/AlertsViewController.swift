@@ -1,5 +1,5 @@
 //
-//  ViewController.swift
+//  AlertsViewController.swift
 //  JCAlerts
 //
 //  Created by John Choi on 10/7/23.
