@@ -16,7 +16,7 @@ class NotificationTableViewCell: UITableViewCell {
     var notificationPayload: NotificationPayload!
 
     @IBOutlet weak var timestampLabel: UILabel!
-    @IBOutlet weak var topicNameLabel: UILabel!
+    @IBOutlet weak var notificationTitleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()

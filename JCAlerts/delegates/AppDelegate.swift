@@ -125,7 +125,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification) async
     -> UNNotificationPresentationOptions {
-//        let userInfo = notification.request.content.userInfo
+        let userInfo = notification.request.content.userInfo
+        log.info("Notification Payload: \(userInfo)")
 
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
@@ -137,6 +138,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 didReceive response: UNNotificationResponse) async {
         let userInfo = response.notification.request.content.userInfo
+        log.info("Notification Payload: \(userInfo)")
 
         // ...
 
@@ -164,8 +166,9 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
         // Print message ID.
         if let messageID = userInfo[gcmMessageIDKey] {
-            print("Message ID: \(messageID)")
+            log.info("Message ID: \(messageID as? String ?? "")")
         }
+        log.info("Notification Payload: \(userInfo)")
         return UIBackgroundFetchResult.newData
     }
 
