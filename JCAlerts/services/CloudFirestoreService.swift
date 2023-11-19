@@ -50,7 +50,7 @@ class CloudFirestoreService {
                         return
                     }
 
-                    let payload = NotificationPayload(notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate()!, topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
+                    let payload = NotificationPayload(notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate(), topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
                     notifications.append(payload)
                     notificationDict[notificationId] = payload
                 }
@@ -80,7 +80,7 @@ class CloudFirestoreService {
                     self.logger.error("Invalid topic type")
                     return
                 }
-                let payload = NotificationPayload(notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate()!, topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
+                let payload = NotificationPayload(notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate(), topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
                 self.delegate?.didFinishLoadingSingleNotification(notificationId: notificationId, notification: payload)
             } else {
                 self.logger.error("Notification with ID \(notificationId) does not exist")

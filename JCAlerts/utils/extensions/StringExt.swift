@@ -21,10 +21,12 @@ extension String {
         return htmlToAttributedString?.string ?? ""
     }
 
-    func utcTimestampToDate() -> Date? {
+    func utcTimestampToDate() -> Date {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSSZ"
-        let localDate = formatter.date(from: self)
+        guard let localDate = formatter.date(from: self) else {
+            return Date.epochDate
+        }
         return localDate
     }
 }

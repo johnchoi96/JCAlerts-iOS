@@ -9,30 +9,36 @@ import Foundation
 
 extension Date {
 
-    var year: Int? {
+    var year: Int {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
         guard let y = Int(formatter.string(from: self)) else {
-            return nil
+            return 1970
         }
         return y
     }
 
-    var month: Int? {
+    var month: Int {
         let formatter = DateFormatter()
         formatter.dateFormat = "MM"
         guard let m = Int(formatter.string(from: self)) else {
-            return nil
+            return 1
         }
         return m
     }
 
-    var day: Int? {
+    var day: Int {
         let formatter = DateFormatter()
         formatter.dateFormat = "dd"
         guard let d = Int(formatter.string(from: self)) else {
-            return nil
+            return 1
         }
         return d
+    }
+
+    static var epochDate: Date {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy/MM/dd"
+        return formatter.date(from: "1970/01/01")!
     }
 }
