@@ -45,7 +45,7 @@ extension AlertsViewController: UITableViewDelegate, UITableViewDataSource {
         let cell = tableView.dequeueReusableCell(withIdentifier: NotificationTableViewCell.identifier) as! NotificationTableViewCell
         cell.notificationPayload = payload
         let timestamp = payload.timestamp
-        cell.timestampLabel.text = "\(timestamp.month)/\(timestamp.day)/\(timestamp.year)"
+        cell.timestampLabel.text = "\(timestamp.month)-\(timestamp.day)-\(timestamp.year)"
         cell.topicNameLabel.text = payload.topic.getTopicName()
         return cell
     }
