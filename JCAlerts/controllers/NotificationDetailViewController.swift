@@ -26,7 +26,7 @@ class NotificationDetailViewController: UIViewController {
         }
         topicNameLabel.text = notificationPayload.topic.getTopicName()
         let timestamp = notificationPayload.timestamp
-        timestampLabel.text = "\(timestamp.month)-\(timestamp.day)-\(timestamp.year)"
+        timestampLabel.text = "\(StringUtil.getStringMonth(month: timestamp.month) ?? "N/A") \(timestamp.day), \(timestamp.year)"
     }
     
     @IBAction func doneTapped(_ sender: UIBarButtonItem) {
