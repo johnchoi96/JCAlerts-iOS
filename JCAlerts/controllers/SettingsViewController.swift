@@ -10,7 +10,7 @@ import UIKit
 class SettingsViewController: UIViewController {
 
     private let items = [
-        "Notifications"
+        "Notification Categories"
     ]
 
     @IBOutlet weak var tableView: UITableView!

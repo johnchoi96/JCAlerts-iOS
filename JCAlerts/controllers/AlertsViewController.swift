@@ -19,6 +19,7 @@ class AlertsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        notificationTable.backgroundColor = .clear
         notificationTable.dataSource = self
         notificationTable.delegate = self
         notificationTable.register(NotificationTableViewCell.nib, forCellReuseIdentifier: NotificationTableViewCell.identifier)
