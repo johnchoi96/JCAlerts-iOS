@@ -18,18 +18,14 @@ class CloudFirestoreService {
 
     private let logger = os.Logger()
 
-//    private var notifications: [NotificationPayload] = []
-//
-//    private var notificationDict: [String: NotificationPayload] = [:]
-
     var delegate: CloudFirestoreDelegate?
+
+    private let DB_COLLECTION_NOTIFICATIONS = "notifications"
 
     private init() {}
 
     func fetchNotificationPayloads() {
-//        notifications = []
-//        notificationDict = [:]
-        db.collection("notifications").getDocuments() { (querySnapshot, error) in
+        db.collection(DB_COLLECTION_NOTIFICATIONS).getDocuments() { (querySnapshot, error) in
             if let error = error {
                 self.logger.error("Error getting documents: \(error)")
             } else {
@@ -54,7 +50,7 @@ class CloudFirestoreService {
                         return
                     }
 
-                    let payload = NotificationPayload(notificationId: notificationId, message: message, timestamp: timestamp, topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
+                    let payload = NotificationPayload(notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate()!, topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
                     notifications.append(payload)
                     notificationDict[notificationId] = payload
                 }
@@ -64,7 +60,7 @@ class CloudFirestoreService {
     }
 
     func retrieveNotificationPayload(notificationId: String) {
-        let docRef = db.collection("notifications").document(notificationId)
+        let docRef = db.collection(DB_COLLECTION_NOTIFICATIONS).document(notificationId)
         docRef.getDocument { document, error in
             if let document = document, document.exists {
                 let notificationId = document.documentID
@@ -84,23 +80,11 @@ class CloudFirestoreService {
                     self.logger.error("Invalid topic type")
                     return
                 }
-                let payload = NotificationPayload(notificationId: notificationId, message: message, timestamp: timestamp, topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
-                self.delegate?.didFinishLoading(notification: payload)
+                let payload = NotificationPayload(notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate()!, topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
+                self.delegate?.didFinishLoadingSingleNotification(notificationId: notificationId, notification: payload)
             } else {
                 self.logger.error("Notification with ID \(notificationId) does not exist")
             }
         }
-//        if notifications.isEmpty {
-//            fetchNotificationPayloads()
-//        }
-//        guard let payload = self.notificationDict[notificationId] else {
-//            logger.error("Notification with ID \(notificationId) does not exist")
-//            return nil
-//        }
-//        return payload
     }
-
-//    func getAllNotifications() -> [NotificationPayload] {
-//        return notifications
-//    }
 }

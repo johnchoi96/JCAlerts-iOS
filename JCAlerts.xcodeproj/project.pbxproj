@@ -45,6 +45,7 @@
 		D2984CD52B085321007B199C /* NotificationTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2984CD32B085321007B199C /* NotificationTableViewCell.xib */; };
 		D2984CD72B0854E9007B199C /* NotificationDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CD62B0854E9007B199C /* NotificationDetailViewController.swift */; };
 		D2984CD92B094E8B007B199C /* CloudFirestoreDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CD82B094E8B007B199C /* CloudFirestoreDelegate.swift */; };
+		D2984CDB2B099764007B199C /* DateExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CDA2B099764007B199C /* DateExt.swift */; };
 		D2C660E52AD2073E00CB52BE /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D2C660E42AD2073E00CB52BE /* FirebaseMessaging */; };
 		D2C660EC2ADA881800CB52BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2C660EB2ADA881800CB52BE /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
@@ -78,6 +79,7 @@
 		D2984CD32B085321007B199C /* NotificationTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationTableViewCell.xib; sourceTree = "<group>"; };
 		D2984CD62B0854E9007B199C /* NotificationDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationDetailViewController.swift; sourceTree = "<group>"; };
 		D2984CD82B094E8B007B199C /* CloudFirestoreDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFirestoreDelegate.swift; sourceTree = "<group>"; };
+		D2984CDA2B099764007B199C /* DateExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DateExt.swift; sourceTree = "<group>"; };
 		D2C660EA2AD2FFEC00CB52BE /* JCAlerts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JCAlerts.entitlements; sourceTree = "<group>"; };
 		D2C660EB2ADA881800CB52BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -154,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				D24211A02AE7589D005BD72C /* StringExt.swift */,
+				D2984CDA2B099764007B199C /* DateExt.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -367,6 +370,7 @@
 				D26F6C502AD1FADF00AC1D6F /* AppDelegate.swift in Sources */,
 				D24211A12AE7589D005BD72C /* StringExt.swift in Sources */,
 				D24211B42AED548E005BD72C /* FCMTopicService.swift in Sources */,
+				D2984CDB2B099764007B199C /* DateExt.swift in Sources */,
 				D2984CD92B094E8B007B199C /* CloudFirestoreDelegate.swift in Sources */,
 				D2984CC82B003333007B199C /* FCMTopic.swift in Sources */,
 				D2984CC22B002E9C007B199C /* NotificationDisplayViewController.swift in Sources */,

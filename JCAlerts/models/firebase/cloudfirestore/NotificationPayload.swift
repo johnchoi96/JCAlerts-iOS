@@ -12,7 +12,7 @@ struct NotificationPayload {
 
     var message: String
 
-    var timestamp: String
+    var timestamp: Date
 
     var topic: FCMTopic
     

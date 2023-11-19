@@ -30,7 +30,7 @@
                 <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="MtK-dw-pgr">
                     <rect key="frame" x="0.0" y="59" width="393" height="96"/>
                     <items>
-                        <navigationItem title="Title" id="3Sf-tu-4Do">
+                        <navigationItem title="Notification Detail" id="3Sf-tu-4Do">
                             <barButtonItem key="rightBarButtonItem" systemItem="done" id="9Iq-dG-xAC">
                                 <connections>
                                     <action selector="doneTapped:" destination="-1" id="SbI-PR-Ihz"/>

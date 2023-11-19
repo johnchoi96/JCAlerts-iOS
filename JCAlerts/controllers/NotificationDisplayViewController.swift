@@ -24,7 +24,7 @@ class NotificationDisplayViewController: UIViewController {
         // Do any additional setup after loading the view.
         textView.text = payload.debugDescription
 
-        self.title = "Notification"
+        title = "Notification Detail"
         textView.text = "Loading..."
 
         cloudFirestoreService.delegate = self
@@ -38,29 +38,14 @@ class NotificationDisplayViewController: UIViewController {
     @IBAction func doneTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
     }
-    
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
-    }
-    */
-
 }
 
 extension NotificationDisplayViewController: CloudFirestoreDelegate {
-    func didFinishLoadingAll(notifications: [NotificationPayload], notificationsDict: [String : NotificationPayload]) {}
-
-    func didFinishLoading(notification: NotificationPayload) {
+    func didFinishLoadingSingleNotification(notificationId: String, notification: NotificationPayload) {
         if notification.isHtml {
             self.textView.attributedText = notification.message.htmlToAttributedString
         } else {
             self.textView.text = notification.message
         }
     }
-    
-
 }

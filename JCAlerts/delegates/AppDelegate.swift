@@ -20,9 +20,10 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
+        // configure FirebaseApp
         FirebaseApp.configure()
 
-
+        // setup push notification
         UNUserNotificationCenter.current().delegate = self
 
         let authOptions: UNAuthorizationOptions = [.alert, .badge, .sound]
@@ -32,12 +33,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         )
 
         application.registerForRemoteNotifications()
-
         Messaging.messaging().delegate = self
-
-        // fetch notifications from Firestore
-//        CloudFirestoreService.instance.fetchNotificationPayloads()
-
         return true
     }
 
@@ -129,16 +125,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func userNotificationCenter(_ center: UNUserNotificationCenter,
                                 willPresent notification: UNNotification) async
     -> UNNotificationPresentationOptions {
-        let userInfo = notification.request.content.userInfo
+//        let userInfo = notification.request.content.userInfo
 
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
-
-        // ...
-
-        // Print full message.
-        print("willPresent")
-        print(userInfo)
 
         // Change this to your preferred presentation option
         return [[.banner, .sound]]
@@ -153,10 +143,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
 
-        // Print full message.
-        print("full message in didReceive")
-//        fcmNotificationDelegate?.didReceiveNotification(withPayload: userInfo)
-        print(userInfo)
         guard let rootViewController = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController else {
             return
         }
@@ -180,11 +166,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         if let messageID = userInfo[gcmMessageIDKey] {
             print("Message ID: \(messageID)")
         }
-
-        // Print full message.
-        print("full message in didReceiveRemoveNotification")
-        print(userInfo)
-
         return UIBackgroundFetchResult.newData
     }
 

@@ -64,6 +64,4 @@ extension AlertsViewController: CloudFirestoreDelegate {
         self.notifications = notifications
         self.notificationTable.reloadData()
     }
-    
-    func didFinishLoading(notification: NotificationPayload) {}
 }
