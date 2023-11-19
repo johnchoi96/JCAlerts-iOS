@@ -18,6 +18,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     private let log = Logger()
 
+    private var modal: PushNotificationDisplayViewController!
+
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         // configure FirebaseApp
@@ -34,6 +36,8 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
         application.registerForRemoteNotifications()
         Messaging.messaging().delegate = self
+
+        modal = PushNotificationDisplayViewController()
         return true
     }
 
@@ -148,8 +152,8 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         guard let rootViewController = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController else {
             return
         }
-
-        let modal = PushNotificationDisplayViewController()
+        modal.dismiss(animated: true)
+        modal = PushNotificationDisplayViewController()
         modal.payload = userInfo
         rootViewController.present(modal, animated: true)
     }

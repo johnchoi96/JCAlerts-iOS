@@ -9,7 +9,7 @@ import UIKit
 
 class PushNotificationDisplayViewController: UIViewController {
 
-    static let nib = UINib(nibName: "NotificationDisplayViewController", bundle: nil)
+    static let nib = UINib(nibName: "PushNotificationDisplayViewController", bundle: nil)
     static let identifier = K.Nibs.Views.notificationDisplayView
 
     @IBOutlet weak var textView: UITextView!
@@ -22,8 +22,6 @@ class PushNotificationDisplayViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        textView.text = payload.debugDescription
-
         title = "Notification Detail"
         textView.text = "Loading..."
 

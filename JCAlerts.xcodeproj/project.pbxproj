@@ -35,7 +35,7 @@
 		D26F6C7A2AD2043D00AC1D6F /* FirebaseAnalyticsWithoutAdIdSupport in Frameworks */ = {isa = PBXBuildFile; productRef = D26F6C792AD2043D00AC1D6F /* FirebaseAnalyticsWithoutAdIdSupport */; };
 		D26F6C7C2AD2043D00AC1D6F /* FirebaseAppCheck in Frameworks */ = {isa = PBXBuildFile; productRef = D26F6C7B2AD2043D00AC1D6F /* FirebaseAppCheck */; };
 		D2984CC22B002E9C007B199C /* PushNotificationDisplayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CC02B002E9B007B199C /* PushNotificationDisplayViewController.swift */; };
-		D2984CC32B002E9C007B199C /* NotificationDisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2984CC12B002E9C007B199C /* NotificationDisplayViewController.xib */; };
+		D2984CC32B002E9C007B199C /* PushNotificationDisplayViewController.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2984CC12B002E9C007B199C /* PushNotificationDisplayViewController.xib */; };
 		D2984CC82B003333007B199C /* FCMTopic.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CC72B003333007B199C /* FCMTopic.swift */; };
 		D2984CCA2B08436A007B199C /* CloudFirestoreService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2984CC92B08436A007B199C /* CloudFirestoreService.swift */; };
 		D2984CCC2B084493007B199C /* FirebaseFirestore in Frameworks */ = {isa = PBXBuildFile; productRef = D2984CCB2B084493007B199C /* FirebaseFirestore */; };
@@ -72,7 +72,7 @@
 		D26F6C5E2AD1FAE100AC1D6F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		D26F6C602AD1FAE100AC1D6F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		D2984CC02B002E9B007B199C /* PushNotificationDisplayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PushNotificationDisplayViewController.swift; sourceTree = "<group>"; };
-		D2984CC12B002E9C007B199C /* NotificationDisplayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationDisplayViewController.xib; sourceTree = "<group>"; };
+		D2984CC12B002E9C007B199C /* PushNotificationDisplayViewController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PushNotificationDisplayViewController.xib; sourceTree = "<group>"; };
 		D2984CC72B003333007B199C /* FCMTopic.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMTopic.swift; sourceTree = "<group>"; };
 		D2984CC92B08436A007B199C /* CloudFirestoreService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFirestoreService.swift; sourceTree = "<group>"; };
 		D2984CD02B084A37007B199C /* NotificationPayload.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationPayload.swift; sourceTree = "<group>"; };
@@ -137,7 +137,7 @@
 			isa = PBXGroup;
 			children = (
 				D26F6C552AD1FADF00AC1D6F /* Main.storyboard */,
-				D2984CC12B002E9C007B199C /* NotificationDisplayViewController.xib */,
+				D2984CC12B002E9C007B199C /* PushNotificationDisplayViewController.xib */,
 				D26F6C5D2AD1FAE100AC1D6F /* LaunchScreen.storyboard */,
 				D24211A42AE75972005BD72C /* Settings.storyboard */,
 				D24211AB2AEB557B005BD72C /* cells */,
@@ -346,7 +346,7 @@
 			files = (
 				D24211A92AEB5567005BD72C /* SettingsTableViewCell.xib in Resources */,
 				D26F6C5F2AD1FAE100AC1D6F /* LaunchScreen.storyboard in Resources */,
-				D2984CC32B002E9C007B199C /* NotificationDisplayViewController.xib in Resources */,
+				D2984CC32B002E9C007B199C /* PushNotificationDisplayViewController.xib in Resources */,
 				D24211B12AEB5ABF005BD72C /* NotificationSettingsTableViewCell.xib in Resources */,
 				D2C660EC2ADA881800CB52BE /* GoogleService-Info.plist in Resources */,
 				D26F6C5C2AD1FAE100AC1D6F /* Assets.xcassets in Resources */,
@@ -538,7 +538,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = JCAlerts/JCAlerts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2023102701;
+				CURRENT_PROJECT_VERSION = 2023111901;
 				DEVELOPMENT_TEAM = 2JDGUK4DRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JCAlerts/Info.plist;
@@ -569,7 +569,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = JCAlerts/JCAlerts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2023102701;
+				CURRENT_PROJECT_VERSION = 2023111901;
 				DEVELOPMENT_TEAM = 2JDGUK4DRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JCAlerts/Info.plist;
