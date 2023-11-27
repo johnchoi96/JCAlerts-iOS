@@ -10,7 +10,7 @@ import Foundation
 struct NotificationPayload {
     var notificationTitle: String
 
-    var notificationBody: String
+    var notificationSubtitle: String
     
     var notificationId: String
 

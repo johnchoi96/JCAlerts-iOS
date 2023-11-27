@@ -39,7 +39,7 @@ class CloudFirestoreService {
                     var topic: FCMTopic
                     let isTestMessage = document.get("test-notification") as? Bool ?? false
                     let notificationTitle = document.get("notification-title") as! String
-                    let notificationBody = document.get("notification-body") as! String
+                    let notificationSubtitle = document.get("notification-body") as! String
                     switch (document.get("topic") as! String) {
                     case FCMTopic.ALL.getTopicValue():
                         topic = .ALL
@@ -52,7 +52,7 @@ class CloudFirestoreService {
                         return
                     }
 
-                    let payload = NotificationPayload(notificationTitle: notificationTitle, notificationBody: notificationBody, notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate(), topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
+                    let payload = NotificationPayload(notificationTitle: notificationTitle, notificationSubtitle: notificationSubtitle, notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate(), topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
                     notifications.append(payload)
                     notificationDict[notificationId] = payload
                 }
@@ -70,7 +70,7 @@ class CloudFirestoreService {
                 let isHtml = document.get("isHtml") as! Bool
                 let timestamp = document.get("timestamp") as! String
                 let notificationTitle = document.get("notification-title") as! String
-                let notificationBody = document.get("notification-body") as! String
+                let notificationSubtitle = document.get("notification-body") as! String
                 var topic: FCMTopic
                 let isTestMessage = document.get("test-notification") as? Bool ?? false
                 switch (document.get("topic") as! String) {
@@ -84,7 +84,7 @@ class CloudFirestoreService {
                     self.logger.error("Invalid topic type")
                     return
                 }
-                let payload = NotificationPayload(notificationTitle: notificationTitle, notificationBody: notificationBody, notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate(), topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
+                let payload = NotificationPayload(notificationTitle: notificationTitle, notificationSubtitle: notificationSubtitle, notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate(), topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
                 self.delegate?.didFinishLoadingSingleNotification(notificationId: notificationId, notification: payload)
             } else {
                 self.logger.error("Notification with ID \(notificationId) does not exist")
