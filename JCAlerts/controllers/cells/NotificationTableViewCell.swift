@@ -15,13 +15,14 @@ class NotificationTableViewCell: UITableViewCell {
 
     var notificationPayload: NotificationPayload!
 
-    @IBOutlet weak var timestampLabel: UILabel!
+    @IBOutlet weak var notificationSubtitleLabel: UILabel!
     @IBOutlet weak var notificationTitleLabel: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
         self.backgroundColor = .clear
+        self.accessoryType = .detailButton
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
