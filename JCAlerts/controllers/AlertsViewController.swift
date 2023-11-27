@@ -16,6 +16,9 @@ class AlertsViewController: UIViewController {
 
     var notifications: [NotificationPayload] = []
 
+    var dateAndPayloads: [String: [NotificationPayload]] = [:]
+    var orderedDates: [String] = []
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -37,12 +40,25 @@ class AlertsViewController: UIViewController {
 }
 
 extension AlertsViewController: UITableViewDelegate, UITableViewDataSource {
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return orderedDates.count
+    }
+
+    func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
+        return orderedDates[section]
+    }
+
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return notifications.count
+        if orderedDates.isEmpty {
+            return 0
+        }
+        let date = orderedDates[section]
+        return dateAndPayloads[date]!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let payload = notifications[indexPath.row]
+        let date = orderedDates[indexPath.section]
+        let payload = dateAndPayloads[date]![indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: NotificationTableViewCell.identifier) as! NotificationTableViewCell
         cell.notificationPayload = payload
         let timestamp = payload.timestamp
@@ -64,6 +80,26 @@ extension AlertsViewController: UITableViewDelegate, UITableViewDataSource {
 extension AlertsViewController: CloudFirestoreDelegate {
     func didFinishLoadingAll(notifications: [NotificationPayload], notificationsDict: [String : NotificationPayload]) {
         self.notifications = notifications
+        if !notifications.isEmpty {
+            var dateSet = Set<String>() // contains mm-dd-yyyy
+            for notification in notifications {
+                // check if we've seen this date before
+                let formattedDate = notification.timestamp.formattedDate
+                if dateSet.contains(formattedDate) {
+                    dateAndPayloads[formattedDate]!.append(notification)
+                } else {
+                    dateSet.insert(formattedDate)
+                    dateAndPayloads[formattedDate] = [notification]
+                }
+            }
+            orderedDates = dateSet.sorted().reversed()
+        }
         self.notificationTable.reloadData()
+    }
+}
+
+private extension Date {
+    var formattedDate: String {
+        "\(StringUtil.getStringMonth(month: self.month) ?? "N/A") \(self.day), \(self.year)"
     }
 }
