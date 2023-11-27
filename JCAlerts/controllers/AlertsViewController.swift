@@ -61,8 +61,7 @@ extension AlertsViewController: UITableViewDelegate, UITableViewDataSource {
         let payload = dateAndPayloads[date]![indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: NotificationTableViewCell.identifier) as! NotificationTableViewCell
         cell.notificationPayload = payload
-        let timestamp = payload.timestamp
-        cell.notificationSubtitleLabel.text = payload.notificationBody
+        cell.notificationSubtitleLabel.text = payload.notificationSubtitle
         cell.notificationTitleLabel.text = payload.notificationTitle
         return cell
     }
@@ -81,7 +80,7 @@ extension AlertsViewController: CloudFirestoreDelegate {
     func didFinishLoadingAll(notifications: [NotificationPayload], notificationsDict: [String : NotificationPayload]) {
         self.notifications = notifications
         if !notifications.isEmpty {
-            var dateSet = Set<String>() // contains mm-dd-yyyy
+            var dateSet = Set<String>() // contains Month dd, yyyy
             for notification in notifications {
                 // check if we've seen this date before
                 let formattedDate = notification.timestamp.formattedDate
