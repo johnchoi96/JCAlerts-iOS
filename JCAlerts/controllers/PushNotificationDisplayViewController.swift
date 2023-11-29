@@ -16,7 +16,7 @@ class PushNotificationDisplayViewController: UIViewController {
     
     var payload: [AnyHashable: Any]!
 
-    private let cloudFirestoreService = CloudFirestoreService.instance
+    private let cloudFirestoreService = CloudFirestoreService()
 
     override func viewDidLoad() {
         super.viewDidLoad()
