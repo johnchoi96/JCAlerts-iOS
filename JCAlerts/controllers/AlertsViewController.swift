@@ -31,18 +31,6 @@ class AlertsViewController: UIViewController {
         cloudFirestoreService.fetchNotificationPayloads()
     }
 
-//    override func viewWillAppear(_ animated: Bool) {
-//        super.viewWillAppear(animated)
-//        print("herehere")
-//        cloudFirestoreService.delegate = self
-//        cloudFirestoreService.fetchNotificationPayloads()
-//    }
-
-//    override func viewDidAppear(_ animated: Bool) {
-//        cloudFirestoreService.delegate = self
-//        cloudFirestoreService.fetchNotificationPayloads()
-//    }
-
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == K.Segues.alertsToNotificationDetail {
             let vc = segue.destination as! NotificationDetailViewController
@@ -107,10 +95,6 @@ extension AlertsViewController: CloudFirestoreDelegate {
         }
         self.notificationTable.reloadData()
     }
-
-//    func pushNotificationDisplayDismissed() {
-//        cloudFirestoreService.fetchNotificationPayloads()
-//    }
 }
 
 private extension Date {
