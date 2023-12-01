@@ -35,9 +35,10 @@ class NotificationDetailViewController: UIViewController {
         let year = timestamp.year
         let hour = timestamp.get12FormatHour
         let minute = timestamp.minute
+        let formattedMinute = String(format: "%02d", minute)
         let isAm = timestamp.isAm
 
-        return "\(month) \(day), \(year) at \(hour):\(minute) \(isAm)"
+        return "\(month) \(day), \(year) at \(hour):\(formattedMinute) \(isAm)"
     }
 
     @IBAction func doneTapped(_ sender: UIBarButtonItem) {
