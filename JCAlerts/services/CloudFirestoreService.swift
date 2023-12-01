@@ -32,12 +32,19 @@ class CloudFirestoreService {
                 var notifications: [NotificationPayload] = []
                 var notificationDict: [String: NotificationPayload] = [:]
                 for document in querySnapshot!.documents {
+                    let isTestMessage = document.get("test-notification") as? Bool ?? false
+#if !DEBUG
+                    // if on prod, ignore test messages
+                    if isTestMessage {
+                        continue
+                    }
+#endif
+
                     let notificationId = document.documentID
                     let message = document.get("message") as! String
                     let isHtml = document.get("isHtml") as! Bool
                     let timestamp = document.get("timestamp") as! String
                     var topic: FCMTopic
-                    let isTestMessage = document.get("test-notification") as? Bool ?? false
                     let notificationTitle = document.get("notification-title") as! String
                     let notificationSubtitle = document.get("notification-body") as! String
                     switch (document.get("topic") as! String) {

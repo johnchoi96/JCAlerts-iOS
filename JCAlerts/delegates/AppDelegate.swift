@@ -132,6 +132,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         let userInfo = notification.request.content.userInfo
         log.info("Notification Payload: \(userInfo)")
 
+#if !DEBUG
+        // check if notification is a test notification
+        let isTestMessage = Bool(userInfo["test-notification"] as! String)!
+        if isTestMessage {
+            return []
+        }
+#endif
+
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
 
@@ -148,7 +156,6 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
 
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
-
         guard let rootViewController = (UIApplication.shared.connectedScenes.first?.delegate as? SceneDelegate)?.window?.rootViewController else {
             return
         }
