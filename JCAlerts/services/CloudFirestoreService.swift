@@ -12,8 +12,6 @@ import os
 
 class CloudFirestoreService {
 
-    static let instance = CloudFirestoreService()
-
     private let db = Firestore.firestore()
 
     private let logger = os.Logger()
@@ -21,8 +19,6 @@ class CloudFirestoreService {
     var delegate: CloudFirestoreDelegate?
 
     private let DB_COLLECTION_NOTIFICATIONS = "notifications"
-
-    private init() {}
 
     func fetchNotificationPayloads() {
         db.collection(DB_COLLECTION_NOTIFICATIONS).order(by: "timestamp", descending: true).getDocuments() { (querySnapshot, error) in

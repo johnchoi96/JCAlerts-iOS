@@ -12,7 +12,7 @@ class AlertsViewController: UIViewController {
 
     @IBOutlet weak var notificationTable: UITableView!
 
-    private let cloudFirestoreService = CloudFirestoreService.instance
+    private let cloudFirestoreService = CloudFirestoreService()
 
     var notifications: [NotificationPayload] = []
 
