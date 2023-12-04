@@ -19,6 +19,8 @@ class AlertsViewController: UIViewController {
     var dateAndPayloads: [String: [NotificationPayload]] = [:]
     var orderedDates: [String] = []
 
+    private lazy var refreshControl = UIRefreshControl()
+
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
@@ -28,6 +30,14 @@ class AlertsViewController: UIViewController {
         notificationTable.register(NotificationTableViewCell.nib, forCellReuseIdentifier: NotificationTableViewCell.identifier)
 
         cloudFirestoreService.delegate = self
+        cloudFirestoreService.fetchNotificationPayloads()
+
+        refreshControl.attributedTitle = NSAttributedString(string: "Pull to refresh")
+        refreshControl.addTarget(self, action: #selector(self.refreshNotifications(_:)), for: .valueChanged)
+        notificationTable.addSubview(refreshControl)
+    }
+
+    @objc private func refreshNotifications(_ sender: AnyObject) {
         cloudFirestoreService.fetchNotificationPayloads()
     }
 
@@ -94,6 +104,7 @@ extension AlertsViewController: CloudFirestoreDelegate {
             orderedDates = dateSet.sorted().reversed()
         }
         self.notificationTable.reloadData()
+        refreshControl.endRefreshing()
     }
 }
 
