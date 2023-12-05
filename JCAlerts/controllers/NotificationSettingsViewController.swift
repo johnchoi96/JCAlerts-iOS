@@ -40,6 +40,4 @@ extension NotificationSettingsViewController: UITableViewDelegate, UITableViewDa
         cell.notificationSwitch.setOn(fcmInstance.topicIsSubscribed(topic: cell.notificationTopic), animated: true)
         return cell
     }
-    
-
 }
