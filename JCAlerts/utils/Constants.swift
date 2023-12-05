@@ -25,6 +25,8 @@ struct K {
     }
 
     struct Colors {
-        static let htmlTextColor = "HtmlTextColor"
+        static let inverseTextColor = "InverseTextColor"
+        static let defaultTextColor = "DefaultTextColor"
+        static let backgroundColor = "BackgroundColor"
     }
 }
