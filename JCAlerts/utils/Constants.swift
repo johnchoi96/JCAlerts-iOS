@@ -23,4 +23,8 @@ struct K {
         static let settingsToNotificationSettings = "settingsToNotificationSettings"
         static let alertsToNotificationDetail = "alertsToNotificationDetail"
     }
+
+    struct Colors {
+        static let htmlTextColor = "HtmlTextColor"
+    }
 }

@@ -21,6 +21,7 @@ class NotificationDetailViewController: UIViewController {
         self.title = "Notification Detail"
         if notificationPayload.isHtml {
             messageView.attributedText = notificationPayload.message.htmlToAttributedString
+            messageView.textColor = UIColor(named: K.Colors.htmlTextColor)
         } else {
             messageView.text = notificationPayload.message
         }
