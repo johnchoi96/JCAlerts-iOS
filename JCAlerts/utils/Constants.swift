@@ -29,4 +29,8 @@ struct K {
         static let defaultTextColor = "DefaultTextColor"
         static let backgroundColor = "BackgroundColor"
     }
+
+    struct Images {
+        static let johnchoiMemoji = "johnchoi_memoji"
+    }
 }
