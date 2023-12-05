@@ -14,7 +14,7 @@ class FCMTopicService {
 
     private let TOPIC_KEY = "fcm-topics"
 
-    private let DEFAULT_FCM_TOPIC = "jc-alerts-all"
+    private let DEFAULT_FCM_TOPIC = FCMTopic.ALL
 
     private let fcmInstance = Messaging.messaging()
 
@@ -71,7 +71,7 @@ class FCMTopicService {
     }
 
     func getTopicsAsStrings() -> [String] {
-        return UserDefaults.standard.stringArray(forKey: TOPIC_KEY) ?? [DEFAULT_FCM_TOPIC]
+        return UserDefaults.standard.stringArray(forKey: TOPIC_KEY) ?? [DEFAULT_FCM_TOPIC.getTopicValue()]
     }
 
     func topicIsSubscribed(topic: FCMTopic) -> Bool {
@@ -86,10 +86,10 @@ class FCMTopicService {
 
     private func setTopics(as topicsList: inout [String]) {
         if topicsList.count == 0 {
-            topicsList.append(DEFAULT_FCM_TOPIC)
+            topicsList.append(DEFAULT_FCM_TOPIC.getTopicValue())
         }
-        if !topicsList.contains(DEFAULT_FCM_TOPIC) {
-            topicsList.insert(DEFAULT_FCM_TOPIC, at: 0)
+        if !topicsList.contains(DEFAULT_FCM_TOPIC.getTopicValue()) {
+            topicsList.insert(DEFAULT_FCM_TOPIC.getTopicValue(), at: 0)
         }
         UserDefaults.standard.set(topicsList, forKey: TOPIC_KEY)
     }
