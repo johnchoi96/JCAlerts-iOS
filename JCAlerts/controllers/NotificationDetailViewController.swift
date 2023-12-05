@@ -18,12 +18,14 @@ class NotificationDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor(named: K.Colors.backgroundColor)
         if notificationPayload.isHtml {
             messageView.attributedText = notificationPayload.message.htmlToAttributedString
             messageView.textColor = UIColor(named: K.Colors.inverseTextColor)
         } else {
             messageView.text = notificationPayload.message
         }
+        messageView.layer.cornerRadius = 15
         topicNameLabel.text = notificationPayload.topic.getTopicName()
         let timestamp = notificationPayload.timestamp
         timestampLabel.text = formatTimestamp(timestamp: timestamp)

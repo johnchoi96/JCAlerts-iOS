@@ -24,6 +24,8 @@ class PushNotificationDisplayViewController: UIViewController {
         // Do any additional setup after loading the view.
         title = "Notification Detail"
         textView.text = "Loading..."
+        textView.layer.cornerRadius = 15
+        self.view.backgroundColor = UIColor(named: K.Colors.backgroundColor)
 
         cloudFirestoreService.delegate = self
 
