@@ -14,9 +14,8 @@ class AlertsViewController: UIViewController {
 
     private let cloudFirestoreService = CloudFirestoreService()
 
-    var notifications: [NotificationPayload] = []
-
     var dateAndPayloads: [String: [NotificationPayload]] = [:]
+    
     var orderedDates: [String] = []
 
     private lazy var refreshControl = UIRefreshControl()
@@ -88,10 +87,12 @@ extension AlertsViewController: UITableViewDelegate, UITableViewDataSource {
 
 extension AlertsViewController: CloudFirestoreDelegate {
     func didFinishLoadingAll(notifications: [NotificationPayload], notificationsDict: [String : NotificationPayload]) {
-        self.notifications = notifications
-        if !notifications.isEmpty {
+        let filteredNotifications = notifications.filter { payload in
+            FCMTopicService.instance.topicIsSubscribed(topic: payload.topic.getTopicValue())
+        }
+        if !filteredNotifications.isEmpty {
             var dateSet = Set<String>() // contains Month dd, yyyy
-            for notification in notifications {
+            for notification in filteredNotifications {
                 // check if we've seen this date before
                 let formattedDate = notification.timestamp.formattedDate
                 if dateSet.contains(formattedDate) {
