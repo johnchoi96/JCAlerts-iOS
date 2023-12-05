@@ -37,7 +37,7 @@ extension NotificationSettingsViewController: UITableViewDelegate, UITableViewDa
         let cell = tableView.dequeueReusableCell(withIdentifier: NotificationSettingsTableViewCell.identifier, for: indexPath) as! NotificationSettingsTableViewCell
         cell.notificationLabel.text = notificationTypes[indexPath.row].getTopicName()
         cell.notificationTopic = notificationTypes[indexPath.row].getTopicValue()
-        cell.notificationSwitch.setOn(fcmInstance.topicIsSubscribed(topic: cell.notificationTopic), animated: true)
+        cell.notificationSwitch.setOn(fcmInstance.topicIsSubscribed(topic: notificationTypes[indexPath.row]), animated: true)
         return cell
     }
 }

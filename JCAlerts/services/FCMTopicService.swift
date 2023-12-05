@@ -22,17 +22,17 @@ class FCMTopicService {
 
     private init() {}
     
-    func subscribe(toTopic topic: String) {
+    func subscribe(toTopic topic: FCMTopic) {
         // save list of topics to UserDefaults
-        var topics = getTopics()
+        var topics = getTopicsAsStrings()
         // check to see if the topic exists in the list of topics
-        if topics.contains(topic) {
+        if topics.contains(topic.getTopicValue()) {
             // do nothing
-            log.warning("Already subscribed to the \(topic) topic. This will not be subscribed again.")
+            log.warning("Already subscribed to the \(topic.getTopicName()) topic. This will not be subscribed again.")
             return
         }
-        topics.append(topic)
-        fcmInstance.subscribe(toTopic: topic) { error in
+        topics.append(topic.getTopicValue())
+        fcmInstance.subscribe(toTopic: topic.getTopicValue()) { error in
             if error != nil {
                 // do something
                 print(error!)
@@ -43,12 +43,12 @@ class FCMTopicService {
         setTopics(as: &topics)
     }
 
-    func unsubscribe(fromTopic topic: String) {
-        var topics = getTopics()
+    func unsubscribe(fromTopic topic: FCMTopic) {
+        var topics = getTopicsAsStrings()
         // find index of topic
         var index = -1
         for i in 0..<topics.count {
-            if topics[i] == topic {
+            if topics[i] == topic.getTopicValue() {
                 index = i
                 break
             }
@@ -59,7 +59,7 @@ class FCMTopicService {
         // remove from the index
         topics.remove(at: index)
         // unsub from fcm
-        fcmInstance.unsubscribe(fromTopic: topic) { error in
+        fcmInstance.unsubscribe(fromTopic: topic.getTopicValue()) { error in
             if let error = error {
                 print(error)
             } else {
@@ -70,16 +70,16 @@ class FCMTopicService {
         setTopics(as: &topics)
     }
 
-    func getTopics() -> [String] {
+    func getTopicsAsStrings() -> [String] {
         return UserDefaults.standard.stringArray(forKey: TOPIC_KEY) ?? [DEFAULT_FCM_TOPIC]
     }
 
-    func topicIsSubscribed(topic: String) -> Bool {
-        return getTopics().contains(topic)
+    func topicIsSubscribed(topic: FCMTopic) -> Bool {
+        return getTopicsAsStrings().contains(topic.getTopicValue())
     }
 
     func restoreSubscription() {
-        for topic in getTopics() {
+        for topic in getTopicsAsStrings() {
             fcmInstance.subscribe(toTopic: topic)
         }
     }

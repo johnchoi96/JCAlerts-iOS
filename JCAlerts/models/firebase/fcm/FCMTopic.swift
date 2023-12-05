@@ -30,4 +30,16 @@ extension FCMTopic {
     func getTopicValue() -> String {
         return self.rawValue
     }
+
+    static func getTopic(with string: String) -> FCMTopic? {
+        if string == FCMTopic.ALL.getTopicName() || string == FCMTopic.ALL.getTopicValue() {
+            return .ALL
+        } else if string == FCMTopic.PETFINDER.getTopicName() || string == FCMTopic.PETFINDER.getTopicValue() {
+            return .PETFINDER
+        } else if string == FCMTopic.METALPRICE.getTopicName() || string == FCMTopic.METALPRICE.getTopicValue() {
+            return .METALPRICE
+        } else {
+            return nil
+        }
+    }
 }
