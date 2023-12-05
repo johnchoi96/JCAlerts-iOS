@@ -22,6 +22,8 @@ class NotificationSettingsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor(named: K.Colors.backgroundColor)
+        tableView.backgroundColor = .clear
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(NotificationSettingsTableViewCell.nib, forCellReuseIdentifier: NotificationSettingsTableViewCell.identifier)

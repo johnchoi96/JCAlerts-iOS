@@ -19,6 +19,8 @@ class SettingsViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
+        self.view.backgroundColor = UIColor(named: K.Colors.backgroundColor)
+        tableView.backgroundColor = .clear
         tableView.dataSource = self
         tableView.delegate = self
 

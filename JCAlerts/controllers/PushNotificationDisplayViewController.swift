@@ -24,6 +24,8 @@ class PushNotificationDisplayViewController: UIViewController {
         // Do any additional setup after loading the view.
         title = "Notification Detail"
         textView.text = "Loading..."
+        textView.layer.cornerRadius = 15
+        self.view.backgroundColor = UIColor(named: K.Colors.backgroundColor)
 
         cloudFirestoreService.delegate = self
 
@@ -42,7 +44,7 @@ extension PushNotificationDisplayViewController: CloudFirestoreDelegate {
     func didFinishLoadingSingleNotification(notificationId: String, notification: NotificationPayload) {
         if notification.isHtml {
             self.textView.attributedText = notification.message.htmlToAttributedString
-            textView.textColor = UIColor(named: K.Colors.htmlTextColor)
+            textView.textColor = UIColor(named: K.Colors.inverseTextColor)
         } else {
             self.textView.text = notification.message
         }

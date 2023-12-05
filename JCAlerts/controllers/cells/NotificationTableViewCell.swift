@@ -29,6 +29,7 @@ class NotificationTableViewCell: UITableViewCell {
         self.accessoryType = .detailButton
 
         parentView.layer.cornerRadius = 20
+        topicLabel.textColor = UIColor(named: K.Colors.defaultTextColor)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
