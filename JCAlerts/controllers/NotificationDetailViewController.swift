@@ -18,7 +18,7 @@ class NotificationDetailViewController: UIViewController {
         super.viewDidLoad()
 
         // Do any additional setup after loading the view.
-        self.title = "Notification Detail"
+        title = "Notification Detail"
         if notificationPayload.isHtml {
             messageView.attributedText = notificationPayload.message.htmlToAttributedString
             messageView.textColor = UIColor(named: K.Colors.htmlTextColor)
