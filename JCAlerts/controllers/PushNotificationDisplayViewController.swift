@@ -42,6 +42,7 @@ extension PushNotificationDisplayViewController: CloudFirestoreDelegate {
     func didFinishLoadingSingleNotification(notificationId: String, notification: NotificationPayload) {
         if notification.isHtml {
             self.textView.attributedText = notification.message.htmlToAttributedString
+            textView.textColor = UIColor(named: K.Colors.htmlTextColor)
         } else {
             self.textView.text = notification.message
         }

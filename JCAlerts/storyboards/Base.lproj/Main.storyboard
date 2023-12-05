@@ -61,7 +61,7 @@
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bgo-0v-X4P">
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="108"/>
                                 <items>
-                                    <navigationItem title="Title" id="q9G-LJ-dxW">
+                                    <navigationItem title="Details" id="q9G-LJ-dxW">
                                         <barButtonItem key="rightBarButtonItem" systemItem="done" id="pfX-l3-BvD">
                                             <connections>
                                                 <action selector="doneTapped:" destination="Hnq-jh-zBA" id="3Uh-lr-MFZ"/>
