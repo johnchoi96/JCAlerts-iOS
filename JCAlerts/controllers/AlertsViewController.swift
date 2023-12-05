@@ -72,6 +72,7 @@ extension AlertsViewController: UITableViewDelegate, UITableViewDataSource {
         cell.notificationPayload = payload
         cell.notificationSubtitleLabel.text = payload.notificationSubtitle
         cell.notificationTitleLabel.text = payload.notificationTitle
+        cell.topicLabel.text = "#\(payload.topic.getTopicName().lowercased())"
         return cell
     }
 
