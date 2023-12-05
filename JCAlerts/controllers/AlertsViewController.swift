@@ -7,6 +7,7 @@
 
 import UIKit
 import FirebaseMessaging
+import os
 
 class AlertsViewController: UIViewController {
 
@@ -19,6 +20,8 @@ class AlertsViewController: UIViewController {
     var orderedDates: [String] = []
 
     private lazy var refreshControl = UIRefreshControl()
+
+    private let log = Logger()
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -89,7 +92,7 @@ extension AlertsViewController: UITableViewDelegate, UITableViewDataSource {
 extension AlertsViewController: CloudFirestoreDelegate {
     func didFinishLoadingAll(notifications: [NotificationPayload], notificationsDict: [String : NotificationPayload]) {
         let filteredNotifications = notifications.filter { payload in
-            FCMTopicService.instance.topicIsSubscribed(topic: payload.topic.getTopicValue())
+            FCMTopicService.instance.topicIsSubscribed(topic: payload.topic)
         }
         if !filteredNotifications.isEmpty {
             var dateSet = Set<String>() // contains Month dd, yyyy
@@ -107,6 +110,7 @@ extension AlertsViewController: CloudFirestoreDelegate {
         }
         self.notificationTable.reloadData()
         refreshControl.endRefreshing()
+        log.info("Finished refreshing notification list")
     }
 }
 

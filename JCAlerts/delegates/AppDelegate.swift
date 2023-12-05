@@ -186,7 +186,7 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         Messaging.messaging().apnsToken = deviceToken
         FCMTopicService.instance.restoreSubscription()
-        log.info("\(FCMTopicService.instance.getTopics())")
+        log.info("\(FCMTopicService.instance.getTopicsAsStrings())")
     }
 
 }

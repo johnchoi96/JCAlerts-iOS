@@ -38,12 +38,16 @@ class NotificationSettingsTableViewCell: UITableViewCell {
     }
 
     @IBAction func switchTapped(_ sender: UISwitch) {
-        if sender.isOn {
-            fcmTopicService.subscribe(toTopic: notificationTopic)
-        } else {
-            fcmTopicService.unsubscribe(fromTopic: notificationTopic)
+        guard let topic = FCMTopic.getTopic(with: notificationTopic) else {
+            log.error("Invalid topic")
+            return
         }
-        log.info("\(self.fcmTopicService.getTopics())")
+        if sender.isOn {
+            fcmTopicService.subscribe(toTopic: topic)
+        } else {
+            fcmTopicService.unsubscribe(fromTopic: topic)
+        }
+        log.info("\(self.fcmTopicService.getTopicsAsStrings())")
     }
     
 }
