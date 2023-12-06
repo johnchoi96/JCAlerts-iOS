@@ -1,17 +1,17 @@
 {
   "images" : [
     {
-      "filename" : "johnchoi_memoji.png",
+      "filename" : "Screenshot 2023-12-06 at 5.54.44 PM.png",
       "idiom" : "universal",
       "scale" : "1x"
     },
     {
-      "filename" : "johnchoi_memoji@2x.png",
+      "filename" : "Screenshot 2023-12-06 at 5.54.44 PM@2x.png",
       "idiom" : "universal",
       "scale" : "2x"
     },
     {
-      "filename" : "johnchoi_memoji@3x.png",
+      "filename" : "Screenshot 2023-12-06 at 5.54.44 PM@3x.png",
       "idiom" : "universal",
       "scale" : "3x"
     }
