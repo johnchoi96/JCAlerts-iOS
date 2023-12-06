@@ -31,6 +31,6 @@ struct K {
     }
 
     struct Images {
-        static let johnchoiMemoji = "johnchoi_memoji"
+        static let jcAlertsLogo = "jcalerts_logo"
     }
 }
