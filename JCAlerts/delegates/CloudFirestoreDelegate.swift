@@ -9,6 +9,11 @@ import Foundation
 
 protocol CloudFirestoreDelegate {
 
+    /**
+     Called when all notifications have been fetched from the DB.
+     - Parameter notifications: list of notification payloads
+     - Parameter notificationsDict: dictionary of notification IDs mapped to notification payloads
+     */
     func didFinishLoadingAll(notifications: [NotificationPayload], notificationsDict: [String: NotificationPayload])
 
     func didFinishLoadingSingleNotification(notificationId: String, notification: NotificationPayload)

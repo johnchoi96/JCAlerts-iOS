@@ -15,9 +15,9 @@ class AlertsViewController: UIViewController {
 
     private let cloudFirestoreService = CloudFirestoreService()
 
-    var dateAndPayloads: [String: [NotificationPayload]] = [:]
+    var categorizedPayloads: [String: [NotificationPayload]] = [:]
     
-    var orderedDates: [String] = []
+    var sortedHumanReadableDates: [String] = []
 
     private lazy var refreshControl = UIRefreshControl()
 
@@ -55,24 +55,24 @@ class AlertsViewController: UIViewController {
 
 extension AlertsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return orderedDates.count
+        return sortedHumanReadableDates.count
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return orderedDates[section]
+        return sortedHumanReadableDates[section]
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if orderedDates.isEmpty {
+        if sortedHumanReadableDates.isEmpty {
             return 0
         }
-        let date = orderedDates[section]
-        return dateAndPayloads[date]!.count
+        let date = sortedHumanReadableDates[section]
+        return categorizedPayloads[date]!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let date = orderedDates[indexPath.section]
-        let payload = dateAndPayloads[date]![indexPath.row]
+        let date = sortedHumanReadableDates[indexPath.section]
+        let payload = categorizedPayloads[date]![indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: NotificationTableViewCell.identifier) as! NotificationTableViewCell
         cell.notificationPayload = payload
         cell.notificationSubtitleLabel.text = payload.notificationSubtitle
@@ -97,18 +97,35 @@ extension AlertsViewController: CloudFirestoreDelegate {
             FCMTopicService.instance.topicIsSubscribed(topic: payload.topic)
         }
         if !filteredNotifications.isEmpty {
-            var dateSet = Set<String>() // contains Month dd, yyyy
-            for notification in filteredNotifications {
-                // check if we've seen this date before
-                let formattedDate = notification.timestamp.formattedDate
-                if dateSet.contains(formattedDate) {
-                    dateAndPayloads[formattedDate]!.append(notification)
-                } else {
-                    dateSet.insert(formattedDate)
-                    dateAndPayloads[formattedDate] = [notification]
+            for notification in notifications {
+                let humanReadableDate = notification.timestamp.formattedDate
+                if categorizedPayloads[humanReadableDate] == nil {
+                    categorizedPayloads[humanReadableDate] = []
                 }
+                categorizedPayloads[humanReadableDate]?.append(notification)
             }
-            orderedDates = dateSet.sorted().reversed()
+            for key in categorizedPayloads.keys {
+                categorizedPayloads[key]?.sort(by: { firstPayload, secondPayload in
+                    firstPayload.timestamp > secondPayload.timestamp
+                })
+            }
+            // calculate sortedHumanReadableDates
+            var rawToFormatted: [Date: String] = [:]
+            for notification in notifications {
+                let humanReadableDate = notification.timestamp.formattedDate
+                rawToFormatted[notification.timestamp] = humanReadableDate
+            }
+            var formattedDateSet: Set<String> = Set()
+            let sortedPairs = rawToFormatted.sorted { pair1, pair2 in
+                pair1.key > pair2.key
+            }
+            for pair in sortedPairs {
+                if formattedDateSet.contains(pair.value) {
+                    continue
+                }
+                formattedDateSet.insert(pair.value)
+                sortedHumanReadableDates.append(pair.value)
+            }
         }
         self.notificationTable.reloadData()
         refreshControl.endRefreshing()
