@@ -30,6 +30,10 @@
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
+                            <activityIndicatorView opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" animating="YES" style="large" translatesAutoresizingMaskIntoConstraints="NO" id="QJy-DZ-SRA">
+                                <rect key="frame" x="186" y="416" width="20" height="20"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </activityIndicatorView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="opaqueSeparatorColor"/>
@@ -42,6 +46,7 @@
                     </view>
                     <navigationItem key="navigationItem" title="Alerts" id="ln9-2b-KYk"/>
                     <connections>
+                        <outlet property="loadingIndicator" destination="QJy-DZ-SRA" id="odo-Fa-nKp"/>
                         <outlet property="notificationTable" destination="Nw0-VF-TCy" id="Owf-yC-Ki9"/>
                         <segue destination="Hnq-jh-zBA" kind="presentation" identifier="alertsToNotificationDetail" id="9HY-y0-jTj"/>
                     </connections>

@@ -11,6 +11,8 @@ import os
 
 class AlertsViewController: UIViewController {
 
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+
     @IBOutlet weak var notificationTable: UITableView!
 
     private let cloudFirestoreService = CloudFirestoreService()
@@ -26,6 +28,8 @@ class AlertsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        loadingIndicator.startAnimating()
+        loadingIndicator.hidesWhenStopped = true
         self.view.backgroundColor = UIColor(named: K.Colors.backgroundColor)
 
         notificationTable.backgroundColor = .clear
@@ -128,6 +132,7 @@ extension AlertsViewController: CloudFirestoreDelegate {
         }
         self.notificationTable.reloadData()
         refreshControl.endRefreshing()
+        loadingIndicator.stopAnimating()
         log.info("Finished refreshing notification list")
     }
 }
