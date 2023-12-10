@@ -97,8 +97,12 @@ extension AlertsViewController: CloudFirestoreDelegate {
             FCMTopicService.instance.topicIsSubscribed(topic: payload.topic)
         }
         if !filteredNotifications.isEmpty {
+            categorizedPayloads = [:]
+            sortedHumanReadableDates = []
+            var rawToFormatted: [Date: String] = [:]
             for notification in notifications {
                 let humanReadableDate = notification.timestamp.formattedDate
+                rawToFormatted[notification.timestamp] = humanReadableDate
                 if categorizedPayloads[humanReadableDate] == nil {
                     categorizedPayloads[humanReadableDate] = []
                 }
@@ -110,11 +114,6 @@ extension AlertsViewController: CloudFirestoreDelegate {
                 })
             }
             // calculate sortedHumanReadableDates
-            var rawToFormatted: [Date: String] = [:]
-            for notification in notifications {
-                let humanReadableDate = notification.timestamp.formattedDate
-                rawToFormatted[notification.timestamp] = humanReadableDate
-            }
             var formattedDateSet: Set<String> = Set()
             let sortedPairs = rawToFormatted.sorted { pair1, pair2 in
                 pair1.key > pair2.key
