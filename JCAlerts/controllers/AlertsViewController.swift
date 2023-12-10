@@ -17,6 +17,10 @@ class AlertsViewController: UIViewController {
 
     private let cloudFirestoreService = CloudFirestoreService()
 
+    /**
+     Human readable dates to list of notification payloads
+     The list of notification payloads are sorted in the descending order.
+     */
     var categorizedPayloads: [String: [NotificationPayload]] = [:]
     
     var sortedHumanReadableDates: [String] = []
