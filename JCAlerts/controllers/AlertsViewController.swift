@@ -11,13 +11,19 @@ import os
 
 class AlertsViewController: UIViewController {
 
+    @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
+
     @IBOutlet weak var notificationTable: UITableView!
 
     private let cloudFirestoreService = CloudFirestoreService()
 
-    var dateAndPayloads: [String: [NotificationPayload]] = [:]
+    /**
+     Human readable dates to list of notification payloads
+     The list of notification payloads are sorted in the descending order.
+     */
+    var categorizedPayloads: [String: [NotificationPayload]] = [:]
     
-    var orderedDates: [String] = []
+    var sortedHumanReadableDates: [String] = []
 
     private lazy var refreshControl = UIRefreshControl()
 
@@ -26,6 +32,8 @@ class AlertsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        loadingIndicator.startAnimating()
+        loadingIndicator.hidesWhenStopped = true
         self.view.backgroundColor = UIColor(named: K.Colors.backgroundColor)
 
         notificationTable.backgroundColor = .clear
@@ -55,24 +63,24 @@ class AlertsViewController: UIViewController {
 
 extension AlertsViewController: UITableViewDelegate, UITableViewDataSource {
     func numberOfSections(in tableView: UITableView) -> Int {
-        return orderedDates.count
+        return sortedHumanReadableDates.count
     }
 
     func tableView(_ tableView: UITableView, titleForHeaderInSection section: Int) -> String? {
-        return orderedDates[section]
+        return sortedHumanReadableDates[section]
     }
 
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        if orderedDates.isEmpty {
+        if sortedHumanReadableDates.isEmpty {
             return 0
         }
-        let date = orderedDates[section]
-        return dateAndPayloads[date]!.count
+        let date = sortedHumanReadableDates[section]
+        return categorizedPayloads[date]!.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let date = orderedDates[indexPath.section]
-        let payload = dateAndPayloads[date]![indexPath.row]
+        let date = sortedHumanReadableDates[indexPath.section]
+        let payload = categorizedPayloads[date]![indexPath.row]
         let cell = tableView.dequeueReusableCell(withIdentifier: NotificationTableViewCell.identifier) as! NotificationTableViewCell
         cell.notificationPayload = payload
         cell.notificationSubtitleLabel.text = payload.notificationSubtitle
@@ -97,21 +105,38 @@ extension AlertsViewController: CloudFirestoreDelegate {
             FCMTopicService.instance.topicIsSubscribed(topic: payload.topic)
         }
         if !filteredNotifications.isEmpty {
-            var dateSet = Set<String>() // contains Month dd, yyyy
-            for notification in filteredNotifications {
-                // check if we've seen this date before
-                let formattedDate = notification.timestamp.formattedDate
-                if dateSet.contains(formattedDate) {
-                    dateAndPayloads[formattedDate]!.append(notification)
-                } else {
-                    dateSet.insert(formattedDate)
-                    dateAndPayloads[formattedDate] = [notification]
+            categorizedPayloads = [:]
+            sortedHumanReadableDates = []
+            var rawToFormatted: [Date: String] = [:]
+            for notification in notifications {
+                let humanReadableDate = notification.timestamp.formattedDate
+                rawToFormatted[notification.timestamp] = humanReadableDate
+                if categorizedPayloads[humanReadableDate] == nil {
+                    categorizedPayloads[humanReadableDate] = []
                 }
+                categorizedPayloads[humanReadableDate]?.append(notification)
             }
-            orderedDates = dateSet.sorted().reversed()
+            for key in categorizedPayloads.keys {
+                categorizedPayloads[key]?.sort(by: { firstPayload, secondPayload in
+                    firstPayload.timestamp > secondPayload.timestamp
+                })
+            }
+            // calculate sortedHumanReadableDates
+            var formattedDateSet: Set<String> = Set()
+            let sortedPairs = rawToFormatted.sorted { pair1, pair2 in
+                pair1.key > pair2.key
+            }
+            for pair in sortedPairs {
+                if formattedDateSet.contains(pair.value) {
+                    continue
+                }
+                formattedDateSet.insert(pair.value)
+                sortedHumanReadableDates.append(pair.value)
+            }
         }
         self.notificationTable.reloadData()
         refreshControl.endRefreshing()
+        loadingIndicator.stopAnimating()
         log.info("Finished refreshing notification list")
     }
 }
