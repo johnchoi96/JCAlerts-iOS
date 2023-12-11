@@ -9,6 +9,14 @@ import Foundation
 
 extension Date {
 
+    /**
+     Returns human readable date.
+     For example: January 1, 1970
+     */
+    var formattedDate: String {
+        "\(StringUtil.getStringMonth(month: self.month) ?? "N/A") \(self.day), \(self.year)"
+    }
+
     var year: Int {
         let formatter = DateFormatter()
         formatter.dateFormat = "yyyy"
