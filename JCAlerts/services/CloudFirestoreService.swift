@@ -8,6 +8,7 @@
 import Foundation
 import FirebaseCore
 import FirebaseFirestore
+import FirebaseFirestoreSwift
 import os
 
 class CloudFirestoreService {
@@ -16,9 +17,13 @@ class CloudFirestoreService {
 
     private let logger = os.Logger()
 
+    private let userService = UserService.instance
+
     var delegate: CloudFirestoreDelegate?
 
     private let DB_COLLECTION_NOTIFICATIONS = "notifications"
+
+    private let DB_COLLECTION_NOTIFICATION_COMMENTS = "notification-comments"
 
     func fetchNotificationPayloads() {
         db.collection(DB_COLLECTION_NOTIFICATIONS).order(by: "timestamp", descending: true).getDocuments() { (querySnapshot, error) in
@@ -92,6 +97,42 @@ class CloudFirestoreService {
             } else {
                 self.logger.error("Notification with ID \(notificationId) does not exist")
             }
+        }
+    }
+
+    func addCommentToNotification(withId: String, comment: String) {
+        let commentPayload = NotificationCommentPayload(comment: comment, username: userService.getCurrentUsername(), timestamp: Date.now)
+        let collectionRef = db.collection(DB_COLLECTION_NOTIFICATION_COMMENTS)
+        let documentRef = collectionRef.document(withId).collection("comments").document()
+        do {
+            try documentRef.setData(from: commentPayload)
+            delegate?.didFinishUploadingComment()
+        } catch let error {
+            logger.error("\(error.localizedDescription)")
+        }
+    }
+
+    func retrieveCommentsForNotification(with id: String) async throws -> [NotificationCommentPayload] {
+        let collectionRef = db.collection(DB_COLLECTION_NOTIFICATION_COMMENTS)
+        let commentCollectionRef = collectionRef.document(id).collection("comments")
+
+        do {
+            let snapshot = try await commentCollectionRef.getDocuments()
+
+            var payloadList = [NotificationCommentPayload]()
+            for document in snapshot.documents {
+                do {
+                    let payload = try document.data(as: NotificationCommentPayload.self)
+                    payloadList.append(payload)
+                } catch {
+                    self.logger.error("\(error)")
+                }
+            }
+
+            return payloadList
+        } catch {
+            self.logger.error("Error while getting snapshot \(error)")
+            throw error
         }
     }
 }

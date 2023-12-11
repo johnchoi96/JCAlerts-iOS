@@ -46,4 +46,15 @@ class NotificationDetailViewController: UIViewController {
     @IBAction func doneTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
     }
+    
+    @IBAction func commentsTapped(_ sender: UIButton) {
+        performSegue(withIdentifier: K.Segues.notificationDetailToComments, sender: notificationPayload)
+    }
+
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == K.Segues.notificationDetailToComments {
+            let vc = segue.destination as! NotificationCommentsViewController
+            vc.notificationPayload = sender as? NotificationPayload
+        }
+    }
 }
