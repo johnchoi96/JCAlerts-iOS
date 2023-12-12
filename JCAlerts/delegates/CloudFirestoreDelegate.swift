@@ -17,6 +17,8 @@ protocol CloudFirestoreDelegate {
     func didFinishLoadingAll(notifications: [NotificationPayload], notificationsDict: [String: NotificationPayload])
 
     func didFinishLoadingSingleNotification(notificationId: String, notification: NotificationPayload)
+
+    func didFinishUploadingComment()
 }
 
 extension CloudFirestoreDelegate {
@@ -24,4 +26,6 @@ extension CloudFirestoreDelegate {
     func didFinishLoadingAll(notifications: [NotificationPayload], notificationsDict: [String: NotificationPayload]) {}
 
     func didFinishLoadingSingleNotification(notificationId: String, notification: NotificationPayload) {}
+
+    func didFinishUploadingComment() {}
 }

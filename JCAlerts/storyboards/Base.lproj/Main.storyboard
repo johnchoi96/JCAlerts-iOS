@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Nw0-VF-TCy">
-                                <rect key="frame" x="0.0" y="103" width="393" height="666"/>
+                                <rect key="frame" x="0.0" y="155" width="393" height="614"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="notificationCell" id="0m9-X3-6Fh">
@@ -64,7 +64,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="bgo-0v-X4P">
-                                <rect key="frame" x="0.0" y="0.0" width="393" height="108"/>
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="0.0"/>
                                 <items>
                                     <navigationItem title="Details" id="q9G-LJ-dxW">
                                         <rightBarButtonItems>
@@ -83,7 +83,7 @@
                                 </items>
                             </navigationBar>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="top" spacing="55" translatesAutoresizingMaskIntoConstraints="NO" id="hQR-8i-7Dn">
-                                <rect key="frame" x="10" y="108" width="373" height="734"/>
+                                <rect key="frame" x="10" y="0.0" width="373" height="842"/>
                                 <subviews>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="31" translatesAutoresizingMaskIntoConstraints="NO" id="Vvf-iV-ady" userLabel="Topic Stack View">
                                         <rect key="frame" x="0.0" y="0.0" width="373" height="20.333333333333332"/>
@@ -106,7 +106,7 @@
                                         </constraints>
                                     </stackView>
                                     <stackView opaque="NO" contentMode="scaleToFill" spacing="34" translatesAutoresizingMaskIntoConstraints="NO" id="NpE-23-rNX" userLabel="Timestamp Stack View">
-                                        <rect key="frame" x="0.0" y="75.333333333333343" width="373" height="20.333333333333329"/>
+                                        <rect key="frame" x="0.0" y="75.333333333333329" width="373" height="20.333333333333329"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="Timestamp:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eYl-3Y-hca">
                                                 <rect key="frame" x="0.0" y="0.0" width="239.66666666666666" height="20.333333333333332"/>
@@ -126,24 +126,36 @@
                                         </constraints>
                                     </stackView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Content:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SvV-rj-eZw">
-                                        <rect key="frame" x="0.0" y="150.66666666666669" width="373" height="20.333333333333343"/>
+                                        <rect key="frame" x="0.0" y="150.66666666666666" width="373" height="20.333333333333343"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" keyboardDismissMode="interactive" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="Bgl-At-KQ0">
-                                        <rect key="frame" x="0.0" y="226" width="373" height="508"/>
+                                        <rect key="frame" x="0.0" y="226" width="373" height="461"/>
                                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                         <string key="text">Lorem ipsum dolor sit er elit lamet, consectetaur cillium adipisicing pecu, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum. Nam liber te conscient to factor tum poen legum odioque civiuda.</string>
                                         <color key="textColor" systemColor="labelColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                                     </textView>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jbq-wt-H0V">
+                                        <rect key="frame" x="0.0" y="742" width="373" height="100"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="100" id="tcQ-nL-qVG"/>
+                                        </constraints>
+                                        <buttonConfiguration key="configuration" style="gray" image="text.bubble" catalog="system" title="Comments"/>
+                                        <connections>
+                                            <action selector="commentsTapped:" destination="Hnq-jh-zBA" eventType="touchUpInside" id="buO-DN-3rh"/>
+                                        </connections>
+                                    </button>
                                 </subviews>
                                 <constraints>
                                     <constraint firstAttribute="trailing" secondItem="Vvf-iV-ady" secondAttribute="trailing" id="IFA-HS-Jvr"/>
                                     <constraint firstItem="NpE-23-rNX" firstAttribute="leading" secondItem="hQR-8i-7Dn" secondAttribute="leading" id="MAz-yo-M2d"/>
+                                    <constraint firstAttribute="trailing" secondItem="jbq-wt-H0V" secondAttribute="trailing" id="O7T-Ta-wAp"/>
                                     <constraint firstAttribute="trailing" secondItem="SvV-rj-eZw" secondAttribute="trailing" id="RRh-BY-bhx"/>
+                                    <constraint firstItem="jbq-wt-H0V" firstAttribute="leading" secondItem="hQR-8i-7Dn" secondAttribute="leading" id="Whl-2V-2lA"/>
                                     <constraint firstItem="Bgl-At-KQ0" firstAttribute="leading" secondItem="hQR-8i-7Dn" secondAttribute="leading" id="c29-ZB-Jmi"/>
                                     <constraint firstAttribute="trailing" secondItem="Bgl-At-KQ0" secondAttribute="trailing" id="flX-Jw-qoH"/>
                                     <constraint firstItem="SvV-rj-eZw" firstAttribute="leading" secondItem="hQR-8i-7Dn" secondAttribute="leading" id="jfl-jm-hoy"/>
@@ -168,11 +180,83 @@
                         <outlet property="messageView" destination="Bgl-At-KQ0" id="vdr-Ou-E2B"/>
                         <outlet property="timestampLabel" destination="D1k-nO-EHa" id="lQy-rB-bmn"/>
                         <outlet property="topicNameLabel" destination="oQ8-pS-NyI" id="GXr-1X-X2f"/>
+                        <segue destination="cy4-Z5-cfd" kind="presentation" identifier="notificationDetailToComments" id="FBE-dF-nlE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vUY-S2-aUP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2956.4885496183206" y="-335.21126760563379"/>
+        </scene>
+        <!--Notification Comments View Controller-->
+        <scene sceneID="aKV-bU-h5W">
+            <objects>
+                <viewController id="cy4-Z5-cfd" customClass="NotificationCommentsViewController" customModule="JCAlerts" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="CJs-mQ-wse">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="842"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="JcL-hS-Ifs">
+                                <rect key="frame" x="0.0" y="108" width="393" height="669.66666666666663"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <prototypes>
+                                    <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="notificationCommentCell" id="cPc-KX-ebr">
+                                        <rect key="frame" x="0.0" y="50" width="393" height="43.666667938232422"/>
+                                        <autoresizingMask key="autoresizingMask"/>
+                                        <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="cPc-KX-ebr" id="ob1-hO-uUm">
+                                            <rect key="frame" x="0.0" y="0.0" width="393" height="43.666667938232422"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </tableViewCellContentView>
+                                    </tableViewCell>
+                                </prototypes>
+                            </tableView>
+                            <navigationBar contentMode="scaleToFill" largeTitles="YES" translatesAutoresizingMaskIntoConstraints="NO" id="pII-HM-MXp">
+                                <rect key="frame" x="0.0" y="0.0" width="393" height="108"/>
+                                <items>
+                                    <navigationItem title="Comments" id="gql-ey-aJn"/>
+                                </items>
+                            </navigationBar>
+                            <stackView opaque="NO" contentMode="scaleToFill" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="8Cj-Kp-3tD">
+                                <rect key="frame" x="10" y="777.66666666666663" width="373" height="34.333333333333371"/>
+                                <subviews>
+                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Type your comments..." textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YT0-SX-vhK">
+                                        <rect key="frame" x="0.0" y="0.0" width="290" height="34.333333333333336"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <textInputTraits key="textInputTraits"/>
+                                    </textField>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="eNj-AC-0uf">
+                                        <rect key="frame" x="295" y="0.0" width="78" height="34.333333333333336"/>
+                                        <state key="normal" title="Button"/>
+                                        <buttonConfiguration key="configuration" style="filled" title="Submit"/>
+                                        <connections>
+                                            <action selector="submitTapped:" destination="cy4-Z5-cfd" eventType="touchUpInside" id="xCW-ug-SGa"/>
+                                        </connections>
+                                    </button>
+                                </subviews>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Q48-Dk-p0F"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="Q48-Dk-p0F" firstAttribute="trailing" secondItem="JcL-hS-Ifs" secondAttribute="trailing" id="1WQ-ts-QtS"/>
+                            <constraint firstItem="Q48-Dk-p0F" firstAttribute="bottom" secondItem="8Cj-Kp-3tD" secondAttribute="bottom" constant="30" id="CTH-Fr-Su6"/>
+                            <constraint firstItem="Q48-Dk-p0F" firstAttribute="trailing" secondItem="8Cj-Kp-3tD" secondAttribute="trailing" constant="10" id="Fs0-bv-Ji9"/>
+                            <constraint firstItem="8Cj-Kp-3tD" firstAttribute="top" secondItem="JcL-hS-Ifs" secondAttribute="bottom" id="GXl-Q4-4JL"/>
+                            <constraint firstItem="JcL-hS-Ifs" firstAttribute="top" secondItem="pII-HM-MXp" secondAttribute="bottom" id="Gm4-n8-yCe"/>
+                            <constraint firstItem="pII-HM-MXp" firstAttribute="top" secondItem="CJs-mQ-wse" secondAttribute="top" id="IOu-Dy-juW"/>
+                            <constraint firstItem="8Cj-Kp-3tD" firstAttribute="leading" secondItem="Q48-Dk-p0F" secondAttribute="leading" constant="10" id="ZMy-nj-8L6"/>
+                            <constraint firstItem="JcL-hS-Ifs" firstAttribute="leading" secondItem="Q48-Dk-p0F" secondAttribute="leading" id="j9s-w7-IAo"/>
+                            <constraint firstItem="pII-HM-MXp" firstAttribute="trailing" secondItem="Q48-Dk-p0F" secondAttribute="trailing" id="uSh-UQ-6ti"/>
+                            <constraint firstItem="pII-HM-MXp" firstAttribute="leading" secondItem="Q48-Dk-p0F" secondAttribute="leading" id="zj1-C1-sAS"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="commentTextField" destination="YT0-SX-vhK" id="3dJ-a6-ltQ"/>
+                        <outlet property="commentsTable" destination="JcL-hS-Ifs" id="qD6-Zo-wJc"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ptF-hQ-gmf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3878.6259541984732" y="-335.21126760563379"/>
         </scene>
         <!--settingsNavigationController-->
         <scene sceneID="yEu-Ek-AHT">
@@ -225,6 +309,7 @@
     </scenes>
     <resources>
         <image name="app.badge" catalog="system" width="128" height="128"/>
+        <image name="text.bubble" catalog="system" width="128" height="110"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
