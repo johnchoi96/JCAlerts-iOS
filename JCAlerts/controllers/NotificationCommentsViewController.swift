@@ -38,6 +38,12 @@ class NotificationCommentsViewController: UIViewController {
         reloadComments()
     }
 
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+
+        IQKeyboardManager.shared.enable = false
+    }
+
     private func reloadComments() {
         Task { @MainActor in
             do {
