@@ -67,11 +67,18 @@
                                 <rect key="frame" x="0.0" y="0.0" width="393" height="0.0"/>
                                 <items>
                                     <navigationItem title="Details" id="q9G-LJ-dxW">
-                                        <barButtonItem key="rightBarButtonItem" systemItem="done" id="pfX-l3-BvD">
-                                            <connections>
-                                                <action selector="doneTapped:" destination="Hnq-jh-zBA" id="3Uh-lr-MFZ"/>
-                                            </connections>
-                                        </barButtonItem>
+                                        <rightBarButtonItems>
+                                            <barButtonItem systemItem="done" id="pfX-l3-BvD">
+                                                <connections>
+                                                    <action selector="doneTapped:" destination="Hnq-jh-zBA" id="3Uh-lr-MFZ"/>
+                                                </connections>
+                                            </barButtonItem>
+                                            <barButtonItem systemItem="action" id="3hD-G6-Q2d">
+                                                <connections>
+                                                    <action selector="shareTapped:" destination="Hnq-jh-zBA" id="Ky4-Is-Lm1"/>
+                                                </connections>
+                                            </barButtonItem>
+                                        </rightBarButtonItems>
                                     </navigationItem>
                                 </items>
                             </navigationBar>

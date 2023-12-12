@@ -46,7 +46,7 @@ class NotificationDetailViewController: UIViewController {
     @IBAction func doneTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
     }
-    
+
     @IBAction func commentsTapped(_ sender: UIButton) {
         performSegue(withIdentifier: K.Segues.notificationDetailToComments, sender: notificationPayload)
     }
@@ -56,5 +56,72 @@ class NotificationDetailViewController: UIViewController {
             let vc = segue.destination as! NotificationCommentsViewController
             vc.notificationPayload = sender as? NotificationPayload
         }
+    }
+
+    @IBAction func shareTapped(_ sender: UIBarButtonItem) {
+        let title = "Share"
+        let message = "What would you like to share?"
+        let alertView = UIAlertController(title: title, message: message, preferredStyle: .actionSheet)
+        let textAction = UIAlertAction(title: "Text", style: .default) { action in
+            let text = self.getShareText()
+            self.presentShareSheet(content: text, barButton: sender)
+        }
+        let screenShotAction = UIAlertAction(title: "Screen Shot", style: .default) { action in
+            guard let screenShot = self.getScreenShot() else {
+                let errorAlert = UIAlertController(title: "Error", message: "Could not get screenshot. No action will be taken.", preferredStyle: .alert)
+                let okAction = UIAlertAction(title: "OK", style: .cancel)
+                errorAlert.addAction(okAction)
+                if let popoverView = errorAlert.popoverPresentationController {
+                    popoverView.sourceView = self.view
+                    popoverView.barButtonItem = sender
+                }
+                self.present(errorAlert, animated: true)
+                return
+            }
+            self.presentShareSheet(content: screenShot, barButton: sender)
+        }
+        alertView.addAction(textAction)
+        alertView.addAction(screenShotAction)
+        if let popoverView = alertView.popoverPresentationController {
+            popoverView.sourceView = self.view
+            popoverView.barButtonItem = sender
+        }
+        present(alertView, animated: true)
+    }
+
+    private func presentShareSheet(content: Any, barButton: UIBarButtonItem) {
+        let shareAll = [content]
+        let activityViewController = UIActivityViewController(activityItems: shareAll, applicationActivities: nil)
+
+        //avoiding to crash on iPad
+        if let popoverView = activityViewController.popoverPresentationController {
+            popoverView.sourceView = self.view
+            popoverView.barButtonItem = barButton
+        }
+        present(activityViewController, animated: true, completion: nil)
+    }
+
+    private func getShareText() -> String {
+        let title = "Title: \(notificationPayload.notificationTitle)"
+        let subtitle = "Subtitle: \(notificationPayload.notificationSubtitle)"
+        let timestamp = "Date: \(notificationPayload.timestamp.formattedDate)"
+        let separator = "-----------------------"
+        let content = "Content:\n\(separator)\n\(messageView.text ?? "")\n\(separator)"
+        let payloadList = [
+            title,
+            subtitle,
+            timestamp,
+            content
+        ]
+        return payloadList.joined(separator: "\n")
+    }
+
+    private func getScreenShot() -> UIImage? {
+        let bounds = UIScreen.main.bounds
+        UIGraphicsBeginImageContextWithOptions(bounds.size, true, 0.0)
+        self.view.drawHierarchy(in: bounds, afterScreenUpdates: false)
+        let img = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        return img
     }
 }

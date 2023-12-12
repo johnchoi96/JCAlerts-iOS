@@ -140,9 +140,3 @@ extension AlertsViewController: CloudFirestoreDelegate {
         log.info("Finished refreshing notification list")
     }
 }
-
-private extension Date {
-    var formattedDate: String {
-        "\(StringUtil.getStringMonth(month: self.month) ?? "N/A") \(self.day), \(self.year)"
-    }
-}
