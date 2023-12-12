@@ -31,11 +31,19 @@ class NotificationCommentsViewController: UIViewController {
         commentsTable.dataSource = self
         commentsTable.register(NotificationCommentTableViewCell.nib, forCellReuseIdentifier: NotificationCommentTableViewCell.identifier)
 
+        cfService.delegate = self
+
+        reloadComments()
+    }
+
+    private func reloadComments() {
         Task { @MainActor in
             do {
                 let comments = try await cfService.retrieveCommentsForNotification(with: notificationPayload.notificationId)
                 // Handle the comments array as needed
-                self.comments = comments.reversed()
+                self.comments = comments.sorted(by: { firstPayload, secondPayload in
+                    firstPayload.timestamp < secondPayload.timestamp
+                })
                 commentsTable.reloadData()
             } catch {
                 // Handle errors
@@ -43,14 +51,14 @@ class NotificationCommentsViewController: UIViewController {
                 logger.error("Error: \(error)")
             }
         }
-
-        cfService.delegate = self
     }
-    
+
     @IBAction func submitTapped(_ sender: UIButton) {
         if let text = commentTextField.text {
             cfService.addCommentToNotification(withId: notificationPayload.notificationId, comment: text)
-            commentsTable.reloadData()
+
+            commentTextField.resignFirstResponder()
+            commentTextField.text = ""
         }
     }
 }
@@ -69,11 +77,14 @@ extension NotificationCommentsViewController: UITableViewDelegate, UITableViewDa
         cell.usernameLabel.text = comment.username
         return cell
     }
+
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        tableView.deselectRow(at: indexPath, animated: true)
+    }
 }
 
 extension NotificationCommentsViewController: CloudFirestoreDelegate {
     func didFinishUploadingComment() {
-        self.resignFirstResponder()
-        commentsTable.reloadData() // FIXME: doesnt reload when submit tapped
+        reloadComments()
     }
 }
