@@ -11,6 +11,8 @@ import os
 
 class NotificationCommentsViewController: UIViewController {
 
+    private let logger = Logger()
+
     @IBOutlet weak var commentsTable: UITableView!
 
     @IBOutlet weak var commentTextField: UITextField!
@@ -45,11 +47,24 @@ class NotificationCommentsViewController: UIViewController {
                     firstPayload.timestamp < secondPayload.timestamp
                 })
                 commentsTable.reloadData()
+                // Scroll to the bottom after a short delay to ensure the table view has updated its content
+                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
+                    self.scrollToBottom()
+                }
             } catch {
                 // Handle errors
-                let logger = Logger()
                 logger.error("Error: \(error)")
             }
+        }
+    }
+
+    private func scrollToBottom() {
+        let lastSection = commentsTable.numberOfSections - 1
+        let lastRow = commentsTable.numberOfRows(inSection: lastSection) - 1
+
+        if lastSection >= 0 && lastRow >= 0 {
+            let indexPath = IndexPath(row: lastRow, section: lastSection)
+            commentsTable.scrollToRow(at: indexPath, at: .bottom, animated: true)
         }
     }
 
