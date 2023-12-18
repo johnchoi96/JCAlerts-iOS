@@ -7,6 +7,14 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D20928442B2E04D900F03C19 /* LandingPageViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20928432B2E04D900F03C19 /* LandingPageViewController.swift */; };
+		D20928462B2E050C00F03C19 /* Card.swift in Sources */ = {isa = PBXBuildFile; fileRef = D20928452B2E050C00F03C19 /* Card.swift */; };
+		D2153F3B2B2ECDD900F405C8 /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F3A2B2ECDD900F405C8 /* LandingPageView.swift */; };
+		D2153F632B30A4D300F405C8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F622B30A4D300F405C8 /* SettingsView.swift */; };
+		D2153F652B30A4FE00F405C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F642B30A4FE00F405C8 /* ContentView.swift */; };
+		D2153F672B30B2DE00F405C8 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F662B30B2DE00F405C8 /* SettingsViewCell.swift */; };
+		D2153F6C2B30B57E00F405C8 /* NotificationCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F6B2B30B57E00F405C8 /* NotificationCategoriesView.swift */; };
+		D2153F6E2B30B58D00F405C8 /* NotificationCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F6D2B30B58D00F405C8 /* NotificationCategoryCell.swift */; };
 		D242119F2AE75893005BD72C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D242119E2AE75893005BD72C /* Constants.swift */; };
 		D24211A12AE7589D005BD72C /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24211A02AE7589D005BD72C /* StringExt.swift */; };
 		D24211A52AE75972005BD72C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24211A42AE75972005BD72C /* Settings.storyboard */; };
@@ -58,6 +66,14 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		D20928432B2E04D900F03C19 /* LandingPageViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageViewController.swift; sourceTree = "<group>"; };
+		D20928452B2E050C00F03C19 /* Card.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Card.swift; sourceTree = "<group>"; };
+		D2153F3A2B2ECDD900F405C8 /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
+		D2153F622B30A4D300F405C8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
+		D2153F642B30A4FE00F405C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		D2153F662B30B2DE00F405C8 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
+		D2153F6B2B30B57E00F405C8 /* NotificationCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCategoriesView.swift; sourceTree = "<group>"; };
+		D2153F6D2B30B58D00F405C8 /* NotificationCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCategoryCell.swift; sourceTree = "<group>"; };
 		D242119E2AE75893005BD72C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D24211A02AE7589D005BD72C /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		D24211A42AE75972005BD72C /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -122,6 +138,44 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		D2153F3E2B2ED37F00F405C8 /* swiftuis */ = {
+			isa = PBXGroup;
+			children = (
+				D2153F642B30A4FE00F405C8 /* ContentView.swift */,
+				D2153F6A2B30B55F00F405C8 /* home */,
+				D2153F692B30B55500F405C8 /* settings */,
+			);
+			path = swiftuis;
+			sourceTree = "<group>";
+		};
+		D2153F682B30B32E00F405C8 /* cells */ = {
+			isa = PBXGroup;
+			children = (
+				D2153F662B30B2DE00F405C8 /* SettingsViewCell.swift */,
+				D2153F6D2B30B58D00F405C8 /* NotificationCategoryCell.swift */,
+			);
+			path = cells;
+			sourceTree = "<group>";
+		};
+		D2153F692B30B55500F405C8 /* settings */ = {
+			isa = PBXGroup;
+			children = (
+				D2153F622B30A4D300F405C8 /* SettingsView.swift */,
+				D2153F6B2B30B57E00F405C8 /* NotificationCategoriesView.swift */,
+				D2153F682B30B32E00F405C8 /* cells */,
+			);
+			path = settings;
+			sourceTree = "<group>";
+		};
+		D2153F6A2B30B55F00F405C8 /* home */ = {
+			isa = PBXGroup;
+			children = (
+				D2153F3A2B2ECDD900F405C8 /* LandingPageView.swift */,
+				D20928452B2E050C00F03C19 /* Card.swift */,
+			);
+			path = home;
+			sourceTree = "<group>";
+		};
 		D22B19982AE5AE4A00A71130 /* delegates */ = {
 			isa = PBXGroup;
 			children = (
@@ -142,6 +196,7 @@
 				D2984CC02B002E9B007B199C /* PushNotificationDisplayViewController.swift */,
 				D2984CD62B0854E9007B199C /* NotificationDetailViewController.swift */,
 				D2E412E02B26DF28003EC53F /* NotificationCommentsViewController.swift */,
+				D20928432B2E04D900F03C19 /* LandingPageViewController.swift */,
 			);
 			path = controllers;
 			sourceTree = "<group>";
@@ -231,6 +286,7 @@
 			children = (
 				D2C660EA2AD2FFEC00CB52BE /* JCAlerts.entitlements */,
 				D22B19982AE5AE4A00A71130 /* delegates */,
+				D2153F3E2B2ED37F00F405C8 /* swiftuis */,
 				D22B19992AE5AE5600A71130 /* controllers */,
 				D2984CC42B003300007B199C /* models */,
 				D22B199A2AE5AE6700A71130 /* storyboards */,
@@ -391,21 +447,29 @@
 				D2984CD42B085321007B199C /* NotificationTableViewCell.swift in Sources */,
 				D2984CCA2B08436A007B199C /* CloudFirestoreService.swift in Sources */,
 				D24211B02AEB5ABF005BD72C /* NotificationSettingsTableViewCell.swift in Sources */,
+				D2153F3B2B2ECDD900F405C8 /* LandingPageView.swift in Sources */,
 				D2E412DD2B26B3E9003EC53F /* NotificationComment.swift in Sources */,
 				D26F6C502AD1FADF00AC1D6F /* AppDelegate.swift in Sources */,
+				D20928442B2E04D900F03C19 /* LandingPageViewController.swift in Sources */,
 				D24211A12AE7589D005BD72C /* StringExt.swift in Sources */,
 				D2E412E12B26DF28003EC53F /* NotificationCommentsViewController.swift in Sources */,
 				D24211B42AED548E005BD72C /* FCMTopicService.swift in Sources */,
 				D2984CDD2B09A376007B199C /* StringUtil.swift in Sources */,
 				D2984CDB2B099764007B199C /* DateExt.swift in Sources */,
 				D2984CD92B094E8B007B199C /* CloudFirestoreDelegate.swift in Sources */,
+				D20928462B2E050C00F03C19 /* Card.swift in Sources */,
 				D2984CC82B003333007B199C /* FCMTopic.swift in Sources */,
 				D2984CC22B002E9C007B199C /* PushNotificationDisplayViewController.swift in Sources */,
+				D2153F632B30A4D300F405C8 /* SettingsView.swift in Sources */,
 				D26D5F942AE757B000981481 /* SettingsViewController.swift in Sources */,
+				D2153F6C2B30B57E00F405C8 /* NotificationCategoriesView.swift in Sources */,
 				D26F6C522AD1FADF00AC1D6F /* SceneDelegate.swift in Sources */,
 				D242119F2AE75893005BD72C /* Constants.swift in Sources */,
+				D2153F672B30B2DE00F405C8 /* SettingsViewCell.swift in Sources */,
 				D2984CD72B0854E9007B199C /* NotificationDetailViewController.swift in Sources */,
+				D2153F652B30A4FE00F405C8 /* ContentView.swift in Sources */,
 				D2E412E72B26E3BD003EC53F /* NotificationCommentTableViewCell.swift in Sources */,
+				D2153F6E2B30B58D00F405C8 /* NotificationCategoryCell.swift in Sources */,
 				D24211AD2AEB57A4005BD72C /* NotificationSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -562,7 +626,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = JCAlerts/JCAlerts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2023121101;
+				CURRENT_PROJECT_VERSION = 2023121801;
 				DEVELOPMENT_TEAM = 2JDGUK4DRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JCAlerts/Info.plist;
@@ -593,7 +657,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = JCAlerts/JCAlerts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2023121101;
+				CURRENT_PROJECT_VERSION = 2023121801;
 				DEVELOPMENT_TEAM = 2JDGUK4DRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JCAlerts/Info.plist;
