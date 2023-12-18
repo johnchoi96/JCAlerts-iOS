@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct NotificationPayload {
+struct NotificationPayload: Identifiable {
+    var id: UUID
+
     var notificationTitle: String
 
     var notificationSubtitle: String
