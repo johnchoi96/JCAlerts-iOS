@@ -13,6 +13,8 @@ import os
 
 class CloudFirestoreService: ObservableObject {
 
+    @Published var trimmedNotificationPayloads: [NotificationPayload] = []
+
     private let db = Firestore.firestore()
 
     private let logger = os.Logger()
@@ -64,9 +66,19 @@ class CloudFirestoreService: ObservableObject {
                     notifications.append(payload)
                     notificationDict[notificationId] = payload
                 }
+                self.trimmedNotificationPayloads = self.getFirstNElements(list: notifications, n: 4)
                 self.delegate?.didFinishLoadingAll(notifications: notifications, notificationsDict: notificationDict)
             }
         }
+    }
+
+    private func getFirstNElements(list: [NotificationPayload], n: Int) -> [NotificationPayload] {
+        var result: [NotificationPayload] = []
+        let range = min(4, list.count)
+        for i in 0..<range {
+            result.append(list[i])
+        }
+        return result
     }
 
     func retrieveNotificationPayload(notificationId: String) {
