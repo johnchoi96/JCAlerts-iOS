@@ -21,8 +21,18 @@ struct LandingPageView: View {
                 }
                 .scrollIndicators(.hidden)
                 .padding()
+
                 NavigationLink(destination: UKAlertsView(), label: {
-                    Text("More...")
+                    GeometryReader { geometry in
+                        Text("More...")
+                            .foregroundStyle(Color(K.Colors.inverseTextColor, bundle: nil))
+                            .font(.headline)
+                            .frame(minWidth: geometry.size.width * 0.75)
+                            .padding()
+                            .background(Color(K.Colors.backgroundColor, bundle: nil))
+                            .cornerRadius(15)
+                            .frame(maxWidth: .infinity, alignment: .center)
+                    }
                 })
             }
             .navigationTitle("Welcome")
@@ -30,6 +40,7 @@ struct LandingPageView: View {
         }
     }
 }
+
 
 
 
