@@ -16,6 +16,7 @@
 		D2153F6C2B30B57E00F405C8 /* NotificationCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F6B2B30B57E00F405C8 /* NotificationCategoriesView.swift */; };
 		D2153F6E2B30B58D00F405C8 /* NotificationCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F6D2B30B58D00F405C8 /* NotificationCategoryCell.swift */; };
 		D2153F702B3107C100F405C8 /* UKAlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F6F2B3107C100F405C8 /* UKAlertsView.swift */; };
+		D2153F732B32665B00F405C8 /* UKNotificationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F722B32665B00F405C8 /* UKNotificationDetailView.swift */; };
 		D242119F2AE75893005BD72C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D242119E2AE75893005BD72C /* Constants.swift */; };
 		D24211A12AE7589D005BD72C /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24211A02AE7589D005BD72C /* StringExt.swift */; };
 		D24211A52AE75972005BD72C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24211A42AE75972005BD72C /* Settings.storyboard */; };
@@ -76,6 +77,7 @@
 		D2153F6B2B30B57E00F405C8 /* NotificationCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCategoriesView.swift; sourceTree = "<group>"; };
 		D2153F6D2B30B58D00F405C8 /* NotificationCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCategoryCell.swift; sourceTree = "<group>"; };
 		D2153F6F2B3107C100F405C8 /* UKAlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UKAlertsView.swift; sourceTree = "<group>"; };
+		D2153F722B32665B00F405C8 /* UKNotificationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UKNotificationDetailView.swift; sourceTree = "<group>"; };
 		D242119E2AE75893005BD72C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D24211A02AE7589D005BD72C /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		D24211A42AE75972005BD72C /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -146,7 +148,7 @@
 				D2153F642B30A4FE00F405C8 /* ContentView.swift */,
 				D2153F6A2B30B55F00F405C8 /* home */,
 				D2153F692B30B55500F405C8 /* settings */,
-				D2153F712B3107C800F405C8 /* utils */,
+				D2153F712B3107C800F405C8 /* uikits */,
 			);
 			path = swiftuis;
 			sourceTree = "<group>";
@@ -179,12 +181,13 @@
 			path = home;
 			sourceTree = "<group>";
 		};
-		D2153F712B3107C800F405C8 /* utils */ = {
+		D2153F712B3107C800F405C8 /* uikits */ = {
 			isa = PBXGroup;
 			children = (
 				D2153F6F2B3107C100F405C8 /* UKAlertsView.swift */,
+				D2153F722B32665B00F405C8 /* UKNotificationDetailView.swift */,
 			);
-			path = utils;
+			path = uikits;
 			sourceTree = "<group>";
 		};
 		D22B19982AE5AE4A00A71130 /* delegates */ = {
@@ -464,6 +467,7 @@
 				D26F6C502AD1FADF00AC1D6F /* AppDelegate.swift in Sources */,
 				D20928442B2E04D900F03C19 /* LandingPageViewController.swift in Sources */,
 				D24211A12AE7589D005BD72C /* StringExt.swift in Sources */,
+				D2153F732B32665B00F405C8 /* UKNotificationDetailView.swift in Sources */,
 				D2E412E12B26DF28003EC53F /* NotificationCommentsViewController.swift in Sources */,
 				D24211B42AED548E005BD72C /* FCMTopicService.swift in Sources */,
 				D2984CDD2B09A376007B199C /* StringUtil.swift in Sources */,
@@ -638,7 +642,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = JCAlerts/JCAlerts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2023121801;
+				CURRENT_PROJECT_VERSION = 2023121901;
 				DEVELOPMENT_TEAM = 2JDGUK4DRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JCAlerts/Info.plist;
@@ -669,7 +673,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = JCAlerts/JCAlerts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2023121801;
+				CURRENT_PROJECT_VERSION = 2023121901;
 				DEVELOPMENT_TEAM = 2JDGUK4DRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JCAlerts/Info.plist;

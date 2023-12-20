@@ -12,37 +12,50 @@ struct Card: View {
 
     let screenWidth = UIScreen.main.bounds.width
 
+    @State private var isModalPresented = false
+
     var body: some View {
         VStack {
-            Text(payload.notificationTitle)
-                .font(.system(size: 35))
-                .lineLimit(3)
-                .truncationMode(.tail)
-                .fontWeight(.heavy)
-                .multilineTextAlignment(.leading) // Align text content to the leading edge
-                .frame(maxWidth: .infinity, alignment: .leading) // Align the frame to the leading edge
-            Text(payload.notificationSubtitle)
-                .font(.system(size: 30))
-                .lineLimit(5)
-                .truncationMode(.tail)
-                .multilineTextAlignment(.leading) // Align text content to the leading edge
-                .frame(maxWidth: .infinity, alignment: .leading) // Align the frame to the leading edge
+            // Use contentShape to make the entire VStack tappable
+            VStack {
+                Text(payload.notificationTitle)
+                    .font(.system(size: 35))
+                    .lineLimit(3)
+                    .truncationMode(.tail)
+                    .fontWeight(.heavy)
+                    .multilineTextAlignment(.leading) // Align text content to the leading edge
+                    .frame(maxWidth: .infinity, alignment: .leading) // Align the frame to the leading edge
+                Text(payload.notificationSubtitle)
+                    .font(.system(size: 30))
+                    .lineLimit(5)
+                    .truncationMode(.tail)
+                    .multilineTextAlignment(.leading) // Align text content to the leading edge
+                    .frame(maxWidth: .infinity, alignment: .leading) // Align the frame to the leading edge
 
-            Spacer()
-            HStack {
-                Text(payload.timestamp.formattedDate)
-                    .font(.system(size: 10))
-                Text(formatTopicName())
-                    .multilineTextAlignment(.trailing) // Align text content to the trailing edge
-                    .frame(maxWidth: .infinity, alignment: .trailing)
+                Spacer()
+                HStack {
+                    Text(payload.timestamp.formattedDate)
+                        .font(.system(size: 10))
+                    Text(formatTopicName())
+                        .multilineTextAlignment(.trailing) // Align text content to the trailing edge
+                        .frame(maxWidth: .infinity, alignment: .trailing)
+                }
             }
-
+            .contentShape(Rectangle()) // Make the entire VStack tappable
+            .onTapGesture {
+                // Toggle the state variable to present or dismiss the modal
+                isModalPresented.toggle()
+            }
+            .padding()
+            .frame(width: 300, height: 400)
+            .background(Color(K.Colors.backgroundColor, bundle: nil))
+            .cornerRadius(15)
+            .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 5)
         }
-        .padding()
-        .frame(width: 300, height: 400)
-        .background(Color(K.Colors.backgroundColor, bundle: nil))
-        .cornerRadius(15)
-        .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 5)
+        .sheet(isPresented: $isModalPresented) {
+            // Pass the payload to the modal view
+            UKNotificationDetailView(payload: payload)
+        }
     }
 
     private func formatTopicName() -> String {
@@ -76,6 +89,6 @@ struct MoreCard: View {
 }
 
 #Preview {
-//    Card(payload: NotificationPayload(id: UUID(), notificationTitle: "Title", notificationSubtitle: "Subtitle", notificationId: UUID().uuidString, message: "message", timestamp: Date.distantPast, topic: .ALL, isHtml: false, isTestMessage: true))
+    //    Card(payload: NotificationPayload(id: UUID(), notificationTitle: "Title", notificationSubtitle: "Subtitle", notificationId: UUID().uuidString, message: "message", timestamp: Date.distantPast, topic: .ALL, isHtml: false, isTestMessage: true))
     MoreCard()
 }

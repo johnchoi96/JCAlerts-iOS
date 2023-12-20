@@ -8,6 +8,9 @@
 import UIKit
 
 class NotificationDetailViewController: UIViewController {
+
+    static let storyboardIdentifier = "NotificationDetailViewController"
+
     @IBOutlet weak var topicNameLabel: UILabel!
     @IBOutlet weak var messageView: UITextView!
     @IBOutlet weak var timestampLabel: UILabel!
