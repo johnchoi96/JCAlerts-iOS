@@ -20,6 +20,8 @@ class FCMTopicService {
 
     private let log = Logger()
 
+    var delegate: FCMTopicDelegate?
+
     private init() {}
     
     func subscribe(toTopic topic: FCMTopic) {
@@ -41,6 +43,7 @@ class FCMTopicService {
             }
         }
         setTopics(as: &topics)
+        delegate?.didUpdateTopic()
     }
 
     func unsubscribe(fromTopic topic: FCMTopic) {
@@ -68,6 +71,7 @@ class FCMTopicService {
         }
         // save the new list of topics
         setTopics(as: &topics)
+        delegate?.didUpdateTopic()
     }
 
     func getTopicsAsStrings() -> [String] {
