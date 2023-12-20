@@ -16,34 +16,39 @@ struct Card: View {
 
     var body: some View {
         VStack {
-            // Use contentShape to make the entire VStack tappable
             VStack {
                 Text(payload.notificationTitle)
                     .font(.system(size: 35))
                     .lineLimit(3)
                     .truncationMode(.tail)
                     .fontWeight(.heavy)
-                    .multilineTextAlignment(.leading) // Align text content to the leading edge
-                    .frame(maxWidth: .infinity, alignment: .leading) // Align the frame to the leading edge
+                    // Align text content to the leading edge
+                    .multilineTextAlignment(.leading)
+                    // Align the frame to the leading edge
+                    .frame(maxWidth: .infinity, alignment: .leading)
                 Text(payload.notificationSubtitle)
                     .font(.system(size: 30))
                     .lineLimit(5)
                     .truncationMode(.tail)
-                    .multilineTextAlignment(.leading) // Align text content to the leading edge
-                    .frame(maxWidth: .infinity, alignment: .leading) // Align the frame to the leading edge
+                    // Align text content to the leading edge
+                    .multilineTextAlignment(.leading)
+                    // Align the frame to the leading edge
+                    .frame(maxWidth: .infinity, alignment: .leading)
 
                 Spacer()
+
                 HStack {
                     Text(payload.timestamp.formattedDate)
                         .font(.system(size: 10))
                     Text(formatTopicName())
-                        .multilineTextAlignment(.trailing) // Align text content to the trailing edge
+                        // Align text content to the trailing edge
+                        .multilineTextAlignment(.trailing)
                         .frame(maxWidth: .infinity, alignment: .trailing)
                 }
             }
-            .contentShape(Rectangle()) // Make the entire VStack tappable
+            // Make the entire VStack tappable
+            .contentShape(Rectangle())
             .onTapGesture {
-                // Toggle the state variable to present or dismiss the modal
                 isModalPresented.toggle()
             }
             .padding()
@@ -53,7 +58,6 @@ struct Card: View {
             .shadow(color: Color.gray.opacity(0.5), radius: 5, x: 0, y: 5)
         }
         .sheet(isPresented: $isModalPresented) {
-            // Pass the payload to the modal view
             UKNotificationDetailView(payload: payload)
         }
     }
@@ -71,8 +75,10 @@ struct MoreCard: View {
             VStack {
                 Text("Tap to see more...")
                     .font(.system(size: 30))
-                    .multilineTextAlignment(.center) // Align text content to the leading edge
-                    .frame(maxWidth: .infinity, alignment: .center) // Align the frame to the leading edge
+                    // Align text content to the leading edge
+                    .multilineTextAlignment(.center)
+                    // Align the frame to the leading edge
+                    .frame(maxWidth: .infinity, alignment: .center)
                 Image(systemName: "arrowshape.right")
                     .resizable()
                     .aspectRatio(contentMode: .fit)
