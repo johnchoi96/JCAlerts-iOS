@@ -11,7 +11,9 @@ import FirebaseFirestore
 import FirebaseFirestoreSwift
 import os
 
-class CloudFirestoreService {
+class CloudFirestoreService: ObservableObject {
+
+    @Published var trimmedNotificationPayloads: [NotificationPayload] = []
 
     private let db = Firestore.firestore()
 
@@ -24,6 +26,12 @@ class CloudFirestoreService {
     private let DB_COLLECTION_NOTIFICATIONS = "notifications"
 
     private let DB_COLLECTION_NOTIFICATION_COMMENTS = "notification-comments"
+
+    private let fcmTopicService = FCMTopicService.instance
+
+    init() {
+        fcmTopicService.delegate = self
+    }
 
     func fetchNotificationPayloads() {
         db.collection(DB_COLLECTION_NOTIFICATIONS).order(by: "timestamp", descending: true).getDocuments() { (querySnapshot, error) in
@@ -40,14 +48,7 @@ class CloudFirestoreService {
                         continue
                     }
 #endif
-
-                    let notificationId = document.documentID
-                    let message = document.get("message") as! String
-                    let isHtml = document.get("isHtml") as! Bool
-                    let timestamp = document.get("timestamp") as! String
                     var topic: FCMTopic
-                    let notificationTitle = document.get("notification-title") as! String
-                    let notificationSubtitle = document.get("notification-body") as! String
                     switch (document.get("topic") as! String) {
                     case FCMTopic.ALL.getTopicValue():
                         topic = .ALL
@@ -59,14 +60,36 @@ class CloudFirestoreService {
                         self.logger.error("Invalid topic type")
                         return
                     }
+                    // check if current topic is subscribed
+                    if !self.fcmTopicService.topicIsSubscribed(topic: topic) {
+                        continue
+                    }
+                    let notificationId = document.documentID
+                    let message = document.get("message") as! String
+                    let isHtml = document.get("isHtml") as! Bool
+                    let timestamp = document.get("timestamp") as! String
 
-                    let payload = NotificationPayload(notificationTitle: notificationTitle, notificationSubtitle: notificationSubtitle, notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate(), topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
+                    let notificationTitle = document.get("notification-title") as! String
+                    let notificationSubtitle = document.get("notification-body") as! String
+
+
+                    let payload = NotificationPayload(id: UUID(), notificationTitle: notificationTitle, notificationSubtitle: notificationSubtitle, notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate(), topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
                     notifications.append(payload)
                     notificationDict[notificationId] = payload
                 }
+                self.trimmedNotificationPayloads = self.getFirstNElements(list: notifications, n: 4)
                 self.delegate?.didFinishLoadingAll(notifications: notifications, notificationsDict: notificationDict)
             }
         }
+    }
+
+    private func getFirstNElements(list: [NotificationPayload], n: Int) -> [NotificationPayload] {
+        var result: [NotificationPayload] = []
+        let range = min(4, list.count)
+        for i in 0..<range {
+            result.append(list[i])
+        }
+        return result
     }
 
     func retrieveNotificationPayload(notificationId: String) {
@@ -92,7 +115,7 @@ class CloudFirestoreService {
                     self.logger.error("Invalid topic type")
                     return
                 }
-                let payload = NotificationPayload(notificationTitle: notificationTitle, notificationSubtitle: notificationSubtitle, notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate(), topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
+                let payload = NotificationPayload(id: UUID(), notificationTitle: notificationTitle, notificationSubtitle: notificationSubtitle, notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate(), topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
                 self.delegate?.didFinishLoadingSingleNotification(notificationId: notificationId, notification: payload)
             } else {
                 self.logger.error("Notification with ID \(notificationId) does not exist")
@@ -134,5 +157,11 @@ class CloudFirestoreService {
             self.logger.error("Error while getting snapshot \(error)")
             throw error
         }
+    }
+}
+
+extension CloudFirestoreService: FCMTopicDelegate {
+    func didUpdateTopic() {
+        fetchNotificationPayloads()
     }
 }

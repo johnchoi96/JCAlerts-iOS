@@ -11,6 +11,8 @@ import os
 
 class AlertsViewController: UIViewController {
 
+    static let storyboardIdentifier = "alertsViewController"
+
     @IBOutlet weak var loadingIndicator: UIActivityIndicatorView!
 
     @IBOutlet weak var notificationTable: UITableView!
@@ -32,6 +34,7 @@ class AlertsViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
+        self.view.largeContentTitle = "Alerts"
         loadingIndicator.startAnimating()
         loadingIndicator.hidesWhenStopped = true
         self.view.backgroundColor = UIColor(named: K.Colors.backgroundColor)
