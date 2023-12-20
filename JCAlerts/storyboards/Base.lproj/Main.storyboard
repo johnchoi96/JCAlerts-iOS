@@ -8,25 +8,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Landing Page View Controller-->
-        <scene sceneID="wQo-u8-Kjb">
-            <objects>
-                <viewController id="Byv-Pc-FCE" customClass="LandingPageViewController" customModule="JCAlerts" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="cer-a5-7lk">
-                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="Qde-dg-PZT"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <navigationItem key="navigationItem" id="eti-6b-0fh"/>
-                    <connections>
-                        <segue destination="BYZ-38-t0r" kind="show" id="p9r-9Z-tAx"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Z9O-OH-VgH" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1810" y="-335"/>
-        </scene>
         <!--Alerts-->
         <scene sceneID="tne-QT-ifu">
             <objects>
@@ -36,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="Nw0-VF-TCy">
-                                <rect key="frame" x="0.0" y="155" width="393" height="614"/>
+                                <rect key="frame" x="0.0" y="59" width="393" height="759"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" accessoryType="detailButton" indentationWidth="10" reuseIdentifier="notificationCell" id="0m9-X3-6Fh">
@@ -72,7 +53,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2618" y="-335"/>
+            <point key="canvasLocation" x="1891" y="-335"/>
         </scene>
         <!--Notification Detail View Controller-->
         <scene sceneID="tz8-9h-Nug">
@@ -204,7 +185,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="vUY-S2-aUP" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="3450" y="-335"/>
+            <point key="canvasLocation" x="2749" y="-335"/>
         </scene>
         <!--Notification Comments View Controller-->
         <scene sceneID="aKV-bU-h5W">
@@ -275,7 +256,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ptF-hQ-gmf" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="4233" y="-335"/>
+            <point key="canvasLocation" x="3506" y="-335"/>
         </scene>
         <!--settingsNavigationController-->
         <scene sceneID="yEu-Ek-AHT">
@@ -298,9 +279,6 @@
                         <autoresizingMask key="autoresizingMask"/>
                     </navigationBar>
                     <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="Byv-Pc-FCE" kind="relationship" relationship="rootViewController" id="mWC-Eq-6L5"/>
-                    </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Kyf-wq-e3n" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
