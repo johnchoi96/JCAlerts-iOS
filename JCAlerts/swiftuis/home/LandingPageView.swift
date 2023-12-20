@@ -22,6 +22,7 @@ struct LandingPageView: View {
                         ForEach(cfService.trimmedNotificationPayloads) { data in
                             Card(payload: data)
                         }
+                        MoreCard()
                         Spacer()
                     }
                     .padding()
