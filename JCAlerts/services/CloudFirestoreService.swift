@@ -41,13 +41,6 @@ class CloudFirestoreService: ObservableObject {
                 var notifications: [NotificationPayload] = []
                 var notificationDict: [String: NotificationPayload] = [:]
                 for document in querySnapshot!.documents {
-                    let isTestMessage = document.get("test-notification") as? Bool ?? false
-#if !DEBUG
-                    // if on prod, ignore test messages
-                    if isTestMessage {
-                        continue
-                    }
-#endif
                     var topic: FCMTopic
                     switch (document.get("topic") as! String) {
                     case FCMTopic.ALL.getTopicValue():
@@ -64,6 +57,8 @@ class CloudFirestoreService: ObservableObject {
                     if !self.fcmTopicService.topicIsSubscribed(topic: topic) {
                         continue
                     }
+
+                    let isTestMessage = document.get("test-notification") as? Bool ?? false
                     let notificationId = document.documentID
                     let message = document.get("message") as! String
                     let isHtml = document.get("isHtml") as! Bool
@@ -74,18 +69,25 @@ class CloudFirestoreService: ObservableObject {
 
 
                     let payload = NotificationPayload(id: UUID(), notificationTitle: notificationTitle, notificationSubtitle: notificationSubtitle, notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate(), topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
+#if !DEBUG
+                    // if on prod, ignore test messages
+                    if payload.isTestMessage {
+                        continue
+                    }
+#endif
                     notifications.append(payload)
                     notificationDict[notificationId] = payload
                 }
-                self.trimmedNotificationPayloads = self.getFirstNElements(list: notifications, n: 4)
+
                 self.delegate?.didFinishLoadingAll(notifications: notifications, notificationsDict: notificationDict)
+                self.trimmedNotificationPayloads = self.getFirstNElements(list: notifications, n: 4)
             }
         }
     }
 
     private func getFirstNElements(list: [NotificationPayload], n: Int) -> [NotificationPayload] {
         var result: [NotificationPayload] = []
-        let range = min(4, list.count)
+        let range = min(n, list.count)
         for i in 0..<range {
             result.append(list[i])
         }

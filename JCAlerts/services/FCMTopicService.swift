@@ -37,9 +37,9 @@ class FCMTopicService {
         fcmInstance.subscribe(toTopic: topic.getTopicValue()) { error in
             if error != nil {
                 // do something
-                print(error!)
+                self.log.info("\(error!)")
             } else {
-                print("successfully subed")
+                self.log.info("successfully subed")
             }
         }
         setTopics(as: &topics)
@@ -64,9 +64,9 @@ class FCMTopicService {
         // unsub from fcm
         fcmInstance.unsubscribe(fromTopic: topic.getTopicValue()) { error in
             if let error = error {
-                print(error)
+                self.log.info("\(error)")
             } else {
-                print("succcessfully unsubbed")
+                self.log.info("succcessfully unsubbed")
             }
         }
         // save the new list of topics
