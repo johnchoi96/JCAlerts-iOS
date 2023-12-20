@@ -17,6 +17,7 @@
 		D2153F702B3107C100F405C8 /* UKAlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F6F2B3107C100F405C8 /* UKAlertsView.swift */; };
 		D2153F732B32665B00F405C8 /* UKNotificationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F722B32665B00F405C8 /* UKNotificationDetailView.swift */; };
 		D2153F752B32A55F00F405C8 /* FCMTopicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F742B32A55F00F405C8 /* FCMTopicDelegate.swift */; };
+		D2153F772B32B33600F405C8 /* UIExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F762B32B33600F405C8 /* UIExt.swift */; };
 		D242119F2AE75893005BD72C /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = D242119E2AE75893005BD72C /* Constants.swift */; };
 		D24211A12AE7589D005BD72C /* StringExt.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24211A02AE7589D005BD72C /* StringExt.swift */; };
 		D24211A52AE75972005BD72C /* Settings.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D24211A42AE75972005BD72C /* Settings.storyboard */; };
@@ -78,6 +79,7 @@
 		D2153F6F2B3107C100F405C8 /* UKAlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UKAlertsView.swift; sourceTree = "<group>"; };
 		D2153F722B32665B00F405C8 /* UKNotificationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UKNotificationDetailView.swift; sourceTree = "<group>"; };
 		D2153F742B32A55F00F405C8 /* FCMTopicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMTopicDelegate.swift; sourceTree = "<group>"; };
+		D2153F762B32B33600F405C8 /* UIExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UIExt.swift; sourceTree = "<group>"; };
 		D242119E2AE75893005BD72C /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		D24211A02AE7589D005BD72C /* StringExt.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExt.swift; sourceTree = "<group>"; };
 		D24211A42AE75972005BD72C /* Settings.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Settings.storyboard; sourceTree = "<group>"; };
@@ -242,6 +244,7 @@
 			children = (
 				D24211A02AE7589D005BD72C /* StringExt.swift */,
 				D2984CDA2B099764007B199C /* DateExt.swift */,
+				D2153F762B32B33600F405C8 /* UIExt.swift */,
 			);
 			path = extensions;
 			sourceTree = "<group>";
@@ -457,6 +460,7 @@
 				D26F6C5A2AD1FADF00AC1D6F /* JCAlerts.xcdatamodeld in Sources */,
 				D2E412DF2B26B7FD003EC53F /* UserService.swift in Sources */,
 				D24211A82AEB5567005BD72C /* SettingsTableViewCell.swift in Sources */,
+				D2153F772B32B33600F405C8 /* UIExt.swift in Sources */,
 				D2984CD12B084A37007B199C /* NotificationPayload.swift in Sources */,
 				D2984CD42B085321007B199C /* NotificationTableViewCell.swift in Sources */,
 				D2984CCA2B08436A007B199C /* CloudFirestoreService.swift in Sources */,
@@ -642,7 +646,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = JCAlerts/JCAlerts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2023121901;
+				CURRENT_PROJECT_VERSION = 2023122001;
 				DEVELOPMENT_TEAM = 2JDGUK4DRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JCAlerts/Info.plist;
@@ -675,7 +679,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = JCAlerts/JCAlerts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2023121901;
+				CURRENT_PROJECT_VERSION = 2023122001;
 				DEVELOPMENT_TEAM = 2JDGUK4DRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JCAlerts/Info.plist;
