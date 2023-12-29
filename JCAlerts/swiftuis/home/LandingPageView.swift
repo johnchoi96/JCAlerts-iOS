@@ -47,7 +47,7 @@ struct LandingPageView: View {
                 .navigationTitle("Welcome")
                 .navigationBarTitleDisplayMode(.large)
             }
-
+            .scrollIndicators(.hidden)
         }
     }
 }
