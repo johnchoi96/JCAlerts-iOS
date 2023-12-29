@@ -10,7 +10,8 @@ import SwiftUI
 struct NotificationCategoriesView: View {
     private let notificationTypes = [
         FCMTopic.PETFINDER,
-        FCMTopic.METALPRICE
+        FCMTopic.METALPRICE,
+        FCMTopic.CFB
     ]
 
     var body: some View {

@@ -41,7 +41,7 @@ class CloudFirestoreService: ObservableObject {
                 var notifications: [NotificationPayload] = []
                 var notificationDict: [String: NotificationPayload] = [:]
                 for document in querySnapshot!.documents {
-                    var topic: FCMTopic
+                    var topic: FCMTopic?
                     switch (document.get("topic") as! String) {
                     case FCMTopic.ALL.getTopicValue():
                         topic = .ALL
@@ -49,9 +49,13 @@ class CloudFirestoreService: ObservableObject {
                         topic = .PETFINDER
                     case FCMTopic.METALPRICE.getTopicValue():
                         topic = .METALPRICE
+                    case FCMTopic.CFB.getTopicValue():
+                        topic = .CFB
                     default:
                         self.logger.error("Invalid topic type")
-                        return
+                    }
+                    guard let topic = topic else {
+                        continue
                     }
                     // check if current topic is subscribed
                     if !self.fcmTopicService.topicIsSubscribed(topic: topic) {
@@ -104,7 +108,7 @@ class CloudFirestoreService: ObservableObject {
                 let timestamp = document.get("timestamp") as! String
                 let notificationTitle = document.get("notification-title") as! String
                 let notificationSubtitle = document.get("notification-body") as! String
-                var topic: FCMTopic
+                var topic: FCMTopic?
                 let isTestMessage = document.get("test-notification") as? Bool ?? false
                 switch (document.get("topic") as! String) {
                 case FCMTopic.ALL.getTopicValue():
@@ -113,8 +117,12 @@ class CloudFirestoreService: ObservableObject {
                     topic = .PETFINDER
                 case FCMTopic.METALPRICE.getTopicValue():
                     topic = .METALPRICE
+                case FCMTopic.CFB.getTopicValue():
+                    topic = .CFB
                 default:
                     self.logger.error("Invalid topic type")
+                }
+                guard let topic = topic else {
                     return
                 }
                 let payload = NotificationPayload(id: UUID(), notificationTitle: notificationTitle, notificationSubtitle: notificationSubtitle, notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate(), topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
