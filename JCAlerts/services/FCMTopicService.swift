@@ -82,6 +82,10 @@ class FCMTopicService {
         return getTopicsAsStrings().contains(topic.getTopicValue())
     }
 
+    func topicIsSubscribed(topic: String) -> Bool {
+        return getTopicsAsStrings().contains(topic)
+    }
+
     func restoreSubscription() {
         for topic in getTopicsAsStrings() {
             fcmInstance.subscribe(toTopic: topic)
