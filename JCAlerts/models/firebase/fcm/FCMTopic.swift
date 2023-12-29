@@ -12,6 +12,7 @@ enum FCMTopic: String {
     case ALL = "jc-alerts-all"
     case PETFINDER = "jc-alerts-petfinder"
     case METALPRICE = "jc-alerts-metalprice"
+    case CFB = "jc-alerts-cfb"
 }
 
 extension FCMTopic {
@@ -24,6 +25,8 @@ extension FCMTopic {
             return "Petfinder"
         case .METALPRICE:
             return "MetalPrice"
+        case .CFB:
+            return "CFB"
         }
     }
 
@@ -38,6 +41,8 @@ extension FCMTopic {
             return .PETFINDER
         } else if string == FCMTopic.METALPRICE.getTopicName() || string == FCMTopic.METALPRICE.getTopicValue() {
             return .METALPRICE
+        } else if string == FCMTopic.CFB.getTopicName() || string == FCMTopic.CFB.getTopicValue() {
+            return .CFB
         } else {
             return nil
         }
