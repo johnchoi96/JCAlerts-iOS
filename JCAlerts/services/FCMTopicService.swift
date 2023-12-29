@@ -101,4 +101,10 @@ class FCMTopicService {
         }
         UserDefaults.standard.set(topicsList, forKey: TOPIC_KEY)
     }
+
+    func subscribeToAllTopic() {
+        FCMTopic.allCases.forEach { topic in
+            subscribe(toTopic: topic)
+        }
+    }
 }

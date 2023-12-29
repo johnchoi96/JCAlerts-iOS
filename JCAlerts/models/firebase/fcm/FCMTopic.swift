@@ -7,7 +7,7 @@
 
 import Foundation
 
-enum FCMTopic: String {
+enum FCMTopic: String, CaseIterable {
 
     case ALL = "jc-alerts-all"
     case PETFINDER = "jc-alerts-petfinder"
