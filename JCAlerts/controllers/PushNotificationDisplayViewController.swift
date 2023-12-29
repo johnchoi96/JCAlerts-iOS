@@ -9,6 +9,8 @@ import UIKit
 
 class PushNotificationDisplayViewController: UIViewController {
 
+    @IBOutlet weak var fontSizeStepper: UIStepper!
+
     static let nib = UINib(nibName: "PushNotificationDisplayViewController", bundle: nil)
     static let identifier = K.Nibs.Views.notificationDisplayView
 
@@ -25,6 +27,11 @@ class PushNotificationDisplayViewController: UIViewController {
         title = "Notification Detail"
         textView.text = "Loading..."
         textView.layer.cornerRadius = 15
+        let fontSize = UserSettingService.instance.getTextViewFontSize()
+        textView.font = .systemFont(ofSize: CGFloat(fontSize))
+        fontSizeStepper.minimumValue = 12
+        fontSizeStepper.maximumValue = 30
+        fontSizeStepper.value = Double(fontSize)
         self.view.backgroundColor = UIColor(named: K.Colors.backgroundColor)
 
         cloudFirestoreService.delegate = self
@@ -35,6 +42,18 @@ class PushNotificationDisplayViewController: UIViewController {
         }
     }
 
+    @IBAction func stepperTapped(_ sender: UIStepper) {
+        let oldFontSize = UserSettingService.instance.getTextViewFontSize()
+        if Double(oldFontSize) < fontSizeStepper.value {
+            UserSettingService.instance.increaseTextViewFontSize()
+        } else {
+            UserSettingService.instance.decreaseTextViewFontSize()
+        }
+
+        let newFontSize = UserSettingService.instance.getTextViewFontSize()
+        textView.font = .systemFont(ofSize: CGFloat(newFontSize))
+    }
+    
     @IBAction func doneTapped(_ sender: UIBarButtonItem) {
         self.dismiss(animated: true)
     }
