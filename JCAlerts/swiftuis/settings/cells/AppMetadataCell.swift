@@ -12,8 +12,9 @@ struct AppMetadataCell: View {
     var data: String
 
     var body: some View {
-        HStack { // TODO: spread out
+        HStack {
             Text(label)
+            Spacer()
             Text(data)
         }
     }
