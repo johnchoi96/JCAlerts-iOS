@@ -143,6 +143,10 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
         // With swizzling disabled you must let Messaging know about the message, for Analytics
         // Messaging.messaging().appDidReceiveMessage(userInfo)
 
+        let notificationTopic = userInfo["notification-topic"] as! String
+        if !FCMTopicService.instance.topicIsSubscribed(topic: notificationTopic) {
+            return []
+        }
         // Change this to your preferred presentation option
         return [[.banner, .sound]]
     }
