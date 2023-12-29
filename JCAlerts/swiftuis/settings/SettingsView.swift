@@ -16,10 +16,19 @@ struct SettingsView: View {
     var body: some View {
         NavigationView {
             List(items, id: \.self) { item in
-                SettingsViewCell(cellLabel: item)
+                Section(header: Text("Settings")) {
+                    SettingsViewCell(cellLabel: item)
+                }
+                Section(header: Text("App Data")) {
+                    AppMetadataCell(label: "App Version:", data: K.Device.appVersion ?? "N/A")
+                    AppMetadataCell(label: "Build:", data: K.Device.appBuild ?? "N/A")
+                }
+
+
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.large)
+
         }
     }
 }

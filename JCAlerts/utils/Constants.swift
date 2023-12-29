@@ -35,4 +35,9 @@ struct K {
     struct Images {
         static let jcAlertsLogo = "jcalerts_logo"
     }
+
+    struct Device {
+        static let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
+        static let appBuild = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
+    }
 }
