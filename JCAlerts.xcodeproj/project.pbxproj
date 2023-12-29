@@ -61,7 +61,7 @@
 		D2C660E52AD2073E00CB52BE /* FirebaseMessaging in Frameworks */ = {isa = PBXBuildFile; productRef = D2C660E42AD2073E00CB52BE /* FirebaseMessaging */; };
 		D2C660EC2ADA881800CB52BE /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D2C660EB2ADA881800CB52BE /* GoogleService-Info.plist */; };
 		D2E412DD2B26B3E9003EC53F /* NotificationComment.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E412DC2B26B3E9003EC53F /* NotificationComment.swift */; };
-		D2E412DF2B26B7FD003EC53F /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E412DE2B26B7FD003EC53F /* UserService.swift */; };
+		D2E412DF2B26B7FD003EC53F /* UserSettingService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E412DE2B26B7FD003EC53F /* UserSettingService.swift */; };
 		D2E412E12B26DF28003EC53F /* NotificationCommentsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E412E02B26DF28003EC53F /* NotificationCommentsViewController.swift */; };
 		D2E412E42B26E2A8003EC53F /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2E412E32B26E2A8003EC53F /* IQKeyboardManagerSwift */; };
 		D2E412E72B26E3BD003EC53F /* NotificationCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E412E52B26E3BD003EC53F /* NotificationCommentTableViewCell.swift */; };
@@ -113,7 +113,7 @@
 		D2C660EA2AD2FFEC00CB52BE /* JCAlerts.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = JCAlerts.entitlements; sourceTree = "<group>"; };
 		D2C660EB2ADA881800CB52BE /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D2E412DC2B26B3E9003EC53F /* NotificationComment.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationComment.swift; sourceTree = "<group>"; };
-		D2E412DE2B26B7FD003EC53F /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		D2E412DE2B26B7FD003EC53F /* UserSettingService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserSettingService.swift; sourceTree = "<group>"; };
 		D2E412E02B26DF28003EC53F /* NotificationCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCommentsViewController.swift; sourceTree = "<group>"; };
 		D2E412E52B26E3BD003EC53F /* NotificationCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCommentTableViewCell.swift; sourceTree = "<group>"; };
 		D2E412E62B26E3BD003EC53F /* NotificationCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationCommentTableViewCell.xib; sourceTree = "<group>"; };
@@ -276,7 +276,7 @@
 			children = (
 				D24211B32AED548E005BD72C /* FCMTopicService.swift */,
 				D2984CC92B08436A007B199C /* CloudFirestoreService.swift */,
-				D2E412DE2B26B7FD003EC53F /* UserService.swift */,
+				D2E412DE2B26B7FD003EC53F /* UserSettingService.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -458,7 +458,7 @@
 			files = (
 				D26F6C542AD1FADF00AC1D6F /* AlertsViewController.swift in Sources */,
 				D26F6C5A2AD1FADF00AC1D6F /* JCAlerts.xcdatamodeld in Sources */,
-				D2E412DF2B26B7FD003EC53F /* UserService.swift in Sources */,
+				D2E412DF2B26B7FD003EC53F /* UserSettingService.swift in Sources */,
 				D24211A82AEB5567005BD72C /* SettingsTableViewCell.swift in Sources */,
 				D2153F772B32B33600F405C8 /* UIExt.swift in Sources */,
 				D2984CD12B084A37007B199C /* NotificationPayload.swift in Sources */,
@@ -646,7 +646,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = JCAlerts/JCAlerts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2023122801;
+				CURRENT_PROJECT_VERSION = 2023122901;
 				DEVELOPMENT_TEAM = 2JDGUK4DRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JCAlerts/Info.plist;
@@ -679,7 +679,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = JCAlerts/JCAlerts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2023122801;
+				CURRENT_PROJECT_VERSION = 2023122901;
 				DEVELOPMENT_TEAM = 2JDGUK4DRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JCAlerts/Info.plist;

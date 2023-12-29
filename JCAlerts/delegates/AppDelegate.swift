@@ -131,24 +131,22 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
     -> UNNotificationPresentationOptions {
         let userInfo = notification.request.content.userInfo
         log.info("Notification Payload: \(userInfo)")
+        // With swizzling disabled you must let Messaging know about the message, for Analytics
+        // Messaging.messaging().appDidReceiveMessage(userInfo)
+        let notificationTopic = userInfo["notification-topic"] as! String
+        if !FCMTopicService.instance.topicIsSubscribed(topic: notificationTopic) {
+            return []
+        }
 
-#if !DEBUG
+        // NOTE: comment this block for development - #if !DEBUG does not work at the moment
         // check if notification is a test notification
         let isTestMessage = Bool(userInfo["test-notification"] as! String)!
         if isTestMessage {
             return []
         }
-#endif
-
-        // With swizzling disabled you must let Messaging know about the message, for Analytics
-        // Messaging.messaging().appDidReceiveMessage(userInfo)
-
-        let notificationTopic = userInfo["notification-topic"] as! String
-        if !FCMTopicService.instance.topicIsSubscribed(topic: notificationTopic) {
-            return []
-        }
+        
         // Change this to your preferred presentation option
-        return [[.banner, .sound]]
+        return [.banner, .sound]
     }
 
     func userNotificationCenter(_ center: UNUserNotificationCenter,

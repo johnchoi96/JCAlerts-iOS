@@ -19,7 +19,7 @@ class CloudFirestoreService: ObservableObject {
 
     private let logger = os.Logger()
 
-    private let userService = UserService.instance
+    private let userService = UserSettingService.instance
 
     var delegate: CloudFirestoreDelegate?
 
@@ -73,12 +73,13 @@ class CloudFirestoreService: ObservableObject {
 
 
                     let payload = NotificationPayload(id: UUID(), notificationTitle: notificationTitle, notificationSubtitle: notificationSubtitle, notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate(), topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
-#if !DEBUG
+                    
+                    // NOTE: comment this block for development - #if !DEBUG does not work at the moment
                     // if on prod, ignore test messages
                     if payload.isTestMessage {
                         continue
                     }
-#endif
+
                     notifications.append(payload)
                     notificationDict[notificationId] = payload
                 }

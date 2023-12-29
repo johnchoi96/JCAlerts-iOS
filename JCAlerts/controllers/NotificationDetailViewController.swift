@@ -14,6 +14,7 @@ class NotificationDetailViewController: UIViewController {
     @IBOutlet weak var topicNameLabel: UILabel!
     @IBOutlet weak var messageView: UITextView!
     @IBOutlet weak var timestampLabel: UILabel!
+    @IBOutlet weak var fontSizeStepper: UIStepper!
 
     var notificationPayload: NotificationPayload!
 
@@ -29,6 +30,11 @@ class NotificationDetailViewController: UIViewController {
             messageView.text = notificationPayload.message
         }
         messageView.layer.cornerRadius = 15
+        let fontSize = UserSettingService.instance.getTextViewFontSize()
+        messageView.font = .systemFont(ofSize: CGFloat(fontSize))
+        fontSizeStepper.minimumValue = 12
+        fontSizeStepper.maximumValue = 30
+        fontSizeStepper.value = Double(fontSize)
         topicNameLabel.text = notificationPayload.topic.getTopicName()
         let timestamp = notificationPayload.timestamp
         timestampLabel.text = formatTimestamp(timestamp: timestamp)
@@ -52,6 +58,18 @@ class NotificationDetailViewController: UIViewController {
 
     @IBAction func commentsTapped(_ sender: UIButton) {
         performSegue(withIdentifier: K.Segues.notificationDetailToComments, sender: notificationPayload)
+    }
+
+    @IBAction func stepperTapped(_ sender: UIStepper) {
+        let oldFontSize = UserSettingService.instance.getTextViewFontSize()
+        if Double(oldFontSize) < fontSizeStepper.value {
+            UserSettingService.instance.increaseTextViewFontSize()
+        } else {
+            UserSettingService.instance.decreaseTextViewFontSize()
+        }
+
+        let newFontSize = UserSettingService.instance.getTextViewFontSize()
+        messageView.font = .systemFont(ofSize: CGFloat(newFontSize))
     }
 
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
