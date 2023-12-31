@@ -82,6 +82,10 @@ class FCMTopicService {
         return getTopicsAsStrings().contains(topic.getTopicValue())
     }
 
+    func topicIsSubscribed(topic: String) -> Bool {
+        return getTopicsAsStrings().contains(topic)
+    }
+
     func restoreSubscription() {
         for topic in getTopicsAsStrings() {
             fcmInstance.subscribe(toTopic: topic)
@@ -96,5 +100,11 @@ class FCMTopicService {
             topicsList.insert(DEFAULT_FCM_TOPIC.getTopicValue(), at: 0)
         }
         UserDefaults.standard.set(topicsList, forKey: TOPIC_KEY)
+    }
+
+    func subscribeToAllTopic() {
+        FCMTopic.allCases.forEach { topic in
+            subscribe(toTopic: topic)
+        }
     }
 }
