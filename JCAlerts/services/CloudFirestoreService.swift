@@ -29,8 +29,11 @@ class CloudFirestoreService: ObservableObject {
 
     private let fcmTopicService = FCMTopicService.instance
 
+    private let cloudFirestoreTriggerService = CloudFirestoreDataTriggerService.instance
+
     init() {
         fcmTopicService.delegate = self
+        cloudFirestoreTriggerService.delegate = self
     }
 
     func fetchNotificationPayloads() {
@@ -173,6 +176,12 @@ class CloudFirestoreService: ObservableObject {
 
 extension CloudFirestoreService: FCMTopicDelegate {
     func didUpdateTopic() {
+        fetchNotificationPayloads()
+    }
+}
+
+extension CloudFirestoreService: CloudFirestoreDelegate {
+    func triggerDataRefresh() {
         fetchNotificationPayloads()
     }
 }
