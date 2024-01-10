@@ -30,6 +30,7 @@ class NotificationDetailViewController: UIViewController {
             messageView.text = notificationPayload.message
         }
         messageView.layer.cornerRadius = 15
+        messageView.isEditable = false
         let fontSize = UserSettingService.instance.getTextViewFontSize()
         messageView.font = .systemFont(ofSize: CGFloat(fontSize))
         fontSizeStepper.minimumValue = 12
