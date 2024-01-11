@@ -182,7 +182,18 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             log.info("Message ID: \(messageID as? String ?? "")")
         }
         log.info("Notification Payload: \(userInfo)")
-        return UIBackgroundFetchResult.newData
+        let notificationTopic = userInfo["notification-topic"] as! String
+        if !FCMTopicService.instance.topicIsSubscribed(topic: notificationTopic) {
+            return .noData
+        }
+
+        // NOTE: comment this block for development - #if !DEBUG does not work at the moment
+        // check if notification is a test notification
+        let isTestMessage = Bool(userInfo["test-notification"] as! String)!
+        if isTestMessage {
+            return .noData
+        }
+        return .newData
     }
 
     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
