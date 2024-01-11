@@ -27,6 +27,7 @@ class PushNotificationDisplayViewController: UIViewController {
         title = "Notification Detail"
         textView.text = "Loading..."
         textView.layer.cornerRadius = 15
+        textView.isEditable = false
         let fontSize = UserSettingService.instance.getTextViewFontSize()
         textView.font = .systemFont(ofSize: CGFloat(fontSize))
         fontSizeStepper.minimumValue = 12
