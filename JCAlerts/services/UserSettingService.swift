@@ -18,6 +18,14 @@ class UserSettingService {
 
     private var firstTimeRunning: Bool
 
+    var isDebugMode: Bool {
+        #if DEBUG
+        true
+        #else
+        false
+        #endif
+    }
+
     private init() {
         // check if UserDefaults has username defined
         if let username = userDefaults.string(forKey: "currentUsername") {

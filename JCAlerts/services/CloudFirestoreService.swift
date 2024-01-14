@@ -54,6 +54,10 @@ class CloudFirestoreService: ObservableObject {
                         topic = .METALPRICE
                     case FCMTopic.CFB.getTopicValue():
                         topic = .CFB
+                    case FCMTopic.TEST_NOTIFICATION.getTopicValue():
+                        if UserSettingService.instance.isDebugMode {
+                            topic = .TEST_NOTIFICATION
+                        }
                     default:
                         self.logger.error("Invalid topic type")
                     }
@@ -77,9 +81,8 @@ class CloudFirestoreService: ObservableObject {
 
                     let payload = NotificationPayload(id: UUID(), notificationTitle: notificationTitle, notificationSubtitle: notificationSubtitle, notificationId: notificationId, message: message, timestamp: timestamp.utcTimestampToDate(), topic: topic, isHtml: isHtml, isTestMessage: isTestMessage)
                     
-                    // NOTE: comment this block for development - #if !DEBUG does not work at the moment
                     // if on prod, ignore test messages
-                    if payload.isTestMessage {
+                    if !UserSettingService.instance.isDebugMode && payload.isTestMessage {
                         continue
                     }
 
@@ -123,6 +126,10 @@ class CloudFirestoreService: ObservableObject {
                     topic = .METALPRICE
                 case FCMTopic.CFB.getTopicValue():
                     topic = .CFB
+                case FCMTopic.TEST_NOTIFICATION.getTopicValue():
+                    if UserSettingService.instance.isDebugMode {
+                        topic = .TEST_NOTIFICATION
+                    }
                 default:
                     self.logger.error("Invalid topic type")
                 }

@@ -13,6 +13,7 @@ enum FCMTopic: String, CaseIterable {
     case PETFINDER = "jc-alerts-petfinder"
     case METALPRICE = "jc-alerts-metalprice"
     case CFB = "jc-alerts-cfb"
+    case TEST_NOTIFICATION = "jc-alerts-test"
 }
 
 extension FCMTopic {
@@ -27,7 +28,19 @@ extension FCMTopic {
             return "MetalPrice"
         case .CFB:
             return "CFB"
+        case .TEST_NOTIFICATION:
+            return "TEST"
         }
+    }
+
+    static func getAllTopic() -> [FCMTopic] {
+        var allTopic = FCMTopic.allCases
+        if !UserSettingService.instance.isDebugMode {
+            allTopic = allTopic.filter { topic in
+                topic != .TEST_NOTIFICATION
+            }
+        }
+        return allTopic
     }
 
     func getTopicValue() -> String {
@@ -43,6 +56,8 @@ extension FCMTopic {
             return .METALPRICE
         } else if string == FCMTopic.CFB.getTopicName() || string == FCMTopic.CFB.getTopicValue() {
             return .CFB
+        } else if string == FCMTopic.TEST_NOTIFICATION.getTopicName() || string == FCMTopic.TEST_NOTIFICATION.getTopicValue() {
+            return .TEST_NOTIFICATION
         } else {
             return nil
         }

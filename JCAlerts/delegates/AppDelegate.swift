@@ -138,13 +138,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             return []
         }
 
-        // NOTE: comment this block for development - #if !DEBUG does not work at the moment
         // check if notification is a test notification
-        let isTestMessage = Bool(userInfo["test-notification"] as! String)!
-        if isTestMessage {
-            return []
+        if !UserSettingService.instance.isDebugMode {
+            let isTestMessage = Bool(userInfo["test-notification"] as! String)!
+            if isTestMessage {
+                return []
+            }
         }
-        
+
         // Change this to your preferred presentation option
         return [.banner, .sound]
     }
@@ -187,11 +188,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             return .noData
         }
 
-        // NOTE: comment this block for development - #if !DEBUG does not work at the moment
         // check if notification is a test notification
-        let isTestMessage = Bool(userInfo["test-notification"] as! String)!
-        if isTestMessage {
-            return .noData
+        if !UserSettingService.instance.isDebugMode {
+            let isTestMessage = Bool(userInfo["test-notification"] as! String)!
+            if isTestMessage {
+                return .noData
+            }
         }
         return .newData
     }
