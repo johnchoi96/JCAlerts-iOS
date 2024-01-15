@@ -48,6 +48,9 @@ struct LandingPageView: View {
                 cfService.fetchNotificationPayloads()
             }
         }
+        .refreshable {
+            cfService.fetchNotificationPayloads()
+        }
     }
 }
 
