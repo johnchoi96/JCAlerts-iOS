@@ -8,12 +8,8 @@
 import SwiftUI
 
 struct LandingPageView: View {
-    @ObservedObject var cfService = CloudFirestoreService()
-
-    init() {
-        cfService.fetchNotificationPayloads()
-    }
-
+    @ObservedObject var cfService = CloudFirestoreDataTriggerService.instance.cloudFirestoreService
+    
     var body: some View {
         NavigationView {
             ScrollView {
@@ -48,6 +44,9 @@ struct LandingPageView: View {
                 .navigationBarTitleDisplayMode(.large)
             }
             .scrollIndicators(.hidden)
+            .onAppear() {
+                cfService.fetchNotificationPayloads()
+            }
         }
     }
 }

@@ -29,11 +29,8 @@ class CloudFirestoreService: ObservableObject {
 
     private let fcmTopicService = FCMTopicService.instance
 
-    private let cloudFirestoreTriggerService = CloudFirestoreDataTriggerService.instance
-
     init() {
         fcmTopicService.delegate = self
-        cloudFirestoreTriggerService.delegate = self
     }
 
     func fetchNotificationPayloads() {
@@ -91,7 +88,9 @@ class CloudFirestoreService: ObservableObject {
                 }
 
                 self.delegate?.didFinishLoadingAll(notifications: notifications, notificationsDict: notificationDict)
-                self.trimmedNotificationPayloads = self.getFirstNElements(list: notifications, n: 4)
+                DispatchQueue.main.async {
+                    self.trimmedNotificationPayloads = self.getFirstNElements(list: notifications, n: 4)
+                }
             }
         }
     }
