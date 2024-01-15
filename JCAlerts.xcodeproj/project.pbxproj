@@ -29,6 +29,7 @@
 		D24211B02AEB5ABF005BD72C /* NotificationSettingsTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24211AE2AEB5ABE005BD72C /* NotificationSettingsTableViewCell.swift */; };
 		D24211B12AEB5ABF005BD72C /* NotificationSettingsTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D24211AF2AEB5ABE005BD72C /* NotificationSettingsTableViewCell.xib */; };
 		D24211B42AED548E005BD72C /* FCMTopicService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24211B32AED548E005BD72C /* FCMTopicService.swift */; };
+		D24971442B5517D20049EAD4 /* ResourceCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D24971432B5517D20049EAD4 /* ResourceCell.swift */; };
 		D26D5F942AE757B000981481 /* SettingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26D5F932AE757B000981481 /* SettingsViewController.swift */; };
 		D26F6C502AD1FADF00AC1D6F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F6C4F2AD1FADF00AC1D6F /* AppDelegate.swift */; };
 		D26F6C522AD1FADF00AC1D6F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D26F6C512AD1FADF00AC1D6F /* SceneDelegate.swift */; };
@@ -95,6 +96,7 @@
 		D24211AE2AEB5ABE005BD72C /* NotificationSettingsTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationSettingsTableViewCell.swift; sourceTree = "<group>"; };
 		D24211AF2AEB5ABE005BD72C /* NotificationSettingsTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationSettingsTableViewCell.xib; sourceTree = "<group>"; };
 		D24211B32AED548E005BD72C /* FCMTopicService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMTopicService.swift; sourceTree = "<group>"; };
+		D24971432B5517D20049EAD4 /* ResourceCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResourceCell.swift; sourceTree = "<group>"; };
 		D26D5F932AE757B000981481 /* SettingsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewController.swift; sourceTree = "<group>"; };
 		D26F6C4C2AD1FADF00AC1D6F /* JCAlerts.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = JCAlerts.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D26F6C4F2AD1FADF00AC1D6F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
@@ -168,6 +170,7 @@
 				D2153F662B30B2DE00F405C8 /* SettingsViewCell.swift */,
 				D2153F6D2B30B58D00F405C8 /* NotificationCategoryCell.swift */,
 				D21693AA2B3E63F20020BECF /* AppMetadataCell.swift */,
+				D24971432B5517D20049EAD4 /* ResourceCell.swift */,
 			);
 			path = cells;
 			sourceTree = "<group>";
@@ -493,6 +496,7 @@
 				D2984CC82B003333007B199C /* FCMTopic.swift in Sources */,
 				D2984CC22B002E9C007B199C /* PushNotificationDisplayViewController.swift in Sources */,
 				D2153F632B30A4D300F405C8 /* SettingsView.swift in Sources */,
+				D24971442B5517D20049EAD4 /* ResourceCell.swift in Sources */,
 				D26D5F942AE757B000981481 /* SettingsViewController.swift in Sources */,
 				D2153F6C2B30B57E00F405C8 /* NotificationCategoriesView.swift in Sources */,
 				D21693AB2B3E63F20020BECF /* AppMetadataCell.swift in Sources */,
