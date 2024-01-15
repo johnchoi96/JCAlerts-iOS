@@ -23,8 +23,10 @@ struct SettingsView: View {
                     AppMetadataCell(label: "App Version:", data: K.Device.appVersion ?? "N/A")
                     AppMetadataCell(label: "Build:", data: K.Device.appBuild ?? "N/A")
                 }
-
-
+                Section(header: Text("Resources")) {
+                    ResourceCell(label: "Open Source Repository", url: K.Url.githubLink)
+                    ResourceCell(label: "Submit an Issue", url: K.Url.githubNewIssue)
+                }
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.large)

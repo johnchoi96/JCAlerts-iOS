@@ -40,4 +40,10 @@ struct K {
         static let appVersion = Bundle.main.infoDictionary?["CFBundleShortVersionString"] as? String
         static let appBuild = Bundle.main.infoDictionary?["CFBundleVersion"] as? String
     }
+
+    struct Url {
+        static let githubLink = URL(string: "https://github.com/johnchoi96/JCAlerts-iOS")!
+
+        static let githubNewIssue = URL(string: "https://github.com/johnchoi96/JCAlerts-iOS/issues/new")!
+    }
 }
