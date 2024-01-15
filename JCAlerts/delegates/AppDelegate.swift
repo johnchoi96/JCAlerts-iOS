@@ -107,12 +107,12 @@ extension AppDelegate: MessagingDelegate {
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
         Messaging.messaging().token { token, error in
             if let error = error {
-                print("Error fetching FCM registration token: \(error)")
+                self.log.error("Error fetching FCM registration token: \(error)")
             } else if let token = token {
-                print("FCM registration token: \(token)")
+                self.log.info("FCM registration token: \(token)")
             }
         }
-        print("Firebase registration token: \(String(describing: fcmToken))")
+        log.info("Firebase registration token: \(String(describing: fcmToken))")
 
         let dataDict: [String: String] = ["token": fcmToken ?? ""]
         NotificationCenter.default.post(
@@ -138,13 +138,14 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             return []
         }
 
-        // NOTE: comment this block for development - #if !DEBUG does not work at the moment
         // check if notification is a test notification
-        let isTestMessage = Bool(userInfo["test-notification"] as! String)!
-        if isTestMessage {
-            return []
+        if !UserSettingService.instance.isDebugMode {
+            let isTestMessage = Bool(userInfo["test-notification"] as! String)!
+            if isTestMessage {
+                return []
+            }
         }
-        
+
         // Change this to your preferred presentation option
         return [.banner, .sound]
     }
@@ -187,11 +188,12 @@ extension AppDelegate: UNUserNotificationCenterDelegate {
             return .noData
         }
 
-        // NOTE: comment this block for development - #if !DEBUG does not work at the moment
         // check if notification is a test notification
-        let isTestMessage = Bool(userInfo["test-notification"] as! String)!
-        if isTestMessage {
-            return .noData
+        if !UserSettingService.instance.isDebugMode {
+            let isTestMessage = Bool(userInfo["test-notification"] as! String)!
+            if isTestMessage {
+                return .noData
+            }
         }
         return .newData
     }

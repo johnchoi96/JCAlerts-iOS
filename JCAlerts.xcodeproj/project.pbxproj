@@ -68,6 +68,7 @@
 		D2E412E42B26E2A8003EC53F /* IQKeyboardManagerSwift in Frameworks */ = {isa = PBXBuildFile; productRef = D2E412E32B26E2A8003EC53F /* IQKeyboardManagerSwift */; };
 		D2E412E72B26E3BD003EC53F /* NotificationCommentTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2E412E52B26E3BD003EC53F /* NotificationCommentTableViewCell.swift */; };
 		D2E412E82B26E3BD003EC53F /* NotificationCommentTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D2E412E62B26E3BD003EC53F /* NotificationCommentTableViewCell.xib */; };
+		D2EA7E9D2B4E664000D4F3F9 /* CloudFirestoreDataTriggerService.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2EA7E9C2B4E664000D4F3F9 /* CloudFirestoreDataTriggerService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -122,6 +123,7 @@
 		D2E412E02B26DF28003EC53F /* NotificationCommentsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCommentsViewController.swift; sourceTree = "<group>"; };
 		D2E412E52B26E3BD003EC53F /* NotificationCommentTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCommentTableViewCell.swift; sourceTree = "<group>"; };
 		D2E412E62B26E3BD003EC53F /* NotificationCommentTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NotificationCommentTableViewCell.xib; sourceTree = "<group>"; };
+		D2EA7E9C2B4E664000D4F3F9 /* CloudFirestoreDataTriggerService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CloudFirestoreDataTriggerService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -283,6 +285,7 @@
 				D24211B32AED548E005BD72C /* FCMTopicService.swift */,
 				D2984CC92B08436A007B199C /* CloudFirestoreService.swift */,
 				D2E412DE2B26B7FD003EC53F /* UserSettingService.swift */,
+				D2EA7E9C2B4E664000D4F3F9 /* CloudFirestoreDataTriggerService.swift */,
 			);
 			path = services;
 			sourceTree = "<group>";
@@ -472,6 +475,7 @@
 				D2153F772B32B33600F405C8 /* UIExt.swift in Sources */,
 				D2984CD12B084A37007B199C /* NotificationPayload.swift in Sources */,
 				D2984CD42B085321007B199C /* NotificationTableViewCell.swift in Sources */,
+				D2EA7E9D2B4E664000D4F3F9 /* CloudFirestoreDataTriggerService.swift in Sources */,
 				D2984CCA2B08436A007B199C /* CloudFirestoreService.swift in Sources */,
 				D24211B02AEB5ABF005BD72C /* NotificationSettingsTableViewCell.swift in Sources */,
 				D2153F3B2B2ECDD900F405C8 /* LandingPageView.swift in Sources */,
@@ -656,7 +660,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = JCAlerts/JCAlerts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2024011001;
+				CURRENT_PROJECT_VERSION = 2024011501;
 				DEVELOPMENT_TEAM = 2JDGUK4DRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JCAlerts/Info.plist;
@@ -689,7 +693,7 @@
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_ENTITLEMENTS = JCAlerts/JCAlerts.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 2024011001;
+				CURRENT_PROJECT_VERSION = 2024011501;
 				DEVELOPMENT_TEAM = 2JDGUK4DRH;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = JCAlerts/Info.plist;
