@@ -18,7 +18,6 @@ class CloudFirestoreDataTriggerService {
     private init() {}
 
     func triggerDataRefresh() {
-        delegate?.triggerDataRefresh()
         cloudFirestoreService.fetchNotificationPayloads()
     }
 }

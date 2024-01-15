@@ -19,8 +19,6 @@ protocol CloudFirestoreDelegate {
     func didFinishLoadingSingleNotification(notificationId: String, notification: NotificationPayload)
 
     func didFinishUploadingComment()
-
-    func triggerDataRefresh()
 }
 
 extension CloudFirestoreDelegate {
@@ -30,6 +28,4 @@ extension CloudFirestoreDelegate {
     func didFinishLoadingSingleNotification(notificationId: String, notification: NotificationPayload) {}
 
     func didFinishUploadingComment() {}
-
-    func triggerDataRefresh() {}
 }

@@ -185,9 +185,3 @@ extension CloudFirestoreService: FCMTopicDelegate {
         fetchNotificationPayloads()
     }
 }
-
-extension CloudFirestoreService: CloudFirestoreDelegate {
-    func triggerDataRefresh() {
-        fetchNotificationPayloads()
-    }
-}
