@@ -9,8 +9,6 @@ import Foundation
 
 class CloudFirestoreDataTriggerService {
 
-    var delegate: CloudFirestoreDelegate?
-
     static var instance = CloudFirestoreDataTriggerService()
 
     var cloudFirestoreService = CloudFirestoreService()
