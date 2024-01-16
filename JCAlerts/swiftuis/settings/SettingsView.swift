@@ -18,9 +18,11 @@ struct SettingsView: View {
 
     var body: some View {
         NavigationView {
-            List(items, id: \.self) { item in
+            List {
                 Section(header: Text("Settings")) {
-                    SettingsViewCell(cellLabel: item)
+                    ForEach(items, id: \.self) { item in
+                        SettingsViewCell(cellLabel: item)
+                    }
                 }
                 .popoverTip(notificationCategoryTip)
                 Section(header: Text("App Data")) {
