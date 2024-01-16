@@ -27,6 +27,16 @@ class UserSettingService {
     }
 
     private init() {
+        currentUsername = ""
+        textViewFontSize = 12
+        firstTimeRunning = true
+
+        checkUsername()
+        checkTextViewFontSize()
+        checkFirstTimeRunning()
+    }
+
+    private func checkUsername() {
         // check if UserDefaults has username defined
         if let username = userDefaults.string(forKey: "currentUsername") {
             currentUsername = username
@@ -36,7 +46,9 @@ class UserSettingService {
             currentUsername = uuid
             userDefaults.setValue(uuid, forKey: "currentUsername")
         }
+    }
 
+    private func checkTextViewFontSize() {
         // check if UserDefaults has textViewFontSize defined
         if userDefaults.integer(forKey: "textViewFontSize") != 0 {
             textViewFontSize = userDefaults.integer(forKey: "textViewFontSize")
@@ -44,7 +56,9 @@ class UserSettingService {
             textViewFontSize = 14
             userDefaults.setValue(textViewFontSize, forKey: "textViewFontSize")
         }
+    }
 
+    private func checkFirstTimeRunning() {
         if let firstTime = userDefaults.string(forKey: "firstTimeRunning") {
             firstTimeRunning = Bool(firstTime)!
         } else {

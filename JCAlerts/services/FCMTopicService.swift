@@ -49,7 +49,7 @@ class FCMTopicService {
         fcmInstance.subscribe(toTopic: topic.getTopicValue()) { error in
             if error != nil {
                 // do something
-                self.log.info("\(error!)")
+                self.log.warning("\(error!)")
             } else {
                 self.log.info("successfully subed")
             }
@@ -69,7 +69,8 @@ class FCMTopicService {
             }
         }
         if index == -1 {
-            fatalError("Something went wrong while trying to unsubscribe \(topic) topic")
+            log.warning("Could not find \(topic.getTopicValue()) topic to unsubscribe. Aborting")
+            return
         }
         // remove from the index
         topics.remove(at: index)

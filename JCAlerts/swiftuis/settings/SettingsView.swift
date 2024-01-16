@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import TipKit
 
 struct SettingsView: View {
 
@@ -13,12 +14,15 @@ struct SettingsView: View {
         "Notification Categories"
     ]
 
+    let notificationCategoryTip = NotificationCategoryTip()
+
     var body: some View {
         NavigationView {
             List(items, id: \.self) { item in
                 Section(header: Text("Settings")) {
                     SettingsViewCell(cellLabel: item)
                 }
+                .popoverTip(notificationCategoryTip)
                 Section(header: Text("App Data")) {
                     AppMetadataCell(label: "App Version:", data: K.Device.appVersion ?? "N/A")
                     AppMetadataCell(label: "Build:", data: K.Device.appBuild ?? "N/A")
@@ -30,11 +34,14 @@ struct SettingsView: View {
             }
             .navigationTitle("Settings")
             .navigationBarTitleDisplayMode(.large)
-
         }
     }
 }
 
 #Preview {
     SettingsView()
+        .task {
+              try? Tips.resetDatastore()
+              try? Tips.configure()
+        }
 }
