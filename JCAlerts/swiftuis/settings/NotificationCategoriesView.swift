@@ -16,7 +16,7 @@ struct NotificationCategoriesView: View {
 
     var body: some View {
         List(notificationTypes, id: \.self) { type in
-            NotificationCategoryCell(topic: type)
+            CategoryCell(topic: type)
         }
         .navigationTitle("Categories")
     }
