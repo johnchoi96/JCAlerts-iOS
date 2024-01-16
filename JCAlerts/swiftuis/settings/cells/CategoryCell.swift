@@ -1,5 +1,5 @@
 //
-//  NotificationCategoryCell.swift
+//  CategoryCell.swift
 //  JCAlerts
 //
 //  Created by John Choi on 12/18/23.
@@ -8,7 +8,7 @@
 import SwiftUI
 import os
 
-struct NotificationCategoryCell: View {
+struct CategoryCell: View {
     @State var isOn: Bool = false
 
     var topic: FCMTopic
@@ -39,5 +39,5 @@ struct NotificationCategoryCell: View {
 }
 
 #Preview {
-    NotificationCategoryCell(topic: .ALL)
+    CategoryCell(topic: .ALL)
 }

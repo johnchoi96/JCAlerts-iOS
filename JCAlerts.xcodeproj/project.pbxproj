@@ -11,9 +11,9 @@
 		D2153F3B2B2ECDD900F405C8 /* LandingPageView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F3A2B2ECDD900F405C8 /* LandingPageView.swift */; };
 		D2153F632B30A4D300F405C8 /* SettingsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F622B30A4D300F405C8 /* SettingsView.swift */; };
 		D2153F652B30A4FE00F405C8 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F642B30A4FE00F405C8 /* ContentView.swift */; };
-		D2153F672B30B2DE00F405C8 /* SettingsViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F662B30B2DE00F405C8 /* SettingsViewCell.swift */; };
+		D2153F672B30B2DE00F405C8 /* NotificationCategorySettingsItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F662B30B2DE00F405C8 /* NotificationCategorySettingsItem.swift */; };
 		D2153F6C2B30B57E00F405C8 /* NotificationCategoriesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F6B2B30B57E00F405C8 /* NotificationCategoriesView.swift */; };
-		D2153F6E2B30B58D00F405C8 /* NotificationCategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F6D2B30B58D00F405C8 /* NotificationCategoryCell.swift */; };
+		D2153F6E2B30B58D00F405C8 /* CategoryCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F6D2B30B58D00F405C8 /* CategoryCell.swift */; };
 		D2153F702B3107C100F405C8 /* UKAlertsView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F6F2B3107C100F405C8 /* UKAlertsView.swift */; };
 		D2153F732B32665B00F405C8 /* UKNotificationDetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F722B32665B00F405C8 /* UKNotificationDetailView.swift */; };
 		D2153F752B32A55F00F405C8 /* FCMTopicDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D2153F742B32A55F00F405C8 /* FCMTopicDelegate.swift */; };
@@ -79,9 +79,9 @@
 		D2153F3A2B2ECDD900F405C8 /* LandingPageView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LandingPageView.swift; sourceTree = "<group>"; };
 		D2153F622B30A4D300F405C8 /* SettingsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsView.swift; sourceTree = "<group>"; };
 		D2153F642B30A4FE00F405C8 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		D2153F662B30B2DE00F405C8 /* SettingsViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SettingsViewCell.swift; sourceTree = "<group>"; };
+		D2153F662B30B2DE00F405C8 /* NotificationCategorySettingsItem.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCategorySettingsItem.swift; sourceTree = "<group>"; };
 		D2153F6B2B30B57E00F405C8 /* NotificationCategoriesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCategoriesView.swift; sourceTree = "<group>"; };
-		D2153F6D2B30B58D00F405C8 /* NotificationCategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NotificationCategoryCell.swift; sourceTree = "<group>"; };
+		D2153F6D2B30B58D00F405C8 /* CategoryCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryCell.swift; sourceTree = "<group>"; };
 		D2153F6F2B3107C100F405C8 /* UKAlertsView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UKAlertsView.swift; sourceTree = "<group>"; };
 		D2153F722B32665B00F405C8 /* UKNotificationDetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UKNotificationDetailView.swift; sourceTree = "<group>"; };
 		D2153F742B32A55F00F405C8 /* FCMTopicDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FCMTopicDelegate.swift; sourceTree = "<group>"; };
@@ -172,8 +172,8 @@
 		D2153F682B30B32E00F405C8 /* cells */ = {
 			isa = PBXGroup;
 			children = (
-				D2153F662B30B2DE00F405C8 /* SettingsViewCell.swift */,
-				D2153F6D2B30B58D00F405C8 /* NotificationCategoryCell.swift */,
+				D2153F662B30B2DE00F405C8 /* NotificationCategorySettingsItem.swift */,
+				D2153F6D2B30B58D00F405C8 /* CategoryCell.swift */,
 				D21693AA2B3E63F20020BECF /* AppMetadataCell.swift */,
 				D24971432B5517D20049EAD4 /* ResourceCell.swift */,
 			);
@@ -533,13 +533,13 @@
 				D21693AB2B3E63F20020BECF /* AppMetadataCell.swift in Sources */,
 				D26F6C522AD1FADF00AC1D6F /* SceneDelegate.swift in Sources */,
 				D242119F2AE75893005BD72C /* Constants.swift in Sources */,
-				D2153F672B30B2DE00F405C8 /* SettingsViewCell.swift in Sources */,
+				D2153F672B30B2DE00F405C8 /* NotificationCategorySettingsItem.swift in Sources */,
 				D2984CD72B0854E9007B199C /* NotificationDetailViewController.swift in Sources */,
 				D2153F652B30A4FE00F405C8 /* ContentView.swift in Sources */,
 				D24971492B5668860049EAD4 /* SettingsPageTip.swift in Sources */,
 				D2E412E72B26E3BD003EC53F /* NotificationCommentTableViewCell.swift in Sources */,
 				D2153F752B32A55F00F405C8 /* FCMTopicDelegate.swift in Sources */,
-				D2153F6E2B30B58D00F405C8 /* NotificationCategoryCell.swift in Sources */,
+				D2153F6E2B30B58D00F405C8 /* CategoryCell.swift in Sources */,
 				D24211AD2AEB57A4005BD72C /* NotificationSettingsViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

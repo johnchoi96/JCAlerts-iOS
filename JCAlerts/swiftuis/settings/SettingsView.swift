@@ -10,21 +10,15 @@ import TipKit
 
 struct SettingsView: View {
 
-    private let items = [
-        "Notification Categories"
-    ]
-
     let notificationCategoryTip = NotificationCategoryTip()
 
     var body: some View {
         NavigationView {
             List {
                 Section(header: Text("Settings")) {
-                    ForEach(items, id: \.self) { item in
-                        SettingsViewCell(cellLabel: item)
-                    }
+                    NotificationCategorySettingsItem()
+                        .popoverTip(notificationCategoryTip)
                 }
-                .popoverTip(notificationCategoryTip)
                 Section(header: Text("App Data")) {
                     AppMetadataCell(label: "App Version:", data: K.Device.appVersion ?? "N/A")
                     AppMetadataCell(label: "Build:", data: K.Device.appBuild ?? "N/A")
