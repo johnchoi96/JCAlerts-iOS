@@ -14,7 +14,13 @@ class FCMTopicService {
 
     private let TOPIC_KEY = "fcm-topics"
 
-    private let DEFAULT_FCM_TOPIC = FCMTopic.ALL
+    private var DEFAULT_FCM_TOPICS: [FCMTopic]
+
+    private var DEFAULT_FCM_TOPICS_STRING: [String] {
+        DEFAULT_FCM_TOPICS.map { topic in
+            topic.getTopicValue()
+        }
+    }
 
     private let fcmInstance = Messaging.messaging()
 
@@ -22,7 +28,13 @@ class FCMTopicService {
 
     var delegate: FCMTopicDelegate?
 
-    private init() {}
+    private init() {
+        DEFAULT_FCM_TOPICS = []
+        DEFAULT_FCM_TOPICS.append(.ALL)
+        if UserSettingService.instance.isDebugMode {
+            DEFAULT_FCM_TOPICS.append(.TEST_NOTIFICATION)
+        }
+    }
     
     func subscribe(toTopic topic: FCMTopic) {
         // save list of topics to UserDefaults
@@ -37,7 +49,7 @@ class FCMTopicService {
         fcmInstance.subscribe(toTopic: topic.getTopicValue()) { error in
             if error != nil {
                 // do something
-                self.log.info("\(error!)")
+                self.log.warning("\(error!)")
             } else {
                 self.log.info("successfully subed")
             }
@@ -57,7 +69,8 @@ class FCMTopicService {
             }
         }
         if index == -1 {
-            fatalError("Something went wrong while trying to unsubscribe \(topic) topic")
+            log.warning("Could not find \(topic.getTopicValue()) topic to unsubscribe. Aborting")
+            return
         }
         // remove from the index
         topics.remove(at: index)
@@ -75,7 +88,7 @@ class FCMTopicService {
     }
 
     func getTopicsAsStrings() -> [String] {
-        return UserDefaults.standard.stringArray(forKey: TOPIC_KEY) ?? [DEFAULT_FCM_TOPIC.getTopicValue()]
+        return UserDefaults.standard.stringArray(forKey: TOPIC_KEY) ?? DEFAULT_FCM_TOPICS_STRING
     }
 
     func topicIsSubscribed(topic: FCMTopic) -> Bool {
@@ -90,20 +103,33 @@ class FCMTopicService {
         for topic in getTopicsAsStrings() {
             fcmInstance.subscribe(toTopic: topic)
         }
+        if UserSettingService.instance.isDebugMode {
+            subscribe(toTopic: .TEST_NOTIFICATION)
+        } else {
+            unsubscribe(fromTopic: .TEST_NOTIFICATION)
+        }
     }
 
     private func setTopics(as topicsList: inout [String]) {
         if topicsList.count == 0 {
-            topicsList.append(DEFAULT_FCM_TOPIC.getTopicValue())
+            for defaultTopic in DEFAULT_FCM_TOPICS_STRING {
+                topicsList.append(defaultTopic)
+            }
         }
-        if !topicsList.contains(DEFAULT_FCM_TOPIC.getTopicValue()) {
-            topicsList.insert(DEFAULT_FCM_TOPIC.getTopicValue(), at: 0)
+        // if topicsList does not contain the default topics
+        let defaultListSet = Set(DEFAULT_FCM_TOPICS_STRING)
+        let topicsListSet = Set(topicsList)
+        let intersection = defaultListSet.intersection(topicsListSet)
+        let missingTopicSet = defaultListSet.subtracting(intersection)
+
+        for missingTopic in missingTopicSet {
+            topicsList.insert(missingTopic, at: 0)
         }
         UserDefaults.standard.set(topicsList, forKey: TOPIC_KEY)
     }
 
     func subscribeToAllTopic() {
-        FCMTopic.allCases.forEach { topic in
+        FCMTopic.getAllTopic().forEach { topic in
             subscribe(toTopic: topic)
         }
     }

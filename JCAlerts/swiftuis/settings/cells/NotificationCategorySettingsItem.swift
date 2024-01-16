@@ -1,5 +1,5 @@
 //
-//  SettingsViewCell.swift
+//  NotificationCategorySettingsItem.swift
 //  JCAlerts
 //
 //  Created by John Choi on 12/18/23.
@@ -7,16 +7,10 @@
 
 import SwiftUI
 
-struct SettingsViewCell: View {
-    var cellLabel: String
-
+struct NotificationCategorySettingsItem: View {
     var body: some View {
         NavigationLink(destination: NotificationCategoriesView()) {
-            Text(cellLabel)
+            Text("Notification Categories")
         }
     }
-}
-
-#Preview {
-    SettingsViewCell(cellLabel: "DEMO")
 }
