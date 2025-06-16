@@ -22,8 +22,10 @@ struct LandingPageView: View {
                             MoreCard()
                             Spacer()
                         }
+                        .scrollTargetLayout()
                         .padding()
                     }
+                    .scrollTargetBehavior(.viewAligned)
                     .scrollIndicators(.hidden)
                     .padding()
 
